@@ -1,0 +1,318 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+.body-container, form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.form-container {
+	width: 673pX;
+}
+
+.contenido1 {
+	max-width: 330px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.mtodo-de-pago {
+	width: 100%;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.21;
+	text-align: left;
+	color: #07354d;
+	margin-top: 27px;
+	margin-bottom: 27px;
+}
+
+.rectangulo {
+	padding-bottom: 20px;
+	background-color: #f1f1f1;
+}
+
+.input-field {
+	color: #ffffff;
+}
+
+.tarjeta-crdito-o-dbito {
+	width: 100%;
+	font-size: 17px;
+	font-weight: 300;
+	display: none;
+	line-height: 2;
+	text-align: center;
+	color: #ffffff;
+}
+
+.nombre-del-titular {
+	width: 100%;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+}
+
+.vigencia {
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.19;
+	text-align: left;
+	margin-top: 22px;
+	color: #07354d;
+	margin-left: 9px;
+	width: 20% !important;
+}
+
+.imgpaypal {
+	height: 36px;
+	margin-top: 51px;
+}
+
+.paypal {
+	width: 100%;
+	display: none;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 2;
+	text-align: center;
+	color: #ffffff;
+}
+
+.correo-electronico {
+	width: 180px;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+}
+
+.contrasena {
+	width: 180px;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+}
+
+.nmero-de-tarjeta {
+	font-size: 16px;
+	font-weight: 300;
+	color: #07354d;
+	width: 70% !important;
+	flex-grow: 1;
+}
+
+.CVC {
+	font-size: 16px;
+	font-weight: 300;
+	width: 70% !important;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+	flex-grow: 1;
+}
+
+.Acepto-trminos-y-condiciones {
+	width: 100%;
+	font-size: 16px;
+	font-weight: 300;;
+	line-height: 1.19;
+	text-align: center;
+	color: #00949e;
+	vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Acepto-trminos-y-condiciones.text-style-1 {
+	color: #767676;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iniciacuenta {
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+	margin-top: 27px;
+	witdh: 322px;
+}
+
+.banner-img3 {
+	width: 83px;
+	height: 30px;
+	margin-left: 26px;
+	margin-top: 16px;
+	text-align: center;
+}
+
+.barra-nav {
+	width: 100%;
+	height: 62px;
+	background: linear-gradient(to bottom, #07354d, #036879);
+	color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-nav {
+	position: absolute;
+}
+
+.imgusuario {
+	width: 34px;
+	height: 34px;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 59px;
+	margin-top: 16px;
+	margin-left: auto
+}
+
+.Rectangle-242 {
+	width: 206px;
+	height: 36px;
+	border-radius: 18px;
+	background-color: #07354d;
+	margin-top: 10px;
+	border: none;
+}
+
+.Rectangle-232 {
+	width: 206px;
+	height: 36px;
+	border-radius: 18px;
+	background-color: #07354d;
+	margin-top: 36.5px;
+	border: none;
+}
+
+.Pagar {
+	width: 206px;
+	height: 36px;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	text-align: center;
+	color: #ffffff;
+}
+
+.visa-container {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 144px;
+}
+
+.imgvisa {
+	width: 74.4px;
+}
+
+.mastercard-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 144px;
+}
+
+.imgmastercard {
+	width: 74.4px;
+}
+
+.tarjetafrente {
+	width: 25%;
+}
+
+.tarjetaatras {
+	width: 25%;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+	background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: #00949e;
+	float: left;
+	border: none;
+	width: 50%;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 0;
+	transition: 0.3s;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 1.18;
+	color: #ffffff;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #00949e;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #00949e;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+}
+
+.active {
+	display: block !important;
+}
+
+.container {
+	width: 100%;
+}
+
+/*the container must be positioned relative:*/
+.fecha-select {
+	position: relative;
+	width: 38% !important;
+}
+
+.select-wrapper input.select-dropdown {
+	color: #07354d;
+}
+
+/* checkbox */
+@media ( max-width : 991px) {
+	.form-container {
+		width: 90%;
+	}
+}
+
+.inline-select{
+	display: inline;
+	max-width: 25%!important;
+}
+
+.inline-label{
+	max-width: 25%!important;
+}

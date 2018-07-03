@@ -1,0 +1,137 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+.body-container, form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.form-container {
+	width: 650px;
+}
+
+.registro-de-condominio {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.21;
+	text-align: left;
+	color: #07354d;
+	width: 100%;
+	margin-top: 32px;
+}
+
+.nombre-del-condominio, .numero, .pagina-web, .calle, .numero, .telefono
+	{
+	font-size: 16px;
+	font-weight: 300;
+	color: #07354d;
+	width: 50% !important;
+	flex-grow: 1;
+}
+
+.codigo-postal, .colonia, .pais, .ciudad {
+	font-size: 16px;
+	font-weight: 300;
+	color: #07354d;
+	flex-grow: 1;
+	width: 50% !important;
+}
+
+.ubicacin-del-inmueble {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+	margin-top: 75px;
+}
+
+.contacto-del-inmueble {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+	margin-top: 75px;
+}
+
+.siguiente {
+	font-size: 16px;
+	font-weight: normal;;
+	line-height: 1.19;
+	text-align: right;
+	color: #00949e;
+}
+
+.img-container {
+	background-image: url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
+	border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.cam {
+	width: 50px;
+	height: 50px;
+	background-color: #00949e;
+	border: none;
+	border-radius: 50%;
+	background-position: center;
+	color: #ffffff;
+	font-size: 21px;
+}
+
+.banner-img3 {
+	width: 83px;
+	height: 30px;
+	margin-left: 26px;
+	margin-top: 16px;
+	text-align: center;
+}
+
+.barra-nav {
+	width: 100%;
+	height: 62px;
+	background: linear-gradient(to bottom, #07354d, #036879);
+	color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-nav {
+	position: absolute;
+}
+
+.imgusuario {
+	height: 34px;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 59px;
+	margin-top: 16px;
+	margin-left: auto
+}
+
+.container {
+	width: 100%;
+}
+
+@media ( max-width : 991px) {
+	.form-container {
+		width: 90%;
+	}
+}

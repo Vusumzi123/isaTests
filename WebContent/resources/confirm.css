@@ -1,0 +1,102 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+*{
+	font-family: 'Raleway', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: #ffffff;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.body-container {
+	width: 100%;
+	height: 100%;
+}
+
+.bar {
+	width: 100%;
+	height: 110px;
+}
+
+.content {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(to top, #07354d, #036879);
+	color: white;
+	flex-direction: column;
+}
+
+.Verifica-tu-correo-electrnico {
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-top: 30px;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.Hemos-enviado-un-correo-electrnico-de-verificacin-a {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.17;
+  margin-top: 7px;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hzapatasupaadamx {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 30px;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.Haz-clic-en-el-enlace-del-correo-electrnico-para-empezar {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.17;
+  margin-top: 30px;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.No-has-recibido-tu-correo {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.19;
+  margin-top: 50px;
+  margin-bottom: 38px;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+
+.centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 700px;
+	color: white;
+	flex-direction: column;
+}
+
+.imagen {
+	width: 120px;
+	height: 97px;
+	margin-top: 38px;
+}
