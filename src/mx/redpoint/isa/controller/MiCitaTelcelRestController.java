@@ -123,5 +123,11 @@ public class MiCitaTelcelRestController {
 			ModelAndView model = new ModelAndView("condominios");		
 			return model;
 	}
+		
+		@RequestMapping(value = "/altavecinos", method = RequestMethod.GET)
+		public ModelAndView altavecinos(HttpServletRequest request){
+			ModelAndView model = new ModelAndView("altavecinos");		
+			return model;
+	}
 
 }
