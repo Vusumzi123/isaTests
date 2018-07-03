@@ -123,15 +123,11 @@ form > *{
 	margin-top: 50px;
 }
 
-input {
-	border-bottom: 1px solid white !important;
-	color: white;
-}
-
 label{
-	color:white;
+	color: #ffffff !important;
+	font-weight: 300!important;
 }
 
-input:active{
-	border-bottom: 1px solid white !important;
+input {
+	color: #ffffff !important;
 }

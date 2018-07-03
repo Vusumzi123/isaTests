@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,7 +31,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/resumen.css">
+	href="${ctx}/resources/resumen.css">
 </head>
 <body>
 	<div class="barra-nav">

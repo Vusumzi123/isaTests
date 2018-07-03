@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +34,7 @@
 
 <!-- style -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/registrocon.css">
+	href="${ctx}/resources/registrocon.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -59,6 +61,14 @@
 						<div class="input-field nombre-del-condominio col s12">
 							<input id="name1" type="text" class="validate"> <label
 								for="name1">nombre del condominio</label>
+						</div>
+						<div class="file-field input-field subir col s12">
+							<div class="btn">
+								<span>subir reglamento</span> <input type="file">
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text">
+							</div>
 						</div>
 					</div>
 					<div class="ubicacin-del-inmueble">ubicación del inmueble</div>
@@ -110,5 +120,10 @@
 			</div>
 		</form>
 	</div>
+	<script>
+		$(document).ready(function() {
+			$('input#input_text, textarea#textarea2').characterCounter();
+		});
+	</script>
 </body>
 </html>
