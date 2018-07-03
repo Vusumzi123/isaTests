@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +33,9 @@
 	});
 </script>
 
+
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/mpago.css">
+	href="${ctx}/resources/mpago.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -201,15 +204,8 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		function changeTab(evt, tab) {
-			var activeTabs = $('.active');
-			activeTabs.each(function() {
-				$(this).removeClass('active');
-			})
-			var toActivete = $('#' + tab);
-			toActivete.addClass('active');
-		}
-	</script>
+	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mpago.js" ></script>
+
 </body>
 </html>

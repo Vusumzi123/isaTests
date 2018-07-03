@@ -178,3 +178,8 @@
 .titulo-container {
 	text-align: center;
 }
+
+label {
+	color: #07354d !important;
+	font-weight: 300!important;	
+}

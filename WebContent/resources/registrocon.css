@@ -130,6 +130,16 @@
 	width: 100%;
 }
 
+.subir {
+	width: 50% !important
+}
+
+label {
+	font-size: 13px!important;
+	color: #07354d!important;
+	font-weight: 300!important;
+}
+
 @media ( max-width : 991px) {
 	.form-container {
 		width: 90%;
