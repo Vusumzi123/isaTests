@@ -26,8 +26,3 @@ elementArchivo.change(function(){
 	})
 })
 
-function toggleButons(){
-	$(".hidden").each(
-			$(this).removeClass("hidden");
-	);
-}
