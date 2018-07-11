@@ -1,0 +1,185 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+.body-container, form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.form-container {
+	max-width: 320px;
+}
+
+.cam {
+	width: 50px;
+	height: 50px;
+	background-color: #00949e;
+	border: none;
+	border-radius: 50%;
+	background-position: center;
+	color: #ffffff;
+	font-size: 21px;
+}
+
+.img-container {
+	background-image: url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
+	border-radius: 50%;
+	width: 170px;
+	height: 170px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 15px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.Regstro {
+	margin-top: 18px;
+	font-size: 26px;
+	font-weight: normal;
+	line-height: 0.85;
+	letter-spacing: normal;
+	text-align: center;
+	color: #ffffff;
+}
+
+.nombres {
+	width: 320px;
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 2.5;
+	letter-spacing: normal;
+	text-align: left;
+	color: #07354d;
+	border: none;
+}
+
+.apellidos {
+	width: 74px;;
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 2.5;
+	letter-spacing: normal;
+	text-align: left;
+	color: #07354d;
+	border: none;
+}
+
+.correo-electrnico {
+	width: 133px;
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 2.5;
+	letter-spacing: normal;
+	text-align: left;
+	color: #07354d;
+	border: none;
+}
+
+.contrasea {
+	width: 81px;
+	height: 19px;
+	font-family: Raleway;
+	font-size: 16px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 2.5;
+	letter-spacing: normal;
+	text-align: left;
+	color: #07354d;
+	border: none;
+}
+
+.Rectangle-242 {
+	width: 206px;
+	height: 36px;
+	border-radius: 18px;
+	margin-bottom: 23px;
+	text-align: center;
+	background-color: #07354d;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border: none;
+}
+
+.Crear-Cuenta {
+	font-size: 16px;
+	font-weight: normal;
+	margin-top: 10px;
+	margin-bottom: 23px;
+	line-height: 2;
+	text-align: center;
+	color: #ffffff;
+}
+
+.o-Entrar-con-una-cuenta-existente {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.14;
+	letter-spacing: normal;
+	text-align: center;
+	color: #07354d;
+}
+
+.banner-img3 {
+	width: 83px;
+	height: 30px;
+	margin-left: 26px;
+	margin-top: 16px;
+	text-align: center;
+}
+
+.edit-profile-picture {
+	position: absolute;
+	top: 10px;
+	right: 8px;
+	width: 30px;
+	height: 30px;
+	background-color: #FFF;
+	border-radius: 50%;
+	padding: 3px;
+	z-index: 1000;
+}
+
+.barra-nav {
+	width: 100%;
+	height: 62px;
+	background: linear-gradient(to bottom, #07354d, #036879);
+	color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-nav {
+	position: absolute;
+}
+
+.titulo-container {
+	text-align: center;
+}
+
+label {
+	color: #07354d !important;
+	font-weight: 300!important;	
+}

@@ -1,0 +1,234 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+.banner-img3 {
+	width: 83px;
+	height: 30px;
+	margin-left: 26px;
+	margin-top: 16px;
+	text-align: center;
+}
+
+.barra-nav {
+	width: 100%;
+	height: 62px;
+	background: linear-gradient(to bottom, #07354d, #036879);
+	color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-nav {
+	position: absolute;
+}
+
+.imgusuario {
+	width: 34px;
+	height: 34px;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 59px;
+	margin-top: 16px;
+	margin-left: auto
+}
+
+.body-container, form {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.form-container {
+	width: 616px;
+}
+
+.resumen {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.21;
+	text-align: left;
+	color: #07354d;
+	margin-top: 33px;
+}
+
+.rectangulo {
+	width: 100%;
+	background-color: #f1f1f1;
+	margin-top: 33px;
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+
+.rectangulo1 {
+	background-color: #f1f1f1;
+	margin-top: 35px;
+	padding-top: 19px;
+	padding-bottom: 19px;
+	padding-left: 56px;
+	padding-right: 56px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.cuenta {
+	font-size: 18px;
+	color: #07354d;
+}
+
+.alias111 {
+	color: #07354d;
+	font-size: 16px;	
+}
+
+.tipo111{
+	color: #07354d;
+	font-size: 16px;	
+}
+
+.monto-inicial111 {
+	color: #07354d;
+	font-size: 16px;	
+}
+
+.numero-de-cuenta {
+	font-size: 10px;
+	color: #00949e;
+}
+
+.numero-de-cuenta111 {
+	color: #07354d;
+	font-size: 16px;	
+}
+
+.numero-de-tarjeta {
+	font-size: 10px;
+	color: #00949e;	
+}
+
+.numero-de-tarjeta111 {
+	color: #07354d;
+	font-size: 16px;	
+}
+
+.numero-clabe {
+	font-size: 10px;
+	color: #00949e;
+}
+
+.numero-clabe111 {
+	color: #07354d;
+	font-size: 16px;	
+}
+
+.rectangulo2 {
+	width: 100%;
+	background-color: #f1f1f1;
+	margin-top: 35px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.cuota-mensual {
+	font-size: 10px;
+	color: #00949e;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.cuota-mensual111 {
+	color: #07354d;
+	font-size: 16px;
+}
+
+.contenido {
+	max-width: 320px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.contenido1 {
+	max-width: 151px;
+	display: flex;
+	align-items: left;
+	flex-direction: column;
+}
+
+.datos-condominio {
+	font-size: 18px;
+	color: #07354d;
+}
+
+.nombre-condominio {
+	font-size: 10px;
+	color: #00949e;
+}
+
+.nombre-condominio111 {
+	color: #07354d;
+	font-size: 16px;
+}
+
+.direccion {
+	font-size: 10px;
+	color: #00949e;
+}
+
+.direccion111 {
+	color: #07354d;
+	font-size: 16px;
+}
+
+.contactos {
+	font-size: 10px;
+	color: #00949e;
+}
+
+.contactos111 {
+	color: #07354d;
+	font-size: 16px;
+}
+
+.img-container {
+	border-radius: 50%;
+	width: 170px;
+	height: 170px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+}
+
+.barra-bot {
+	width: 100%;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.atras {
+	color: #00949e !important;
+}
+
+.finalizar {
+	display: flex;
+	justify-content: flex-end;
+	color: #00949e !important;
+}
+
+@media ( max-width : 991px) {
+	.form-container {
+		width: 90%;
+	}
+}

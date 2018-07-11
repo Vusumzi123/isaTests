@@ -1,0 +1,105 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+.contenido {
+	height: 100vh;
+	background-image: linear-gradient(to top, #00949e, #07354d);
+}
+
+.body-container {
+	width: 100%;
+}
+
+.banner-img3 {
+	width: 83px;
+	height: 30px;
+	margin-left: 26px;
+	margin-top: 16px;
+	text-align: center;
+}
+
+.barra-nav {
+	width: 100%;
+	height: 62px;
+	background: transparent;
+	display: flex;
+	flex-direction: column;
+}
+
+.logo-nav {
+	position: absolute;
+}
+
+.imgusuario {
+	width: 34px;
+	height: 34px;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 59px;
+	margin-top: 16px;
+	margin-left: auto;
+}
+
+.img-container {
+	border-radius: 50%;
+	width: 300px;
+	height: 300px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: flex;
+}
+
+.container {
+	width: 630px;
+	height: 420px
+}
+
+.imgcondominio {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.carousel {
+	height: 450px;
+    margin-top: 30px;
+}
+
+.contenedor-carousel {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+
+.condominios {
+  font-size: 34px;
+  font-weight: normal;
+  line-height: 1.18;
+  color: #ffffff;
+  margin-top: 30px;
+  margin-left: 194px;
+}
+
+.agregarcuenta {
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 40px
+}
+
+a {
+	color: #ffffff !important;
+}
