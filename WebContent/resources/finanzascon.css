@@ -95,6 +95,8 @@
 .datos-operaciones {
 	font-size: 18px;
 	color: #07354d;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 .cuota-mensual {
@@ -126,6 +128,7 @@ a {
 .cuenta {
 	font-size: 18px;
 	color: #07354d;
+	margin-bottom: 10px;
 }
 
 .rectangulo1 {

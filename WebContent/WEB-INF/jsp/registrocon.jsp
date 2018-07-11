@@ -120,10 +120,5 @@
 			</div>
 		</form>
 	</div>
-	<script>
-		$(document).ready(function() {
-			$('input#input_text, textarea#textarea2').characterCounter();
-		});
-	</script>
-</body>
+	<script type="text/javascript" src="${ctx}/resources/js/registrocon.js" ></script>
 </html>

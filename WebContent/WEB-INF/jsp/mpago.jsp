@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,8 +34,7 @@
 </script>
 
 
-<link rel="stylesheet"
-	href="${ctx}/resources/mpago.css">
+<link rel="stylesheet" href="${ctx}/resources/mpago.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -65,17 +64,14 @@
 											<img class="imgvisa"
 												src="${pageContext.request.contextPath}/resources/img/logoVisa.svg">
 										</div>
-
 										<div class="form-group">
 											<label for="nameholder" class="bmd-label-floating">nombre
 												del titular</label> <input type="text" name="nameholder"
 												class="form-control" id="nameholder">
 										</div>
-
-										<span class="form-group bmd-form-group col-sm-4">
-											<label> vigencia </label>
+										<span class="form-group bmd-form-group col-sm-4"> <label>
+												vigencia </label>
 										</span>
-
 										<div class="container">
 											<div class="row form-inline">
 												<span
@@ -85,7 +81,8 @@
 												</span>
 												<div class="col-sm-4 form-group inline-select"
 													style="width: 30%">
-													<select class="form-control" style="width: 100%" id="expires" name="expires">
+													<select class="form-control" style="width: 100%"
+														id="expires" name="expires">
 														<option value="1">enero</option>
 														<option value="2">febrero</option>
 														<option value="3">marzo</option>
@@ -144,13 +141,11 @@
 														name="card-number">
 												</div>
 											</div>
-
 											<div class="tarjetafrente">
 												<img
 													src="${pageContext.request.contextPath}/resources/img/tarjetafrente.svg">
 											</div>
 										</div>
-
 										<div
 											style="display: flex !important; flex-direction: row; justify-content: space-between;">
 											<div
@@ -160,24 +155,34 @@
 														type="text" class="form-control" id="cvc" name="cvc">
 												</div>
 											</div>
-
 											<div class="tarjetaatras">
 												<img
 													src="${pageContext.request.contextPath}/resources/img/tarjetaVuelta.svg">
 											</div>
 										</div>
-
 									</div>
 								</div>
 							</div>
 						</div>
-
 						<div class="checkbox">
-							<label> <input type="checkbox" name="terms" id="terms" required>
-								Acepto términos y condiciones
+							<label> <input type="checkbox" name="terms" id="terms"
+								required> Acepto términos y condiciones
 							</label>
 						</div>
-						<button class="Pagar Rectangle-242">Pagar</button>
+						<button type="button" class="Pagar Rectangle-242"
+							class="btn btn-primary" data-toggle="modal"
+							data-target="#exampleModalCenter">Pagar</button>
+						<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+							role="dialog" aria-labelledby="exampleModalCenterTitle"
+							aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" style="max-width:100%" role="document">
+								<div class="modal-content">
+									<div class="renglon1">¡PAGO EXITOSO!</div>
+									<div class="renglon2">ahora da de alta tu primer
+										condominio.</div>
+								</div>
+							</div>
+						</div>
 					</form>
 				</div>
 				<div id="paypal" class="tabcontent">
@@ -190,22 +195,36 @@
 							<div class="iniciacuenta">Inicie sesión en su cuenta para
 								poder pagar</div>
 							<div class="form-group">
-								<label for="email" class="bmd-label-floating">Correo electrónico</label> <input type="email" class="form-control"
-									id="email" name="email">
+								<label for="email" class="bmd-label-floating">Correo
+									electrónico</label> <input type="email" class="form-control" id="email"
+									name="email">
 							</div>
 							<div class="form-group">
-								<label for="password" class="bmd-label-floating">Contraseña</label> <input type="password" class="form-control"
-									id="password" name="password">
+								<label for="password" class="bmd-label-floating">Contraseña</label>
+								<input type="password" class="form-control" id="password"
+									name="password">
 							</div>
-							<button class="Pagar Rectangle-232">Pagar</button>
+							<button type="button" class="Pagar Rectangle-232"
+								class="btn btn-primary" data-toggle="modal"
+								data-target="#exampleModalCenter">Pagar</button>
+							<div class="modal fade" id="exampleModalCenter" tabindex="-1"
+								role="dialog" aria-labelledby="exampleModalCenterTitle"
+								aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" style="max-width:100%" role="document">
+									<div class="modal-content">
+										<div class="renglon1">¡PAGO EXITOSO!</div>
+										<div class="renglon2">ahora da de alta tu primer
+											condominio.</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/mpago.js" ></script>
-
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/js/mpago.js"></script>
 </body>
 </html>

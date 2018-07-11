@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,16 +30,15 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet"
-	href="${ctx}/resources/altavecinos.css">
+<link rel="stylesheet" href="${ctx}/resources/altavecinos.css">
 </head>
 <body>
 	<div class="barra-nav">
 		<div class="logo-nav">
 			<img class="banner-img3"
-				src="/isaWar/resources/img/imagotipoHorizontal.svg">
+				src="${ctx}/resources/img/imagotipoHorizontal.svg">
 		</div>
-		<img class="imgusuario" src="/isaWar/resources/img/imagenPerfil.svg">
+		<img class="imgusuario" src="${ctx}/resources/img/imagenPerfil.svg">
 	</div>
 	<div class="body-container">
 		<form class="contenido">
@@ -55,7 +54,7 @@
 						condominio. Ingresa su correo</div>
 					<div class="contenido1">
 						<div class="input-field invitacion-correo">
-							<input id="correo" type="text" class="validate"> <label
+							<input id="correo" type="email" class="validate"> <label
 								for="correo">invitar con correo electrónico</label>
 						</div>
 						<div class="contador-viviendas">Viviendas restantes:${num}</div>
@@ -75,21 +74,7 @@
 			</div>
 		</form>
 	</div>
-	<script>
-		function changeTab(evt, tab) {
-			var activeTabs = $('.active');
-			activeTabs.each(function() {
-				$(this).removeClass('active');
-			})
-
-			var toActivete = $('#' + tab);
-			toActivete.addClass('active');
-		}
-	</script>
-	<script>
-		$(document).ready(function() {
-			$('input#input_text, textarea#textarea2').characterCounter();
-		});
-	</script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/js/altavecinos.js"></script>
 </body>
 </html>

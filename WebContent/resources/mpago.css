@@ -316,3 +316,23 @@
 .inline-label{
 	max-width: 25%!important;
 }
+
+.renglon1 {
+	padding-top: 85px;
+	font-size: 34px;
+	color: #ffffff;
+}
+
+.renglon2 {
+	padding-bottom: 85px;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+.modal-content {
+	background: linear-gradient(to bottom, #07354d, #00949e);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 100%;
+}

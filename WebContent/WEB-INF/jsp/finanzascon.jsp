@@ -81,6 +81,6 @@
 			</div>
 		</form>
 	</div>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/finanzascon.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/finanzascon.js"></script>
 </body>
 </html>

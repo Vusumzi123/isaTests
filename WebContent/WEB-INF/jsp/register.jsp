@@ -40,7 +40,7 @@
 	</div>
 		<div class="body-container">
 			<form class="form-container" id="formulario" method="post" action="${pageContext.request.contextPath}/services/confirm">
-				<div class="img-container" style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
+				<div class="img-container" id="imgu" style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
 					<button class="cam">
 							<i class="fas fa-camera"></i>
 							<!-- <i class="fas fa-camera"></i> -->
@@ -76,27 +76,4 @@
 			</form>
 		</div>
 </body>
-<script>
-	/*var formulario=$("#formulario");
-	formulario.submit(EnviarFormulario);
-	function EnviarFormulario () {
-		var data=formulario.serialize();
-		$.ajax({
-			url:"${pageContext.request.contextPath}/services/router",
-			method:"POST",
-			dataType:"json",
-			data:data,
-			success:function(respuesta,status,jqxhr){
-				console.log(respuesta);
-// 				if(respuesta.redirect){
-// 					window.location.href=respuesta.redirect;
-// 				}
-			},
-			error:function(error){
-				console.log(error);
-			}
-		})
-		return false;
-	}*/
-</script>
 </html>
