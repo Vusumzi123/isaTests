@@ -45,14 +45,16 @@
 	<div class="barra-nav">
 		<div class="logo-nav">
 			<img class="banner-img3"
-				src="${pageContext.request.contextPath}/resources/img/imagotipoHorizontal.svg">
+				src="${ctx}/resources/img/imagotipoHorizontal.svg">
 		</div>
 		<img class="imgusuario"
-			src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
+			src="${ctx}/resources/img/imagenPerfil.svg">
 	</div>
 	<div class="body-container">
-		<form class="form-container" method="post"
-			action="${pageContext.request.contextPath}/services/resumen">
+		<form class="form-container" method="POST"
+			action="${ctx}/services/resumen">
+			<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
 			<div class="finanzas-condominio">finanzas de condominio</div>
 			<div id="cuadro-contenedor">
 				<input id="contador" name="contador" type="hidden"></input>
@@ -72,7 +74,7 @@
 			<div class="barra-bot">
 				<div class="logo-nav">
 					<div class="atras">
-						<a href="${pageContext.request.contextPath}/services/registrocon">atras</a>
+						<a href="${ctx}/services/registrocon">atras</a>
 					</div>
 				</div>
 				<div class="siguiente">
