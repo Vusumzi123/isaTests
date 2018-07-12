@@ -41,6 +41,10 @@
 	color: #ffffff;
 }
 
+a {
+	color: #ffffff !important;
+}
+
 .Entrar {
 	font-family: Raleway;
 	font-size: 16px;

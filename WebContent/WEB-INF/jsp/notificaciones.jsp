@@ -57,18 +57,24 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-lg-auto">
-				<li class="nav-item active"><a class="nav-link" href="#"
+				<li class="nav-item active" id="finanzas"><a class="nav-link"
+					rule="button" id="loadfinanzas"
+					href="${pageContext.request.contextPath}/services/principal"
 					style="font-size: 24px"> <i class="fas fa-dollar-sign"></i> <span
 						class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"
-					style="font-size: 24px"> <i class="fas fa-user-friends"></i>
+				<li class="nav-item"><a class="nav-link" rule="button"
+					id="agenda-vecinos" style="font-size: 24px"
+					href="${pageContext.request.contextPath}/services/agendavecinos">
+						<i class="fas fa-user-friends"></i>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"
-					style="font-size: 24px"> <i class="fas fa-comment-alt"></i>
+				<li class="nav-item"><a class="nav-link" rule="button"
+					id="avisos" style="font-size: 24px"
+					href="${pageContext.request.contextPath}/services/avisos"> <i
+						class="fas fa-comment-alt"></i>
 				</a></li>
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					class="nav-link dropdown-toggle" rule="button" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <i class="fas fa-bell"
 						style="font-size: 24px"></i>
@@ -77,7 +83,9 @@
 						<div class="dropdown-item menu-header">Notificaciones</div>
 						<a class="dropdown-item" href="#">no hay notificaciones</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Mostrar todo</a>
+						<a class="dropdown-item" rule="button" id="notificaciones"
+							href="${pageContext.request.contextPath}/services/notificaciones">Mostrar
+							todo</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -86,17 +94,21 @@
 						src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<div class="dropdown-item menu-header">Titulo</div>
-						<a class="dropdown-item" href="#"> <i class="fas fa-user"></i>&nbsp;
-							Perfil de usuario
-						</a> <a class="dropdown-item" href="#"> <i class="fas fa-file-alt"></i>&nbsp;
-							Reglamento del condominio
-						</a> <a class="dropdown-item" href="#"> <i
+						<div class="dropdown-item menu-header">Usuario</div>
+						<a class="dropdown-item"
+							href="${pageContext.request.contextPath}/services/perfilusuario">
+							<i class="fas fa-user"></i>&nbsp; Perfil de usuario
+						</a> <a class="dropdown-item"
+							href="${pageContext.request.contextPath}/services/reglamento">
+							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
+						</a> <a class="dropdown-item" href="${pageContext.request.contextPath}/services/terminos"> <i
 							class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
-						</a> <a class="dropdown-item" href="#"> <i class="fas fa-cogs"></i>&nbsp;
-							Configuración de inmueble
-						</a> <a class="dropdown-item" href="#"> <i class="fas fa-home"></i>&nbsp;
-							Mis condominios
+						</a> <a class="dropdown-item"
+							href="${pageContext.request.contextPath}/services/configinmueble">
+							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
+						</a> <a class="dropdown-item"
+							href="${pageContext.request.contextPath}/services/miscondominios">
+							<i class="fas fa-home"></i>&nbsp; Mis condominios
 						</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Salir</a>

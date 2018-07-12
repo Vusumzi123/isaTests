@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,7 +7,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Principal</title>
+<title>Configuración de inmueble</title>
 
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
@@ -37,7 +37,7 @@
 	type="text/javascript"></script>
 <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="${ctx}/resources/principal.css">
+<link rel="stylesheet" href="${ctx}/resources/configinmueble.css">
 </head>
 <body>
 	<nav class="barra-titulo">
@@ -119,12 +119,9 @@
 		class="navbar navbar-expand-lg navbar-light bg-light barra-nav d-flex justify-content-center">
 		<ul class="navbar-nav">
 			<li class="nav-item active">
-				<h3>Finanzas</h3>
+				<h3>Configuración de inmueble</h3>
 			</li>
 		</ul>
 	</div>
-	</nav>
-	<div id=
-	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
 </body>
 </html>

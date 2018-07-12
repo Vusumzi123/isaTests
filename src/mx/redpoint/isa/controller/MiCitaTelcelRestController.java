@@ -117,7 +117,7 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/auth/condominios", method = RequestMethod.GET)
+	@RequestMapping(value = "/condominios", method = RequestMethod.GET)
 	public ModelAndView condominios(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("condominios");
 		return model;
@@ -134,8 +134,14 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("principal");
 		return model;
 	}
+	
+	@RequestMapping(value = "/finanzas", method = RequestMethod.GET)
+	public ModelAndView finanzas(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("finanzas");
+		return model;
+	}
 
-	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
+	@RequestMapping(value = "/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("agendavecinos");
 		return model;
@@ -186,6 +192,30 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/notificaciones", method = RequestMethod.GET)
 	public ModelAndView notificaciones(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("notificaciones");
+		return model;
+	}
+	
+	@RequestMapping(value = "/perfilusuario", method = RequestMethod.GET)
+	public ModelAndView perfilusuario(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("perfilusuario");
+		return model;
+	}
+	
+	@RequestMapping(value = "/reglamento", method = RequestMethod.GET)
+	public ModelAndView reglamento(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("reglamento");
+		return model;
+	}
+	
+	@RequestMapping(value = "/terminos", method = RequestMethod.GET)
+	public ModelAndView terminos(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("terminos");
+		return model;
+	}
+	
+	@RequestMapping(value = "/configinmueble", method = RequestMethod.GET)
+	public ModelAndView configinmueble(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("configinmueble");
 		return model;
 	}
 

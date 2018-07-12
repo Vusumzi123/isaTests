@@ -7,7 +7,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Principal</title>
+<title>Perfil de usuario</title>
 
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
@@ -37,7 +37,7 @@
 	type="text/javascript"></script>
 <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="${ctx}/resources/principal.css">
+<link rel="stylesheet" href="${ctx}/resources/perfilusuario.css">
 </head>
 <body>
 	<nav class="barra-titulo">
@@ -99,8 +99,9 @@
 						</a> <a class="dropdown-item"
 							href="${pageContext.request.contextPath}/services/reglamento">
 							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
-						</a> <a class="dropdown-item" href="${pageContext.request.contextPath}/services/terminos"> <i
-							class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
+						</a> <a class="dropdown-item"
+							href="${pageContext.request.contextPath}/services/terminos">
+							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
 						</a> <a class="dropdown-item"
 							href="${pageContext.request.contextPath}/services/configinmueble">
 							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
@@ -119,12 +120,46 @@
 		class="navbar navbar-expand-lg navbar-light bg-light barra-nav d-flex justify-content-center">
 		<ul class="navbar-nav">
 			<li class="nav-item active">
-				<h3>Finanzas</h3>
+				<h3>Perfil de usuario</h3>
 			</li>
 		</ul>
 	</div>
 	</nav>
-	<div id=
-	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
+	<div class="body-container">
+		<form class="form-container">
+			<div class="img-container" id="imgu"
+				style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
+				<button class="cam">
+					<i class="fas fa-camera"></i>
+					<!-- <i class="fas fa-camera"></i> -->
+				</button>
+			</div>
+			<div class="row">
+				<div class="form-group bmd-form-group col s12">
+					<input id="name" name="nombres" type="text" class="validate">
+					<label class="bmd-label-floating" for="name">nombre(s)</label>
+				</div>
+
+				<div class="form-group bmd-form-group col s12">
+					<input id="lastname" name="apellidos" type="text" class="validate">
+					<label class="bmd-label-floating" for="lastname">apellido(s)</label>
+				</div>
+
+				<div class="form-group bmd-form-group col s12">
+					<input id="email" name="email" type="email" class="validate">
+					<label class="bmd-label-floating" for="email">correo
+						electrónico</label>
+				</div>
+
+				<div class="form-group bmd-form-group col s12">
+					<input id="password" name="password" type="password"
+						class="validate"> <label class="bmd-label-floating"
+						for="password">contraseña</label>
+				</div>
+			</div>
+			<input class="actualizar-datos Rectangle-242"
+				value="Actualizar datos">
+		</form>
+	</div>
 </body>
 </html>
