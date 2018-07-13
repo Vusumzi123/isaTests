@@ -89,7 +89,7 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "resumen", method = RequestMethod.POST)
+	@RequestMapping(value = "/resumen", method = RequestMethod.POST)
 	public ModelAndView resumen(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("resumen");
 		ArrayList<Finanzas> cuadros = new ArrayList<Finanzas>();
@@ -117,13 +117,13 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/condominios", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/condominios", method = RequestMethod.GET)
 	public ModelAndView condominios(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("condominios");
 		return model;
 	}
 
-	@RequestMapping(value = "/altavecinos", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/altavecinos", method = RequestMethod.GET)
 	public ModelAndView altavecinos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("altavecinos");
 		return model;
