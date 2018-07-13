@@ -117,7 +117,7 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/condominios", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/condominios", method = RequestMethod.GET)
 	public ModelAndView condominios(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("condominios");
 		return model;
