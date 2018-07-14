@@ -311,3 +311,7 @@ button.btn.btn-outline-secondary.border-left-0 {
 .hidden{
 	display: none!important;
 }
+
+.modal-form-group{
+	width: 90%;
+}

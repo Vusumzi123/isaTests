@@ -1,3 +1,6 @@
+$(document).ready(function(){ loadContent('finanzas') })
+
+
 function changeTab(evt, tab) {
 	var activeTabs = $('.active');
 	activeTabs.each(function() {
@@ -7,25 +10,50 @@ function changeTab(evt, tab) {
 	toActivete.addClass('active');
 }
 
-var elementArchivo = $("#archivo");
-var botonBorrar = $("#boton-borrar");
-var botonArchivo = $("#botonarchivo");
-function clickArchivo(event) {
-	event.preventDefault();
-	elementArchivo.click();
+function loadContent(name){
+	sendToken();
+	var ajaxObj = {
+			url: contexto+"/services/"+name,
+			method: 'GET',
+	}
+	contentAjax(ajaxObj, "contenedorPrincipal");
 }
 
-elementArchivo.change(function() {
 
-	toggleButtons();
-	botonBorrar.css("display", "none")
-	botonArchivo.html(nombreArch + '&nbsp;<i class="fas fa-trash-alt"></i>');
-	botonArchivo.click(function() {
-		elementArchivo.val("")
+/*
+ * Input { transaction: string}
+ * 
+ * agrega un archivo al input de archivos
+ * y cambia el nombre del boton de borrado,
+ * esconde el boton de carga de archivo y
+ * muestra el boton de borrado de archivo
+ * 
+ * */
+function addArchive(transaction){
+	var inputFile = $('#archivo-'+transaction);
+	var adjButton = $("#adj-"+transaction);
+	var delButton = $("#del-"+transaction);
+	var nobreArch = $("#nombre-arch-"+transaction);
+	inputFile.click();
+	inputFile.change(function(){
+		var nameTxt = inputFile[0].files[0].name;
+		nobreArch.text(nameTxt);
 	})
-})
+	adjButton.addClass('hidden');
+	delButton.removeClass('hidden');
+}
 
-//var agregarButton = $("#loadfinanzas");
+function removeArchive(transaction){
+	var inputFile = $('#archivo-'+transaction);
+	var adjButton = $("#adj-"+transaction);
+	var delButton = $("#del-"+transaction);
+	var nobreArch = $("#nombre-arch-"+transaction);
+	inputFile.val(null);
+	nobreArch.text('');
+	adjButton.removeClass('hidden');
+	delButton.addClass('hidden');
+}
+//var agregarButton = $("#loadfinanzas");r
 //var contenedor = $("#finanzas");
 //function agregarFinanzas(event) {
 //	e.preventDefault();

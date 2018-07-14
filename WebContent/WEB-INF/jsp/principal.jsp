@@ -7,8 +7,19 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="_csrf" content="${_csrf.token}" />
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}" />
+<!-- ... -->
 <title>Principal</title>
 
+<script>
+	var contexto = "${ctx}";
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
 	integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
@@ -18,9 +29,6 @@
 	href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
 	integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
 	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
 <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
 	integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
 	crossorigin="anonymous"></script>
@@ -45,7 +53,7 @@
 		<a
 			class="navbar-brand d-flex justify-content-center align-items-center"
 			href="#"> <img class="banner-img3"
-			src="${pageContext.request.contextPath}/resources/img/imagotipoHorizontal.svg">
+			src="${ctx}/resources/img/imagotipoHorizontal.svg">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
@@ -56,20 +64,19 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-lg-auto">
 				<li class="nav-item active" id="finanzas"><a class="nav-link"
-					rule="button" id="loadfinanzas"
-					href="${pageContext.request.contextPath}/services/principal"
+					role="button" id="loadfinanzas"
+					onclick="changeTab(event, 'finanzas');loadContent('finanzas')"
 					style="font-size: 24px"> <i class="fas fa-dollar-sign"></i> <span
 						class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" rule="button"
 					id="agenda-vecinos" style="font-size: 24px"
-					href="${pageContext.request.contextPath}/services/agendavecinos">
-						<i class="fas fa-user-friends"></i>
+					href="${ctx}/services/agendavecinos"> <i
+						class="fas fa-user-friends"></i>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" rule="button"
-					id="avisos" style="font-size: 24px"
-					href="${pageContext.request.contextPath}/services/avisos"> <i
-						class="fas fa-comment-alt"></i>
+					id="avisos" style="font-size: 24px" href="${ctx}/services/avisos">
+						<i class="fas fa-comment-alt"></i>
 				</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" rule="button" id="navbarDropdown"
@@ -82,30 +89,26 @@
 						<a class="dropdown-item" href="#">no hay notificaciones</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" rule="button" id="notificaciones"
-							href="${pageContext.request.contextPath}/services/notificaciones">Mostrar
-							todo</a>
+							href="${ctx}/services/notificaciones">Mostrar todo</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <img class="imgusuario"
-						src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
+						src="${ctx}/resources/img/imagenPerfil.svg">
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<div class="dropdown-item menu-header">Usuario</div>
-						<a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/perfilusuario">
+						<a class="dropdown-item" href="${ctx}/services/perfilusuario">
 							<i class="fas fa-user"></i>&nbsp; Perfil de usuario
+						</a> <a class="dropdown-item" href="${ctx}/services/reglamento"> <i
+							class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
 						</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/reglamento">
-							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
-						</a> <a class="dropdown-item" href="${pageContext.request.contextPath}/services/terminos"> <i
-							class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
-						</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/configinmueble">
+							href="${pageContext.request.contextPath}/services/terminos">
+							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
+						</a> <a class="dropdown-item" href="${ctx}/services/configinmueble">
 							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
-						</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/miscondominios">
+						</a> <a class="dropdown-item" href="${ctx}/services/miscondominios">
 							<i class="fas fa-home"></i>&nbsp; Mis condominios
 						</a>
 						<div class="dropdown-divider"></div>
@@ -124,7 +127,8 @@
 		</ul>
 	</div>
 	</nav>
-	<div id=
+	<div id="contenedorPrincipal"></div>
+	<script type="text/javascript" src="${ctx}/resources/js/util.js"sources/js/util.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
 </body>
 </html>
