@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -40,7 +40,7 @@
 <link rel="stylesheet" href="${ctx}/resources/reglamento.css">
 </head>
 <body>
-<nav class="barra-titulo">
+	<nav class="barra-titulo">
 	<div class="navbar navbar-expand-lg navbar-light bg-light barra-nav">
 		<a
 			class="navbar-brand d-flex justify-content-center align-items-center"
@@ -57,19 +57,19 @@
 			<ul class="navbar-nav ml-lg-auto">
 				<li class="nav-item active" id="finanzas"><a class="nav-link"
 					rule="button" id="loadfinanzas"
-					href="${pageContext.request.contextPath}/services/principal"
+					href="${pageContext.request.contextPath}/services/auth/principal"
 					style="font-size: 24px"> <i class="fas fa-dollar-sign"></i> <span
 						class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" rule="button"
 					id="agenda-vecinos" style="font-size: 24px"
-					href="${pageContext.request.contextPath}/services/agendavecinos">
+					href="${pageContext.request.contextPath}/services/auth/agendavecinos">
 						<i class="fas fa-user-friends"></i>
 				</a></li>
 				<li class="nav-item"><a class="nav-link" rule="button"
 					id="avisos" style="font-size: 24px"
-					href="${pageContext.request.contextPath}/services/avisos"> <i
-						class="fas fa-comment-alt"></i>
+					href="${pageContext.request.contextPath}/services/auth/avisos">
+						<i class="fas fa-comment-alt"></i>
 				</a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" rule="button" id="navbarDropdown"
@@ -82,7 +82,7 @@
 						<a class="dropdown-item" href="#">no hay notificaciones</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" rule="button" id="notificaciones"
-							href="${pageContext.request.contextPath}/services/notificaciones">Mostrar
+							href="${pageContext.request.contextPath}/services/auth/notificaciones">Mostrar
 							todo</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
@@ -94,18 +94,19 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<div class="dropdown-item menu-header">Usuario</div>
 						<a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/perfilusuario">
+							href="${pageContext.request.contextPath}/services/auth/perfilusuario">
 							<i class="fas fa-user"></i>&nbsp; Perfil de usuario
 						</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/reglamento">
+							href="${pageContext.request.contextPath}/services/auth/reglamento">
 							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
-						</a> <a class="dropdown-item" href="${pageContext.request.contextPath}/services/terminos"> <i
-							class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
 						</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/configinmueble">
+							href="${pageContext.request.contextPath}/services/auth/terminos">
+							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
+						</a> <a class="dropdown-item"
+							href="${pageContext.request.contextPath}/services/auth/configinmueble">
 							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
 						</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/miscondominios">
+							href="${pageContext.request.contextPath}/services/auth/miscondominios">
 							<i class="fas fa-home"></i>&nbsp; Mis condominios
 						</a>
 						<div class="dropdown-divider"></div>

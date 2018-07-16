@@ -67,6 +67,8 @@
 							<button>subir formato</button>
 						</div>
 					</div>
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
 					<div class="continuar">
 						<a href="${pageContext.request.contextPath}/services/prfinanzas">continuar</a>
 					</div>

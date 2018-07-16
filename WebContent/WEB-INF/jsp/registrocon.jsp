@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,8 +33,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- style -->
-<link rel="stylesheet"
-	href="${ctx}/resources/registrocon.css">
+<link rel="stylesheet" href="${ctx}/resources/registrocon.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -113,12 +112,14 @@
 								for="web">página web</label>
 						</div>
 					</div>
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
 					<div class="siguiente">
-						<a href="${pageContext.request.contextPath}/services/finanzascon">siguiente</a>
+						<button href="${pageContext.request.contextPath}/services/auth/finanzascon">siguiente</button>
 					</div>
 				</div>
 			</div>
 		</form>
 	</div>
-	<script type="text/javascript" src="${ctx}/resources/js/registrocon.js" ></script>
+	<script type="text/javascript" src="${ctx}/resources/js/registrocon.js"></script>
 </html>

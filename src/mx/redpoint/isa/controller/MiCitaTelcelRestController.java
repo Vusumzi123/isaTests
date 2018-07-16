@@ -63,25 +63,25 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/mpago", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/mpago", method = RequestMethod.GET)
 	public ModelAndView mpago(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("mpago");
 		return model;
 	}
 
-	@RequestMapping(value = "registrocon", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/registrocon", method = RequestMethod.GET)
 	public ModelAndView registrocon(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("registrocon");
 		return model;
 	}
 
-	@RequestMapping(value = "finanzascon", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/finanzascon", method = RequestMethod.GET)
 	public ModelAndView finanzascon(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("finanzascon");
 		return model;
 	}
 
-	@RequestMapping(value = "/cuadrofinanzas", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/cuadrofinanzas", method = RequestMethod.GET)
 	public ModelAndView cuadrofinanzas(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("cuadrofinanzas");
 		int num = Integer.parseInt(request.getParameter("num"));
@@ -89,7 +89,7 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/resumen", method = RequestMethod.POST)
+	@RequestMapping(value = "/auth/resumen", method = RequestMethod.POST)
 	public ModelAndView resumen(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("resumen");
 		ArrayList<Finanzas> cuadros = new ArrayList<Finanzas>();
@@ -129,19 +129,19 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/principal", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/principal", method = RequestMethod.GET)
 	public ModelAndView principal(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("principal");
 		return model;
 	}
 	
-	@RequestMapping(value = "/finanzas", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/finanzas", method = RequestMethod.GET)
 	public ModelAndView finanzas(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("finanzas");
 		return model;
 	}
 
-	@RequestMapping(value = "/agendavecinos", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("agendavecinos");
 		return model;
@@ -183,37 +183,37 @@ public class MiCitaTelcelRestController {
 		return jsonString.toString();
 	}
 	
-	@RequestMapping(value = "/avisos", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/avisos", method = RequestMethod.GET)
 	public ModelAndView avisos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("avisos");
 		return model;
 	}
 	
-	@RequestMapping(value = "/notificaciones", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/notificaciones", method = RequestMethod.GET)
 	public ModelAndView notificaciones(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("notificaciones");
 		return model;
 	}
 	
-	@RequestMapping(value = "/perfilusuario", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/perfilusuario", method = RequestMethod.GET)
 	public ModelAndView perfilusuario(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("perfilusuario");
 		return model;
 	}
 	
-	@RequestMapping(value = "/reglamento", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/reglamento", method = RequestMethod.GET)
 	public ModelAndView reglamento(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("reglamento");
 		return model;
 	}
 	
-	@RequestMapping(value = "/terminos", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/terminos", method = RequestMethod.GET)
 	public ModelAndView terminos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("terminos");
 		return model;
 	}
 	
-	@RequestMapping(value = "/configinmueble", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/configinmueble", method = RequestMethod.GET)
 	public ModelAndView configinmueble(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("configinmueble");
 		return model;

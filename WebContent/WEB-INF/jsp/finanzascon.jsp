@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,12 +34,10 @@
 </script>
 
 <script>
-	var contexto="${pageContext.request.contextPath}";
-	
+	var contexto = "${pageContext.request.contextPath}";
 </script>
 
-<link rel="stylesheet"
-	href="${ctx}/resources/finanzascon.css">
+<link rel="stylesheet" href="${ctx}/resources/finanzascon.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -47,14 +45,13 @@
 			<img class="banner-img3"
 				src="${ctx}/resources/img/imagotipoHorizontal.svg">
 		</div>
-		<img class="imgusuario"
-			src="${ctx}/resources/img/imagenPerfil.svg">
+		<img class="imgusuario" src="${ctx}/resources/img/imagenPerfil.svg">
 	</div>
 	<div class="body-container">
 		<form class="form-container" method="POST"
 			action="${ctx}/services/resumen">
 			<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" />
+				value="${_csrf.token}" />
 			<div class="finanzas-condominio">finanzas de condominio</div>
 			<div id="cuadro-contenedor">
 				<input id="contador" name="contador" type="hidden"></input>
@@ -66,8 +63,8 @@
 			</div>
 			<div class="container1">
 				<div class="form-group col-sm-6">
-					<label for="cuotamensual" class="bmd-label-floating"> cuota mensual
-						por vecino</label> <input type="text" class="form-control"
+					<label for="cuotamensual" class="bmd-label-floating"> cuota
+						mensual por vecino</label> <input type="text" class="form-control"
 						id="cuotamensual" name="cuotamensual">
 				</div>
 			</div>
@@ -77,6 +74,8 @@
 						<a href="${ctx}/services/registrocon">atras</a>
 					</div>
 				</div>
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
 				<div class="siguiente">
 					<button>siguiente</button>
 				</div>

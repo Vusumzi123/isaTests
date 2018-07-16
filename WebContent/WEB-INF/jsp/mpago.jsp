@@ -48,14 +48,14 @@
 	<div class="body-container">
 		<div class="form-container">
 			<div class="mtodo-de-pago">método de pago</div>
-			<div class="rectangulo">
+			<form class="rectangulo">
 				<div class="tab">
 					<button class="tablinks"
 						onclick="changeTab(event, 'tarjeta-crdito-o-dbito')">tarjeta</button>
 					<button class="tablinks" onclick="changeTab(event, 'paypal')">paypal</button>
 				</div>
 				<div id="tarjeta-crdito-o-dbito" class="tabcontent active">
-					<form>
+					<div class="contenidocuadro">
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-6 mx-0">
@@ -169,13 +169,16 @@
 								required> Acepto términos y condiciones
 							</label>
 						</div>
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
 						<button type="button" class="Pagar Rectangle-242"
 							class="btn btn-primary" data-toggle="modal"
 							data-target="#exampleModalCenter">Pagar</button>
 						<div class="modal fade" id="exampleModalCenter" tabindex="-1"
 							role="dialog" aria-labelledby="exampleModalCenterTitle"
 							aria-hidden="true">
-							<div class="modal-dialog modal-dialog-centered" style="max-width:100%" role="document">
+							<div class="modal-dialog modal-dialog-centered"
+								style="max-width: 100%" role="document">
 								<div class="modal-content">
 									<div class="renglon1">¡PAGO EXITOSO!</div>
 									<div class="renglon2">ahora da de alta tu primer
@@ -183,10 +186,10 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 				<div id="paypal" class="tabcontent">
-					<form>
+					<div class="contenidocuadro">
 						<div class="contenido1">
 							<div class="paypal-container">
 								<img class="imgpaypal"
@@ -204,13 +207,16 @@
 								<input type="password" class="form-control" id="password"
 									name="password">
 							</div>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
 							<button type="button" class="Pagar Rectangle-232"
 								class="btn btn-primary" data-toggle="modal"
 								data-target="#exampleModalCenter">Pagar</button>
 							<div class="modal fade" id="exampleModalCenter" tabindex="-1"
 								role="dialog" aria-labelledby="exampleModalCenterTitle"
 								aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered" style="max-width:100%" role="document">
+								<div class="modal-dialog modal-dialog-centered"
+									style="max-width: 100%" role="document">
 									<div class="modal-content">
 										<div class="renglon1">¡PAGO EXITOSO!</div>
 										<div class="renglon2">ahora da de alta tu primer
@@ -219,9 +225,9 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<script type="text/javascript"

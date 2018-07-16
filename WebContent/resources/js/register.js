@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var url=contexto + "/services/authentication";
+	var url=contexto + "/services/";
     $("#but_submit").click(function(event){
     	event.preventDefault();
     	var nombres = $("#name").val().trim();
@@ -8,19 +8,19 @@ $(document).ready(function(){
         var contrasena = $("#ucontrasena").val().trim();
         var foto = $("#imgu").val().trim();
 
-        if( correo != "" && contrasena != "" ){
+        if(nombres != "" && apellidos != "" && correo != "" && contrasena != "" ){
             $.ajax({
                 url:url,
                 type:'POST',
                 dataType: "json",
-                data:{uemail:correo,ucontrasena:contrasena},
+                data:{name:nombres,lastname:apellidos,uemail:correo,ucontrasena:contrasena,imgu:foto},
                 success:function(response){
                     var msg = "";
                     console.log(response);
                     if(response != null && response != "" && response.access){
                         $("#formulario").submit();
                     }else{
-                        msg = "nombre de usuario y/o contrasena incorrectos!";
+                        msg = "llena los campos faltantes correctamente";
                     }
                     $("#message").html(msg);
                 },

@@ -39,7 +39,7 @@
 			action="${pageContext.request.contextPath}/services/confirm">
 			<div class="img-container" id="imgu"
 				style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
-				<button class="cam">
+				<button type="file" class="cam">
 					<i class="fas fa-camera"></i>
 					<!-- <i class="fas fa-camera"></i> -->
 				</button>
@@ -65,7 +65,9 @@
 						class="validate"> <label for="password">contraseña</label>
 				</div>
 			</div>
-			<input type="submit" class="Crear-Cuenta Rectangle-242"
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" /> <input type="submit" name="but_submit"
+				id="but_submit" class="Crear-Cuenta Rectangle-242"
 				value="Crear cuenta">
 			<div class="o-Entrar-con-una-cuenta-existente">
 				o <a href="${pageContext.request.contextPath}/services/login">Entrar</a>

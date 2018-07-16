@@ -105,9 +105,9 @@
 							class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
 						</a> <a class="dropdown-item"
 							href="${pageContext.request.contextPath}/services/terminos">
-							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
+							<i class="fas fa-file-invoice"></i>&nbsp; Tï¿½rminos y condiciones
 						</a> <a class="dropdown-item" href="${ctx}/services/configinmueble">
-							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
+							<i class="fas fa-cogs"></i>&nbsp; Configuraciï¿½n de inmueble
 						</a> <a class="dropdown-item" href="${ctx}/services/miscondominios">
 							<i class="fas fa-home"></i>&nbsp; Mis condominios
 						</a>
@@ -117,7 +117,6 @@
 			</ul>
 		</div>
 	</div>
-
 	<div
 		class="navbar navbar-expand-lg navbar-light bg-light barra-nav d-flex justify-content-center">
 		<ul class="navbar-nav">
