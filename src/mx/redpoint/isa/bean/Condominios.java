@@ -1,5 +1,5 @@
 package mx.redpoint.isa.bean;
 
 public class Condominios {
-	private String 
+	private String casa;
 }

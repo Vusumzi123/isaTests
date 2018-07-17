@@ -278,11 +278,11 @@
 	</div>
 	<div class="form-container">
 		<div class="tab">
-			<button class="tablinks" onclick="changeTab(event, 'todos')">todos</button>
-			<button class="tablinks" onclick="changeTab(event, 'ingresos')">ingresos</button>
-			<button class="tablinks" onclick="changeTab(event, 'egresos')">egresos</button>
+			<button class="tablinks " onclick="changeTableTab(event, 'todos')">todos</button>
+			<button class="tablinks " onclick="changeTableTab(event, 'ingresos')">ingresos</button>
+			<button class="tablinks " onclick="changeTableTab(event, 'egresos')">egresos</button>
 		</div>
-		<div id="todos" class="tabcontent active">
+		<div id="todos" class="tabcontent table-tabs active">
 			<table class="table table-striped" style="width: 100%">
 				<thead>
 					<tr>
@@ -326,7 +326,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="ingresos" class="tabcontent">
+		<div id="ingresos" class="tabcontent table-tabs">
 			<table class="table table-striped" style="width: 100%">
 				<thead>
 					<tr>
@@ -358,7 +358,7 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="egresos" class="tabcontent">
+		<div id="egresos" class="tabcontent table-tabs">
 			<table class="table table-striped" style="width: 100%">
 				<thead>
 					<tr>

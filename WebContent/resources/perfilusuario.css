@@ -76,7 +76,7 @@ li.nav-item {
 	flex-direction: column;
 }
 
-.form-container {
+.form-container-perfil {
 	max-width: 320px;
 }
 
@@ -91,7 +91,7 @@ li.nav-item {
 	font-size: 21px;
 }
 
-.img-container {
+.img-container-perfil {
 	background-image: url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
 	border-radius: 50%;
 	width: 170px;
@@ -114,7 +114,7 @@ li.nav-item {
 	color: #ffffff;
 }
 
-.nombres {
+.nombres-perfil {
 	width: 320px;
 	font-size: 16px;
 	font-weight: 300;
@@ -154,7 +154,7 @@ li.nav-item {
 	border: none;
 }
 
-.Rectangle-242 {
+.Rectangle-242-perfil {
 	width: 206px;
 	height: 36px;
 	border-radius: 18px;
@@ -167,7 +167,7 @@ li.nav-item {
 	border: none;
 }
 
-.Crear-Cuenta {
+.actualizar-datos-perfil {
 	font-size: 16px;
 	font-weight: normal;
 	margin-top: 10px;

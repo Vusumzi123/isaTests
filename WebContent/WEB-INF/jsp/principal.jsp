@@ -19,7 +19,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"
 	integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe"
@@ -46,6 +47,7 @@
 <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css"
 	rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="${ctx}/resources/principal.css">
+<link rel="stylesheet" href="${ctx}/resources/notificaciones.css">
 </head>
 <body>
 	<nav class="barra-titulo">
@@ -66,30 +68,33 @@
 				<li class="nav-item active" id="finanzas"><a class="nav-link"
 					role="button" id="loadfinanzas"
 					onclick="changeTab(event, 'finanzas');loadContent('finanzas')"
-					style="font-size: 24px"> <i class="fas fa-dollar-sign"></i> <span
-						class="sr-only">(current)</span>
+					style="font-size: 24px; cursor: pointer"> <i
+						class="fas fa-dollar-sign"></i> <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" rule="button"
-					id="agenda-vecinos" style="font-size: 24px"
-					href="${ctx}/services/agendavecinos"> <i
+				<li class="nav-item" id="agendavecinos"><a class="nav-link"
+					role="button" id="loadagenda"
+					onclick="changeTab(event, 'agendavecinos');loadContent('agendavecinos')"
+					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-user-friends"></i>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" rule="button"
-					id="avisos" style="font-size: 24px" href="${ctx}/services/avisos">
-						<i class="fas fa-comment-alt"></i>
+				<li class="nav-item" id="avisos"><a class="nav-link"
+					role="button" id="loadavisos"
+					onclick="changeTab(event, 'avisos');loadContent('avisos')"
+					style="font-size: 24px; cursor: pointer"> <i
+						class="fas fa-comment-alt"></i>
 				</a></li>
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" rule="button" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <i class="fas fa-bell"
-						style="font-size: 24px"></i>
+					class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-bell" style="font-size: 24px; cursor: pointer"></i>
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<div class="dropdown-item menu-header">Notificaciones</div>
-						<a class="dropdown-item" href="#">no hay notificaciones</a>
+						<a class="dropdown-item" href="#">No hay notificaciones</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" rule="button" id="notificaciones"
-							href="${ctx}/services/notificaciones">Mostrar todo</a>
+						<a class="dropdown-item" role="button" id="notificaciones"
+							onclick="changeTab(event, 'notificaciones');loadContent('notificaciones')"
+							style="cursor: pointer">Mostrar todo</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -99,20 +104,23 @@
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<div class="dropdown-item menu-header">Usuario</div>
-						<a class="dropdown-item" href="${ctx}/services/perfilusuario">
+						<a class="dropdown-item" role="button" id="perfilusuario"
+							onclick="changeTab(event, 'perfil');loadContent('perfilusuario')">
 							<i class="fas fa-user"></i>&nbsp; Perfil de usuario
-						</a> <a class="dropdown-item" href="${ctx}/services/reglamento"> <i
-							class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
-						</a> <a class="dropdown-item"
-							href="${pageContext.request.contextPath}/services/terminos">
-							<i class="fas fa-file-invoice"></i>&nbsp; Tï¿½rminos y condiciones
-						</a> <a class="dropdown-item" href="${ctx}/services/configinmueble">
-							<i class="fas fa-cogs"></i>&nbsp; Configuraciï¿½n de inmueble
-						</a> <a class="dropdown-item" href="${ctx}/services/miscondominios">
+						</a> <a class="dropdown-item" role="button" id="reglamento"
+							onclick="changeTab(event, 'reglamento');loadContent('reglamento')">
+							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
+						</a> <a class="dropdown-item" role="button" id="terminos"
+							onclick="changeTab(event, 'terminos');loadContent('terminos')">
+							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
+						</a> <a class="dropdown-item" role="button" id="configinmueble"
+							onclick="changeTab(event, 'configinmueble');loadContent('configinmueble')">
+							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
+						</a> <a class="dropdown-item" href="${ctx}/services/auth/condominios">
 							<i class="fas fa-home"></i>&nbsp; Mis condominios
 						</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">Salir</a>
+						<a class="dropdown-item" href="#/logout">Salir</a>
 					</div></li>
 			</ul>
 		</div>
@@ -127,7 +135,7 @@
 	</div>
 	</nav>
 	<div id="contenedorPrincipal"></div>
-	<script type="text/javascript" src="${ctx}/resources/js/util.js"sources/js/util.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/util.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
 </body>
 </html>

@@ -1,8 +1,16 @@
 $(document).ready(function(){ loadContent('finanzas') })
 
-
 function changeTab(evt, tab) {
 	var activeTabs = $('.active');
+	activeTabs.each(function() {
+		$(this).removeClass('active');
+	})
+	var toActivete = $('#' + tab);
+	toActivete.addClass('active');
+}
+
+function changeTableTab(evt, tab) {
+	var activeTabs = $('.table-tabs');
 	activeTabs.each(function() {
 		$(this).removeClass('active');
 	})
@@ -13,7 +21,7 @@ function changeTab(evt, tab) {
 function loadContent(name){
 	sendToken();
 	var ajaxObj = {
-			url: contexto+"/services/"+name,
+			url: contexto+"/services/auth/"+name,
 			method: 'GET',
 	}
 	contentAjax(ajaxObj, "contenedorPrincipal");
@@ -71,3 +79,4 @@ function removeArchive(transaction){
 //	});
 //}
 
+$(document).ready(function(){ loadContent('agenda-vecinos') })

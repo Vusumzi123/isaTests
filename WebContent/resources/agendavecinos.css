@@ -76,21 +76,21 @@ li.nav-item {
 	flex-direction: column;
 }
 
-.form-container {
+.form-container-agenda {
 	width: 1150px;
 }
 
-.form-container2 {
+.form-container2-agenda {
 	width: 672px;
 	padding-top: 38px;
 	padding-bottom: 48px;
 }
 
-.form-container3 {
+.form-container3-agenda {
 	width: 672px;
 }
 
-.contenedor4 {
+.contenedor4-agenda {
 	width: 100%;
 }
 
@@ -208,24 +208,24 @@ button.btn.btn-outline-secondary.border-left-0 {
 	transform: rotate(-45deg);
 }
 
-.elemento1 {
+.elemento1-agenda {
 	width: 100% !important;
 	height: 100px;
 	background-color: #f1f1f1 !important;
 	color: #07354d !important;
 }
 
-.img-elemento1 {
+.img-elemento1-agenda {
 	width: 50px;
 	height: 50px;
 	margin-right: 35px;
 }
 
-.img-derecha {
+.img-derecha-agenda {
 	width: 400px;
 }
 
-.contenedor3 {
+.contenedor3-agenda {
 	height: 245px;
 	width: 100%;
 	display: flex;
@@ -233,14 +233,14 @@ button.btn.btn-outline-secondary.border-left-0 {
 	justify-content: center;
 }
 
-.nombre {
+.nombre-agenda {
 	
 }
 
-.vivienda {
+.vivienda-agenda {
 	
 }
 
-.correo {
+.correo-agenda {
 	
 }
