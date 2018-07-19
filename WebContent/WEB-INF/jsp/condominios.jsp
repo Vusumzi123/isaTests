@@ -87,7 +87,7 @@
 					<div class="condominios">Condominios</div>
 				</div>
 				<div class="agregarcuenta">
-					<a href="${pageContext.request.contextPath}/services/finanzascon">agregar
+					<a href="${pageContext.request.contextPath}/services/auth/finanzascon">agregar
 						cuenta</a>
 				</div>
 			</div>

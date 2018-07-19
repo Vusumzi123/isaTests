@@ -15,7 +15,7 @@
 }
 
 .form-container {
-	width: 673pX;
+	width: 673px;
 }
 
 .contenido1 {
@@ -336,4 +336,8 @@
 	align-items: center;
 	justify-content: center;
 	max-width: 100%;
+}
+
+label {
+	color: #07354d!important;
 }

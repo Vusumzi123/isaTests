@@ -7,6 +7,7 @@ public class Finanzas {
 	private String numerocuenta;
 	private String numerotarjeta;
 	private String numeroclabe;
+	private String cuotamensual;
 	public String getAlias() {
 		return alias;
 	}
@@ -42,6 +43,12 @@ public class Finanzas {
 	}
 	public void setNumeroclabe(String numeroclabe) {
 		this.numeroclabe = numeroclabe;
+	}
+	public String getCuotamensual() {
+		return cuotamensual;
+	}
+	public void setCuotamensual(String cuotamensual) {
+		this.cuotamensual = cuotamensual;
 	}
 	
 }

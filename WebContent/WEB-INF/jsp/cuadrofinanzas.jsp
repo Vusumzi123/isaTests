@@ -17,7 +17,7 @@
 			<div class="form-group col-sm-6">
 				<label for="tipo${num}" class="bmd-label-floating">Tipo
 					select</label> <select class="form-control" id="tipo${num}"
-					name="tipo${num}" style="margin-top:-8px">
+					name="tipo${num}" style="margin-top: -8px">
 					<option value="1">Débito</option>
 					<option value="2">Crédito</option>
 					<option value="3">Cheques</option>

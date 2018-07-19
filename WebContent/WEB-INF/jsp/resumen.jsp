@@ -29,7 +29,11 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script>
+	$(document).ready(function() {
+		$('body').bootstrapMaterialDesign();
+	});
+</script>
 <link rel="stylesheet"
 	href="${ctx}/resources/resumen.css">
 </head>
@@ -55,18 +59,18 @@
 					<div class="contenido1 col-sm-6 mx-0">
 						<div class="datos-condominio">datos del condominio</div>
 						<div class="nombre-condominio">nombre del condominio</div>
-						<div class="nombre-condominio111">${name1}</div>
+						<div class="nombre-condominio111">${condominio.getName1()}</div>
 						<div class="direccion">dirección</div>
 						<div class="direccion111">
 							<p>
-								${street} ${number},<br> ${colonia}, ${city},<br>
-								${cp}, ${country}
+								${condominio.getStreet()} ${condominio.getNumber()},<br> ${condominio.getColonia()}, ${condominio.getCity()},<br>
+								${condominio.getCp()}, ${condominio.getCountry()}
 							</p>
 						</div>
 						<div class="contactos">contactos</div>
 						<div class="contactos111">
 							<p>
-								${phone}<br> ${web}
+								${condominio.getPhone()}<br> ${condominio.getWeb()}
 							</p>
 						</div>
 					</div>
@@ -91,11 +95,11 @@
 			<div class="barra-bot">
 				<div class="logo-nav">
 					<div class="atras">
-						<a href="${pageContext.request.contextPath}/services/finanzascon">atras</a>
+						<a href="${pageContext.request.contextPath}/services/auth/finanzascon">atras</a>
 					</div>
 				</div>
 				<div class="finalizar">
-					<a href="${pageContext.request.contextPath}/services/condominios">finalizar</a>
+					<a href="${pageContext.request.contextPath}/services/auth/condominios">finalizar</a>
 				</div>
 			</div>
 		</form>

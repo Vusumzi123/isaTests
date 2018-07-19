@@ -2,11 +2,10 @@ package mx.redpoint.isa.bean;
 
 import java.util.Date;
 
-public class Pagos {
+public class Adeudos {
 	private Date fecha;
 	private String concepto;
 	private double cantidad;
-	private String comprobante;
 	public Date getFecha() {
 		return fecha;
 	}
@@ -25,12 +24,5 @@ public class Pagos {
 	public void setCantidad(double cantidad) {
 		this.cantidad = cantidad;
 	}
-	public String getComprobante() {
-		return comprobante;
-	}
-	public void setComprobante(String comprobante) {
-		this.comprobante = comprobante;
-	}
-	
 	
 }

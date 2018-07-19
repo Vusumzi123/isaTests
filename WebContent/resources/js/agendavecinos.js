@@ -9,7 +9,7 @@ function changeTab(evt, tab) {
 
 
 function cargaDatos(elem){
-	var url = contexto + "/services/datosAgendavecinos?nombre="+elem.textContent ;
+	var url = contexto + "/services/auth/datosAgendavecinos?nombre="+elem.textContent ;
 	var tableBody = $("#tabla");
 	var nombreRes = $("#nombreRes");
 	

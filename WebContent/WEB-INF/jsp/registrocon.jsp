@@ -58,8 +58,8 @@
 				<div class="row">
 					<div>
 						<div class="input-field nombre-del-condominio col s12">
-							<input id="name1" type="text" class="validate"> <label
-								for="name1">nombre del condominio</label>
+							<input id="name1" name="name1" type="text" class="validate">
+							<label for="name1">nombre del condominio</label>
 						</div>
 						<div class="file-field input-field subir col s12">
 							<div class="btn">
@@ -73,53 +73,93 @@
 					<div class="ubicacin-del-inmueble">ubicación del inmueble</div>
 					<div>
 						<div class="input-field pais col s12">
-							<input id="country" type="text" class="validate"> <label
-								for="country">país</label>
+							<input id="country" name="country" type="text" class="validate">
+							<label for="country">país</label>
 						</div>
 						<div class="input-field codigo-postal col s12">
-							<input id="cp" type="text" class="validate"> <label
+							<input id="cp" name="cp" type="text" class="validate"> <label
 								for="cp">código postal</label>
 						</div>
 					</div>
 					<div>
 						<div class="input-field ciudad col s12">
-							<input id="city" type="text" class="validate"> <label
-								for="city">ciudad</label>
+							<input id="city" name="city" type="text" class="validate">
+							<label for="city">ciudad</label>
 						</div>
 						<div class="input-field colonia col s12">
-							<input id="colonia" type="text" class="validate"> <label
-								for="colonia">colonia</label>
+							<input id="colonia" name="colonia" type="text" class="validate">
+							<label for="colonia">colonia</label>
 						</div>
 					</div>
 					<div>
 						<div class="input-field calle col s12">
-							<input id="street" type="text" class="validate"> <label
-								for="street">calle</label>
+							<input id="street" name="street" type="text" class="validate">
+							<label for="street">calle</label>
 						</div>
 						<div class="input-field numero col s12">
-							<input id="number" type="text" class="validate"> <label
-								for="number">número</label>
+							<input id="number" name="number" type="text" class="validate">
+							<label for="number">número</label>
 						</div>
 					</div>
 					<div class="contacto-del-inmueble">contacto del inmueble</div>
 					<div>
 						<div class="input-field telefono col 12">
-							<input id="phone" type="text" class="validate"> <label
-								for="phone">teléfono</label>
+							<input id="phone" name="phone" type="text" class="validate">
+							<label for="phone">teléfono</label>
 						</div>
 						<div class="input-field pagina-web col 12">
-							<input id="web" type="text" class="validate"> <label
-								for="web">página web</label>
+							<input id="web" name="web" type="text" class="validate">
+							<label for="web">página web</label>
 						</div>
 					</div>
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />
 					<div class="siguiente">
-						<button href="${pageContext.request.contextPath}/services/auth/finanzascon">siguiente</button>
+						<button type="submit" role=""
+							href="${pageContext.request.contextPath}/services/auth/finanzascon">siguiente</button>
 					</div>
 				</div>
 			</div>
 		</form>
+
+
+
+		<form class="form-container" method="POST"
+			action="${ctx}/services/resumen">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+			<div class="finanzas-condominio">finanzas de condominio</div>
+			<div id="cuadro-contenedor">
+				<input id="contador" name="contador" type="hidden"></input>
+			</div>
+			<div class="agregar-cuenta">
+				<button id="agregarcuenta"
+					onclick="agregarCuadro(event,numeroCuadro)">agregar otra
+					cuenta</button>
+			</div>
+			<div class="container1">
+				<div class="form-group col-sm-6">
+					<label for="cuotamensual" class="bmd-label-floating"> cuota
+						mensual por vecino</label> <input type="text" class="form-control"
+						id="cuotamensual" name="cuotamensual">
+				</div>
+			</div>
+			<div class="barra-bot">
+				<div class="logo-nav">
+					<div class="atras">
+						<a href="${ctx}/services/registrocon">atras</a>
+					</div>
+				</div>
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
+				<div class="siguiente">
+					<button>siguiente</button>
+				</div>
+			</div>
+		</form>
+
+
+
 	</div>
 	<script type="text/javascript" src="${ctx}/resources/js/registrocon.js"></script>
 </html>

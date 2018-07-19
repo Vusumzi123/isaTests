@@ -70,7 +70,7 @@
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />
 					<div class="continuar">
-						<a href="${pageContext.request.contextPath}/services/prfinanzas">continuar</a>
+						<a href="${pageContext.request.contextPath}/services/auth/principal">continuar</a>
 					</div>
 				</div>
 			</div>

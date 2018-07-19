@@ -18,6 +18,24 @@ function changeTableTab(evt, tab) {
 	toActivete.addClass('active');
 }
 
+function changeTableTab1(evt, tab) {
+	var activeTabs = $('.table-tabs1');
+	activeTabs.each(function() {
+		$(this).removeClass('active');
+	})
+	var toActivete = $('#' + tab);
+	toActivete.addClass('active');
+}
+
+function changeDatos(evt, tab) {
+	var activeTabs = $('.datos');
+	activeTabs.each(function() {
+		$(this).removeClass('active');
+	})
+	var toActivete = $('#' + tab);
+	toActivete.addClass('active');
+}
+
 function loadContent(name){
 	sendToken();
 	var ajaxObj = {
@@ -78,5 +96,3 @@ function removeArchive(transaction){
 //		}
 //	});
 //}
-
-$(document).ready(function(){ loadContent('agenda-vecinos') })

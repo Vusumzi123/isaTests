@@ -1,28 +1,39 @@
 package mx.redpoint.isa.controller;
 
 import java.io.IOException;
-
+import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.sql.rowset.serial.SerialBlob;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import mx.redpoint.isa.bean.Adeudos;
+import mx.redpoint.isa.bean.Condominios;
 import mx.redpoint.isa.bean.Finanzas;
 import mx.redpoint.isa.bean.Pagos;
+import mx.redpoint.isa.bean.Vecino;
+import mx.redpoint.isa.util.BlobUtil;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.w3c.dom.Document;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.util.RandomValueStringGenerator;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
@@ -31,6 +42,9 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 @RequestMapping(value="/services")
 public class MiCitaTelcelRestController {
     
+	//datos falsos
+	private Vecino[] vecinosFalsos;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView helloWorld(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("home");
@@ -90,10 +104,30 @@ public class MiCitaTelcelRestController {
 	}
 
 	@RequestMapping(value = "/auth/resumen", method = RequestMethod.POST)
-	public ModelAndView resumen(HttpServletRequest request) {
+	public ModelAndView resumen(HttpServletRequest request,
+			@RequestParam(value="archivo", required=false) CommonsMultipartFile archivo,
+			//@RequestParam(value="foto", required=true) CommonsMultipartFile foto,
+			MultipartHttpServletRequest mrequest) {
+		
 		ModelAndView model = new ModelAndView("resumen");
 		ArrayList<Finanzas> cuadros = new ArrayList<Finanzas>();
 		Finanzas finan = new Finanzas();
+		Condominios condo = new Condominios();
+		condo.setCity(request.getParameter("city"));
+		condo.setColonia(request.getParameter("colonia"));
+		condo.setCountry(request.getParameter("country"));
+		condo.setCp(request.getParameter("cp"));
+		condo.setArchivo(BlobUtil.partFile2Blob(archivo));
+		System.out.println(condo.getArchivo());
+		//condo.setFoto(BlobUtil.partFile2Blob(foto));
+		condo.setName1(request.getParameter("name1"));
+		System.out.println("XXXXXXXXX:");
+		System.out.println(condo.getName1());
+		condo.setNumber(request.getParameter("number"));
+		condo.setPhone(request.getParameter("phone"));
+		condo.setStreet(request.getParameter("street"));
+		condo.setWeb(request.getParameter("web"));
+		//condo.setFile(file);
 		// Map parameterMap = request.getParameterMap();
 		int max = Integer.parseInt(request.getParameter("contador"));
 		for (int i = 1; i <= max; i++) {
@@ -112,6 +146,7 @@ public class MiCitaTelcelRestController {
 			cuadros.add(finan);
 		}
 		String cuotamensual = request.getParameter("cuotamensual");
+		model.addObject("condominio", condo);
 		model.addObject("cuotamensual", cuotamensual);
 		model.addObject("cuadros", cuadros);
 		return model;
@@ -144,41 +179,25 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("agendavecinos");
+		GeneraDatosVecino();
+		
+		model.addObject("vecinos", vecinosFalsos);
 		return model;
 	}
 
-	@RequestMapping(value = "/datosAgendavecinos", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/auth/datosAgendavecinos", method = RequestMethod.GET, produces = "application/json")
 	public String datosAgendavecinos(HttpServletRequest request) {
 		JSONObject jsonString = new JSONObject();
-		String vecino = request.getParameter("nombre");
-
-		// datos falsos (Dummy)
-		Pagos dato1 = new Pagos();
-		dato1.setCantidad(50000.30);
-		dato1.setConcepto("cuota mensual abril");
-		dato1.setFecha(new Date());
-		dato1.setVecino(vecino);
-
-		Pagos dato2 = new Pagos();
-		dato2.setCantidad(50000.30);
-		dato2.setConcepto("cuota mensual abril");
-		dato2.setFecha(new Date());
-		dato2.setVecino(vecino);
-
-		Pagos dato3 = new Pagos();
-		dato3.setCantidad(50000.30);
-		dato3.setConcepto("cuota mensual abril");
-		dato3.setFecha(new Date());
-		dato3.setVecino(vecino);
-
-		List<Object> adeudos = new ArrayList<Object>();
-		adeudos.add(dato1);
-		adeudos.add(dato2);
-		adeudos.add(dato3);
-
-		JSONArray jsArray = new JSONArray(adeudos);
-		jsonString.put("pagos", jsArray);
-		jsonString.put("vecino", vecino);
+		String nombreVecino = request.getParameter("nombre");
+		Vecino vecinoActual = new Vecino();
+		//datos falsos
+		for(Vecino vecino : vecinosFalsos) {
+			if(vecino.getNombre().equals( nombreVecino )){
+				vecinoActual = vecino;
+			}
+		}
+		
+		jsonString.put("vecino", vecinoActual);
 
 		return jsonString.toString();
 	}
@@ -219,4 +238,83 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
+	private void GeneraDatosVecino() {
+		Vecino vecino1 = new Vecino();
+		Vecino vecino2 = new Vecino();
+		Vecino vecino3 = new Vecino();
+		vecino1.setNombre("Henry");
+		vecino1.setApellido("Zapata");
+		vecino1.setCorreo("h.zapata@supaada.mx");
+		vecino1.setVivienda("101");
+		ArrayList<Pagos> pagos = new ArrayList<Pagos>();
+		ArrayList<Adeudos> adeudos = new ArrayList<Adeudos>();
+		Pagos pago1 = new Pagos();
+		Pagos pago2 = new Pagos();
+		pago1.setFecha(new Date());
+		pago1.setConcepto("Mensualidad");
+		pago1.setCantidad(6000.0);
+		pago2.setFecha(new Date());
+		pago2.setConcepto("Mensualidad");
+		pago2.setCantidad(6000.0);
+		pagos.add(pago1);
+		pagos.add(pago2);
+		Adeudos adeu1 = new Adeudos();
+		adeu1.setFecha(new Date());
+		adeu1.setConcepto("Mensualidad");
+		adeu1.setCantidad(6000.0);
+		adeudos.add(adeu1);
+		vecino1.setPagos( pagos );
+		vecino1.setAdeudos(adeudos);
+		
+		vecino2.setNombre("Montserrat");
+		vecino2.setApellido("Casillas");
+		vecino2.setCorreo("m.casillas@supaada.mx");
+		vecino2.setVivienda("105");
+		ArrayList<Pagos> pagos1 = new ArrayList<Pagos>();
+		ArrayList<Adeudos> adeudos1 = new ArrayList<Adeudos>();
+		Pagos pago3 = new Pagos();
+		Pagos pago4 = new Pagos();
+		pago3.setFecha(new Date());
+		pago3.setConcepto("Mensualidad");
+		pago3.setCantidad(5000.0);
+		pago4.setFecha(new Date());
+		pago4.setConcepto("Mensualidad");
+		pago4.setCantidad(5000.0);
+		pagos1.add(pago3);
+		pagos1.add(pago4);
+		Adeudos adeu2 = new Adeudos();
+		adeu1.setFecha(new Date());
+		adeu1.setConcepto("Mensualidad");
+		adeu1.setCantidad(5000.0);
+		adeudos1.add(adeu2);
+		vecino2.setPagos( pagos1 );
+		vecino2.setAdeudos(adeudos1);
+		
+		vecino3.setNombre("Alexis");
+		vecino3.setApellido("Negrete");
+		vecino3.setCorreo("a.negrete@supaada.mx");
+		vecino3.setVivienda("103");
+		ArrayList<Pagos> pagos2 = new ArrayList<Pagos>();
+		ArrayList<Adeudos> adeudos2 = new ArrayList<Adeudos>();
+		Pagos pago5 = new Pagos();
+		Pagos pago6 = new Pagos();
+		pago5.setFecha(new Date());
+		pago5.setConcepto("Mensualidad");
+		pago5.setCantidad(8000.0);
+		pago6.setFecha(new Date());
+		pago6.setConcepto("Mensualidad");
+		pago6.setCantidad(8000.0);
+		pagos2.add(pago5);
+		pagos2.add(pago6);
+		Adeudos adeu3 = new Adeudos();
+		adeu3.setFecha(new Date());
+		adeu3.setConcepto("Mensualidad");
+		adeu3.setCantidad(8000.0);
+		adeudos2.add(adeu3);
+		vecino3.setPagos( pagos2 );
+		vecino3.setAdeudos(adeudos2);
+		
+		
+		
+	}
 }
