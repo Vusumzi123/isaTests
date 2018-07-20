@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<object width="800" height="800" data="helloworld.pdf">
-</object>
+<div class="textoarriba">
+	<h3>Reglamento del condominio</h3>
+</div>
+<div style="width: 100%;">
+	<img
+		src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0efaf032676677.568ed0d61d000.gif"
+		srcset="https://mir-s3-cdn-cf.behance.net/project_modules/disp/0efaf032676677.568ed0d61d000.gif 600w,"
+		sizes="(max-width: 600px) 100vw, 600px">
+</div>

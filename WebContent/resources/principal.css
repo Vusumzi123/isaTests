@@ -76,9 +76,11 @@ li.nav-item {
 	margin-top: 10px
 }
 
-.finanzas {
+.textoarriba {
+	color: black;
+	margin-top: 7px;
+	margin-bottom: 10px;
 	text-align: center;
-	font-size: 30px;
 }
 
 .body-container, form {
@@ -193,11 +195,12 @@ li.nav-item {
 
 .rectangulo1 {
 	width: 100%;
-	height: 399px;
+	height: 100%;
 	background-color: #f1f1f1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 }
 
 /* Style the tab */
@@ -342,7 +345,7 @@ button.btn.btn-outline-secondary.border-left-0 {
 	background-color: #f1f1f1 !important;
 	color: #07354d !important;
 	display: flex;
-    align-items: center;
+	align-items: center;
 }
 
 .img-elemento1-agenda {
@@ -466,7 +469,6 @@ button.btn.btn-outline-secondary.border-left-0 {
 }
 
 /* PERFIL DE USUARIO */
-
 .body-container, form {
 	width: 100%;
 	height: 100%;
@@ -491,7 +493,8 @@ button.btn.btn-outline-secondary.border-left-0 {
 }
 
 .img-container-perfil {
-	background-image: url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
+	background-image:
+		url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
 	border-radius: 50%;
 	width: 170px;
 	height: 170px;
@@ -578,13 +581,13 @@ button.btn.btn-outline-secondary.border-left-0 {
 }
 
 /* TERMINOS Y CONDICIONES */
-
 .form-container-terminos {
 	width: 758px;
 	background-color: #f1f1f1;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 }
 
 .texto-terminos {
@@ -597,5 +600,87 @@ button.btn.btn-outline-secondary.border-left-0 {
 }
 
 label {
-	color: #07354d!important;
+	color: #07354d !important;
+}
+
+/* CONFIGURACION DE INMUEBLE */
+.registro-de-condominio-config {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.21;
+	text-align: left;
+	color: #07354d;
+	width: 100%;
+	margin-top: 32px;
+}
+
+.nombre-del-condominio, .numero, .pagina-web, .calle, .numero, .telefono
+	{
+	font-size: 16px;
+	font-weight: 300;
+	color: #07354d;
+	width: 50% !important;
+	flex-grow: 1;
+}
+
+.codigo-postal, .colonia, .pais, .ciudad {
+	font-size: 16px;
+	font-weight: 300;
+	color: #07354d;
+	flex-grow: 1;
+	width: 50% !important;
+}
+
+.ubicacin-del-inmueble-config {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+}
+
+.contacto-del-inmueble-config {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+	margin-top: 20px;
+}
+
+.actualizarinmueble {
+	font-size: 16px;
+	font-weight: normal;;
+	line-height: 1.19;
+	text-align: right;
+	color: #00949e;
+	margin-top: 15px;
+	padding-bottom: 10px;
+}
+
+.img-container-config {
+	background-image:
+		url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
+	border-radius: 50%;
+	width: 170px;
+	height: 170px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 15px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.contenedorimg-config {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.botonconfig {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

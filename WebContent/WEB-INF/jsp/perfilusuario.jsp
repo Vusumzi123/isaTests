@@ -2,6 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 <div class="body-container">
 	<form class="form-container-perfil">
+		<div class="textoarriba">
+			<h3>Perfil de usuario</h3>
+		</div>
 		<div class="img-container-perfil" id="imgu"
 			style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
 			<button class="cam">
@@ -32,7 +35,8 @@
 		</div>
 		<input type="hidden" name="${_csrf.parameterName}"
 			value="${_csrf.token}" />
-			<button class="actualizar-datos-perfil Rectangle-242-perfil">Actualizar datos</button>
+		<button class="actualizar-datos-perfil Rectangle-242-perfil">Actualizar
+			datos</button>
 	</form>
 </div>
 </body>

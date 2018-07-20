@@ -104,16 +104,16 @@
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<div class="dropdown-item menu-header">Usuario</div>
-						<a class="dropdown-item" role="button" id="perfilusuario"
+						<a class="dropdown-item" style="cursor: pointer" role="button" id="perfilusuario"
 							onclick="changeTab(event, 'perfil');loadContent('perfilusuario')">
 							<i class="fas fa-user"></i>&nbsp; Perfil de usuario
-						</a> <a class="dropdown-item" role="button" id="reglamento"
+						</a> <a class="dropdown-item" style="cursor: pointer" role="button" id="reglamento"
 							onclick="changeTab(event, 'reglamento');loadContent('reglamento')">
 							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
-						</a> <a class="dropdown-item" role="button" id="terminos"
+						</a> <a class="dropdown-item" style="cursor: pointer" role="button" id="terminos"
 							onclick="changeTab(event, 'terminos');loadContent('terminos')">
 							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
-						</a> <a class="dropdown-item" role="button" id="configinmueble"
+						</a> <a class="dropdown-item" style="cursor: pointer" role="button" id="configinmueble"
 							onclick="changeTab(event, 'configinmueble');loadContent('configinmueble')">
 							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
 						</a> <a class="dropdown-item" href="${ctx}/services/auth/condominios">
@@ -124,14 +124,6 @@
 					</div></li>
 			</ul>
 		</div>
-	</div>
-	<div
-		class="navbar navbar-expand-lg navbar-light bg-light barra-nav d-flex justify-content-center">
-		<ul class="navbar-nav">
-			<li class="nav-item active">
-				<h3>Finanzas</h3>
-			</li>
-		</ul>
 	</div>
 	</nav>
 	<div id="contenedorPrincipal"></div>

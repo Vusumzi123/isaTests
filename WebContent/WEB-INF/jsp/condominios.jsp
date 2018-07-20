@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,8 +29,7 @@
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet"
-	href="${ctx}/resources/condominios.css">
+<link rel="stylesheet" href="${ctx}/resources/condominios.css">
 </head>
 <body>
 	<div class="contenido">
@@ -55,9 +54,10 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="contenedor-carousel">
-								<img class="imgcondominio"
+								<a href="${ctx}/services/auth/principal"> <img
+									class="imgcondominio"
 									src="${pageContext.request.contextPath}/resources/img/imagenResidencia.svg"
-									alt="First slide">
+									alt="First slide"></a>
 							</div>
 						</div>
 						<div class="carousel-item">
@@ -87,7 +87,8 @@
 					<div class="condominios">Condominios</div>
 				</div>
 				<div class="agregarcuenta">
-					<a href="${pageContext.request.contextPath}/services/auth/finanzascon">agregar
+					<a
+						href="${pageContext.request.contextPath}/services/auth/finanzascon">agregar
 						cuenta</a>
 				</div>
 			</div>

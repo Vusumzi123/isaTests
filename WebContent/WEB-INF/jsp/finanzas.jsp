@@ -2,6 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 <div class="body-container">
 	<div class="rectangulo1">
+		<div class="textoarriba">
+			<h3>Finanzas</h3>
+		</div>
 		<div class="form-container">
 			<div class="container">
 				<div id="carouselExampleIndicators" class="carousel slide"
@@ -110,7 +113,7 @@
 								</div>
 								<div class="modal-body">
 
-									<form id="ingreso-form" >
+									<form id="ingreso-form">
 										<div class="form-group modal-form-group">
 											<label for="cuenta" class="bmd-label-floating">cuenta
 												de retiro</label> <select class="form-control" id="cuenta">
@@ -140,10 +143,11 @@
 											<input id="fecha-ingreso" class="form-control" name="fecha"
 												placeholder="mm/dd/aaaa" />
 											<script>
-												$('#fecha-ingreso').datepicker(
-													{
-														uiLibrary : 'bootstrap4'
-													});
+												$('#fecha-ingreso')
+														.datepicker(
+																{
+																	uiLibrary : 'bootstrap4'
+																});
 											</script>
 										</div>
 										<div class="form-group modal-form-group">
@@ -152,8 +156,7 @@
 												<div class="input-group-prepend">
 													<div class="input-group-text">$</div>
 												</div>
-												<input type="text" class="form-control"
-													id="cantidadIngreso">
+												<input type="text" class="form-control" id="cantidadIngreso">
 											</div>
 										</div>
 										<div class="form-group bmd-form-group">
@@ -212,8 +215,8 @@
 											</select>
 										</div>
 										<div class="form-group modal-form-group">
-											<label for="concepto-egreso">concepto</label> <input type="text"
-												class="form-control" id="concepto-egreso">
+											<label for="concepto-egreso">concepto</label> <input
+												type="text" class="form-control" id="concepto-egreso">
 										</div>
 										<div class="form-group modal-form-group">
 											<label for="cuenta" class="bmd-label-floating">remitente</label>
@@ -241,8 +244,7 @@
 												<div class="input-group-prepend">
 													<div class="input-group-text">$</div>
 												</div>
-												<input type="text" class="form-control"
-													id="cantidad">
+												<input type="text" class="form-control" id="cantidad">
 											</div>
 										</div>
 										<div class="form-group bmd-form-group">

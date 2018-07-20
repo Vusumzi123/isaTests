@@ -2,6 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 <div class="body-container">
 	<div class="form-container-notificaciones">
+		<div class="textoarriba">
+			<h3>Notificaciones</h3>
+		</div>
 		<div class="notificacion-novista-notificaciones">
 			<div class="row">
 				<div class="col-sm-3">
