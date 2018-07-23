@@ -9,7 +9,6 @@ function contentAjax(ajaxObj, containerId){
 			$("#"+containerId).html(error);
 		}
 	}
-	console.log(ajaxObj)
 	$.ajax(ajaxObj);
 }
 

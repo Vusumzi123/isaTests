@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import mx.redpoint.isa.bean.Adeudos;
+import mx.redpoint.isa.bean.Comentario;
 import mx.redpoint.isa.bean.Condominios;
 import mx.redpoint.isa.bean.Finanzas;
 import mx.redpoint.isa.bean.Pagos;
@@ -208,6 +209,20 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/auth/agregarcom", method = RequestMethod.POST)
+	public ModelAndView agregarcom(HttpServletRequest request) {
+		Comentario comentario = new Comentario();
+		String cuerpo = request.getParameter("textCom");
+		System.out.println(cuerpo);
+		Date fecha = new Date();
+		comentario.setBody(cuerpo);
+		comentario.setDate(fecha);
+		comentario.setIdUser("Henry Zapata");
+		ModelAndView model = new ModelAndView("agregarcom");
+		model.addObject("comment", comentario);
+		return model;
+	}
+	
 	@RequestMapping(value = "/auth/notificaciones", method = RequestMethod.GET)
 	public ModelAndView notificaciones(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("notificaciones");
@@ -312,9 +327,8 @@ public class MiCitaTelcelRestController {
 		adeu3.setCantidad(8000.0);
 		adeudos2.add(adeu3);
 		vecino3.setPagos( pagos2 );
-		vecino3.setAdeudos(adeudos2);
-		
-		
-		
+		vecino3.setAdeudos(adeudos2);	
 	}
+
+	
 }

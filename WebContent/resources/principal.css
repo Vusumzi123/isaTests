@@ -423,6 +423,7 @@ button.btn.btn-outline-secondary.border-left-0 {
 .aviso1-avisos {
 	background-color: #ffffff;
 	margin-top: 22px;
+	border-bottom: 1px solid  #8b8b8b;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;

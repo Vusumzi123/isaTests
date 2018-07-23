@@ -129,5 +129,6 @@
 	<div id="contenedorPrincipal"></div>
 	<script type="text/javascript" src="${ctx}/resources/js/util.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/avisos.js"></script>
 </body>
 </html>
