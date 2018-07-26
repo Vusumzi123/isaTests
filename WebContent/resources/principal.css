@@ -427,7 +427,6 @@ button.btn.btn-outline-secondary.border-left-0 {
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
-	margin-bottom: 66px;
 }
 
 .usuario-dijo-avisos {
@@ -638,6 +637,8 @@ label {
 	line-height: 1.19;
 	text-align: left;
 	color: #07354d;
+	margin-bottom: 20px;
+	margin-top:20px;
 }
 
 .contacto-del-inmueble-config {
@@ -647,6 +648,7 @@ label {
 	text-align: left;
 	color: #07354d;
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .actualizarinmueble {

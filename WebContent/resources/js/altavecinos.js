@@ -8,6 +8,16 @@ function changeTab(evt, tab) {
 			toActivete.addClass('active');
 		}
 
-$(document).ready(function() {
-	$('input#input_text, textarea#textarea2').characterCounter();
-});
+function agregaEmail(){
+	var ajaxObject = {
+			url : contexto + "/services/auth/agregarmail",
+			method : 'POST',
+			data : { correoInvite : $("#correo-invite").val()},
+			success : function(response, status) {
+				$("#altavecinos-container").prepend(response);
+				
+			},
+	}
+	sendToken();
+	contentAjax(ajaxObject, "altavecinos-container");
+};

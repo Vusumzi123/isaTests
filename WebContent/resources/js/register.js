@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var url=contexto + "/services/";
+	var url=contexto + "/services/confirm";
     $("#but_submit").click(function(event){
     	event.preventDefault();
     	var nombres = $("#name").val().trim();

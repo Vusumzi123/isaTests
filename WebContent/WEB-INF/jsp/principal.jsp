@@ -65,19 +65,19 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-lg-auto">
-				<li class="nav-item active" id="finanzas"><a class="nav-link"
+				<li class="nav-item main-Tab active" id="finanzas"><a class="nav-link"
 					role="button" id="loadfinanzas"
-					onclick="changeTab(event, 'finanzas');loadContent('finanzas')"
+					onclick="changeTab(event, 'finanzas', 'main-Tab');loadContent('finanzas')"
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-dollar-sign"></i> <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item" id="agendavecinos"><a class="nav-link"
+				<li class="nav-item main-Tab" id="agendavecinos"><a class="nav-link"
 					role="button" id="loadagenda"
 					onclick="changeTab(event, 'agendavecinos');loadContent('agendavecinos')"
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-user-friends"></i>
 				</a></li>
-				<li class="nav-item" id="avisos"><a class="nav-link"
+				<li class="nav-item main-Tab" id="avisos"><a class="nav-link"
 					role="button" id="loadavisos"
 					onclick="changeTab(event, 'avisos');loadContent('avisos')"
 					style="font-size: 24px; cursor: pointer"> <i
@@ -129,6 +129,8 @@
 	<div id="contenedorPrincipal"></div>
 	<script type="text/javascript" src="${ctx}/resources/js/util.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/finanzas.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/agendavecinos.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/avisos.js"></script>
 </body>
 </html>

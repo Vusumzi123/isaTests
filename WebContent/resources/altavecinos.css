@@ -145,7 +145,7 @@
 	line-height: 1.14;
 	text-align: center;
 	color: #07354d;
-	margin-top: 168px;
+	margin-top: 40px;
 }
 
 .subir, .descargar {
@@ -191,7 +191,7 @@ button {
 	line-height: 1.19;
 	text-align: center;
 	color: #00949e !important;
-	margin-top: 30px;
+	margin-top: 5px;
 	padding-bottom: 20px;
 }
 
@@ -199,4 +199,32 @@ label {
 	color: #07354d!important;
 	font-size: 13px!important;
 	font-weight: 300!important;
+}
+
+.Iniciar-sesin2 {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	margin-bottom: 30px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.Rectangle-706 {
+	width: 182px;
+	height: 36px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 18px;
+	background-color: #07354d;
+	border: none;
+	cursor: pointer;
+}
+
+.contenedorcorreos {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  color: #07354d;
+  margin-bottom: 10px;
 }

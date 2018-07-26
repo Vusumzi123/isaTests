@@ -7,6 +7,9 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="_csrf" content="${_csrf.token}" />
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Alta de vecinos</title>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -29,7 +32,9 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script>
+	var contexto = "${ctx}";
+</script>
 <link rel="stylesheet" href="${ctx}/resources/altavecinos.css">
 </head>
 <body>
@@ -41,42 +46,93 @@
 		<img class="imgusuario" src="${ctx}/resources/img/imagenPerfil.svg">
 	</div>
 	<div class="body-container">
-		<form class="contenido">
-			<div class="alta-vecinos">alta de vecinos</div>
-			<div class="tab">
-				<button class="tablinks" onclick="changeTab(event, 'vecinos')">vecinos</button>
-				<button class="tablinks"
-					onclick="changeTab(event, 'sub-administradores')">sub-administradores</button>
-			</div>
+		<div class="contenido">
 			<div id="vecinos" class="tabcontent active">
+				<div class="alta-vecinos">alta de vecinos</div>
+				<div class="tab">
+					<button type="button" class="tablinks"
+						onclick="changeTab(event, 'vecinos')">vecinos</button>
+					<button type="button" class="tablinks"
+						onclick="changeTab(event, 'sub-administradores')">sub-administradores</button>
+				</div>
 				<div class="container">
 					<div class="texto1">Invita a tus vecinos a ser parte de este
-						condominio. Ingresa su correo</div>
+						condominio. Ingresa su correo electrónico. También puedes
+						descargar nuestro formato Excel para ayudarte.</div>
+					<div class="contenido1">
+						<form class="input-field invitacion-correo">
+							<input id="correo-invite" name="correo-invite" type="email"
+								class="validate"> <label for="correo-invite">invitar
+								con correo electrónico</label>
+							<div class="boton1-avisos">
+								<button id="agregar-correo" onclick="agregaEmail()"
+									type="button" class="Iniciar-sesin2 Rectangle-706">Enviar
+									correo</button>
+							</div>
+						</form>
+						<div id="altavecinos-container"></div>
+						<div class="contador-viviendas">Viviendas restantes:${num}</div>
+					</div>
+					<div class="row" style="width: 100%">
+						<div class="descargar Rectangle-1130 col s12">
+							<button type="button">
+								<i class="fas fa-file-excel"></i>&nbsp;descargar formato
+							</button>
+						</div>
+						<div class="subir Rectangle-1130 col s12">
+							<button type="button">
+								<i class="fas fa-upload"></i>&nbsp;subir formato
+							</button>
+						</div>
+					</div>
+					<div class="continuar">
+						<a
+							href="${pageContext.request.contextPath}/services/auth/principal">continuar</a>
+					</div>
+				</div>
+			</div>
+			<div id="sub-administradores" class="tabcontent">
+				<div class="alta-vecinos">alta de sub-administradores</div>
+				<div class="tab">
+					<button type="button" class="tablinks"
+						onclick="changeTab(event, 'vecinos')">vecinos</button>
+					<button type="button" class="tablinks"
+						onclick="changeTab(event, 'sub-administradores')">sub-administradores</button>
+				</div>
+				<div class="container">
+					<div class="texto1">Actualmente, tú eres el administrador del
+						inmueble, puedes designar a sub administradores que gestionen
+						grupos más pequeños de vecinos para facilitar tu labor.</div>
 					<div class="contenido1">
 						<div class="input-field invitacion-correo">
-							<input id="correo" type="email" class="validate"> <label
-								for="correo">invitar con correo electrónico</label>
+							<input type="email"> <label>invitar con correo
+								electrónico</label>
 						</div>
 						<div class="contador-viviendas">Viviendas restantes:${num}</div>
 					</div>
 					<div class="row" style="width: 100%">
 						<div class="descargar Rectangle-1130 col s12">
-							<button>descargar formato</button>
+							<button type="button">
+								<i class="fas fa-file-excel"></i>&nbsp;descargar formato
+							</button>
 						</div>
 						<div class="subir Rectangle-1130 col s12">
-							<button>subir formato</button>
+							<button type="button">
+								<i class="fas fa-upload"></i>&nbsp;subir formato
+							</button>
 						</div>
 					</div>
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
 					<div class="continuar">
-						<a href="${pageContext.request.contextPath}/services/auth/principal">continuar</a>
+						<a
+							href="${pageContext.request.contextPath}/services/auth/principal">continuar</a>
 					</div>
 				</div>
 			</div>
-		</form>
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+		</div>
 	</div>
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/js/altavecinos.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/altavecinos.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/util.js"></script>
 </body>
 </html>

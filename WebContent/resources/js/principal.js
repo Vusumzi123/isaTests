@@ -1,7 +1,7 @@
 $(document).ready(function(){ loadContent('finanzas') })
 
-function changeTab(evt, tab) {
-	var activeTabs = $('.active');
+function changeTab(evt, tab, clase) {
+	var activeTabs = $('.'+clase);
 	activeTabs.each(function() {
 		$(this).removeClass('active');
 	})
@@ -9,23 +9,7 @@ function changeTab(evt, tab) {
 	toActivete.addClass('active');
 }
 
-function changeTableTab(evt, tab) {
-	var activeTabs = $('.table-tabs');
-	activeTabs.each(function() {
-		$(this).removeClass('active');
-	})
-	var toActivete = $('#' + tab);
-	toActivete.addClass('active');
-}
 
-function changeTableTab1(evt, tab) {
-	var activeTabs = $('.table-tabs1');
-	activeTabs.each(function() {
-		$(this).removeClass('active');
-	})
-	var toActivete = $('#' + tab);
-	toActivete.addClass('active');
-}
 
 function changeDatos(evt, tab) {
 	var activeTabs = $('.datos');

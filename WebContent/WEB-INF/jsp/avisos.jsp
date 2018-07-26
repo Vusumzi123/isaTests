@@ -25,8 +25,8 @@
 				</div>
 			</form>
 			<div class="linea-avisos"></div>
-			<div id="cuadro-texto"></div>
-			<div class="aviso1-avisos" id="avisos-container">
+			<div id="avisos-container"></div>
+			<div class="aviso1-avisos">
 				<div class="row">
 					<img class="usuario1-avisos col-sm-2"
 						src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">

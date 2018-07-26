@@ -54,7 +54,7 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="contenedor-carousel">
-								<a href="${ctx}/services/auth/principal"> <img
+								<a href="${ctx}/services/auth/altavecinos"> <img
 									class="imgcondominio"
 									src="${pageContext.request.contextPath}/resources/img/imagenResidencia.svg"
 									alt="First slide"></a>

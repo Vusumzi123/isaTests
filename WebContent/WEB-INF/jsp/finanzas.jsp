@@ -116,7 +116,8 @@
 									<form id="ingreso-form">
 										<div class="form-group modal-form-group">
 											<label for="cuenta" class="bmd-label-floating">cuenta
-												de retiro</label> <select class="form-control" id="cuenta">
+												de retiro</label> <select class="form-control" name="cuenta-ingreso"
+												id="cuenta-ingreso">
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
@@ -126,11 +127,13 @@
 										</div>
 										<div class="form-group modal-form-group">
 											<label for="concepto">concepto</label> <input type="text"
-												class="form-control" id="concepto">
+												class="form-control" id="concepto-ingreso"
+												name="concepto-ingreso">
 										</div>
 										<div class="form-group modal-form-group">
 											<label for="cuenta" class="bmd-label-floating">remitente</label>
-											<select class="form-control" id="cuenta">
+											<select class="form-control" id="remitente-ingreso"
+												name="remitente-ingreso">
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
@@ -140,8 +143,8 @@
 										</div>
 										<div class="form-group modal-form-group">
 											<label for="fecha-ingreso" class="bmd-label-floating">fecha</label>
-											<input id="fecha-ingreso" class="form-control" name="fecha"
-												placeholder="mm/dd/aaaa" />
+											<input id="fecha-ingreso" class="form-control"
+												name="fecha-ingreso" placeholder="mm/dd/aaaa" />
 											<script>
 												$('#fecha-ingreso')
 														.datepicker(
@@ -156,7 +159,8 @@
 												<div class="input-group-prepend">
 													<div class="input-group-text">$</div>
 												</div>
-												<input type="text" class="form-control" id="cantidadIngreso">
+												<input type="text" class="form-control"
+													id="cantidad-ingreso" name="cantidad-ingreso">
 											</div>
 										</div>
 										<div class="form-group bmd-form-group">
@@ -173,12 +177,13 @@
 													class="fas fa-trash-alt"></i>
 											</button>
 											<input type="file" style="display: none" class="form-control"
-												id="archivo-ingreso">
+												id="comprobante-ingreso" name="comprobante-ingreso">
 										</div>
 									</form>
 								</div>
 								<div class="modal-footer d-flex justify-content-center">
-									<button type="button" class="btn btn-primary">registrar
+									<button type="button" onclick="agregarDato(tipoIngreso)"
+										id="boton-enviar-ingreso" class="btn btn-primary">registrar
 										ingreso</button>
 								</div>
 							</div>
@@ -267,8 +272,8 @@
 
 								</div>
 								<div class="modal-footer d-flex justify-content-center">
-									<button type="button" class="btn btn-primary">registrar
-										egreso</button>
+									<button type="button" id="agregaIngreso"
+										class="btn btn-primary">registrar egreso</button>
 								</div>
 							</div>
 						</div>
@@ -280,111 +285,12 @@
 	</div>
 	<div class="form-container">
 		<div class="tab">
-			<button class="tablinks " onclick="changeTableTab(event, 'todos')">todos</button>
-			<button class="tablinks " onclick="changeTableTab(event, 'ingresos')">ingresos</button>
-			<button class="tablinks " onclick="changeTableTab(event, 'egresos')">egresos</button>
+			<button class="tablinks "
+				onclick="llamarTabla('todos')">todos</button>
+			<button class="tablinks "
+				onclick="llamarTabla('ingresos')">ingresos</button>
+			<button class="tablinks "
+				onclick="llamarTabla('egresos')">egresos</button>
 		</div>
-		<div id="todos" class="tabcontent table-tabs active">
-			<table class="table table-striped" style="width: 100%">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th>Concepto</th>
-						<th>Cantidad</th>
-						<th>Comprobante</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>29 de junio</td>
-						<td>Cuota mensual Fulano</td>
-						<td>$40,000</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>29 de junio</td>
-						<td>Alta caja chica</td>
-						<td>$12,000</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>28 de junio</td>
-						<td>Alta tarjeta de credito</td>
-						<td>$37,000</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>28 de junio</td>
-						<td>Servicio de luz</td>
-						<td>$5,000</td>
-						<td><i class="fas fa-download"></i></td>
-					</tr>
-					<tr>
-						<td>27 de junio</td>
-						<td>Servicio de agua</td>
-						<td>$9,000</td>
-						<td><i class="fas fa-download"></i></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div id="ingresos" class="tabcontent table-tabs">
-			<table class="table table-striped" style="width: 100%">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th>Concepto</th>
-						<th>Cantidad</th>
-						<th>Comprobante</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>29 de junio</td>
-						<td>Cuota mensual Fulano</td>
-						<td>$40,000</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>29 de junio</td>
-						<td>Alta caja chica</td>
-						<td>$12,000</td>
-						<td></td>
-					</tr>
-					<tr>
-						<td>28 de junio</td>
-						<td>Alta tarjeta de credito</td>
-						<td>$37,000</td>
-						<td></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div id="egresos" class="tabcontent table-tabs">
-			<table class="table table-striped" style="width: 100%">
-				<thead>
-					<tr>
-						<th>Fecha</th>
-						<th>Concepto</th>
-						<th>Cantidad</th>
-						<th>Comprobante</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>28 de junio</td>
-						<td>Servicio de luz</td>
-						<td>$5,000</td>
-						<td><i class="fas fa-download"></i></td>
-					</tr>
-					<tr>
-						<td>27 de junio</td>
-						<td>Servicio de agua</td>
-						<td>$9,000</td>
-						<td><i class="fas fa-download"></i></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<div id="contenedor-cuadroie"></div>
 	</div>
-</div>

@@ -24,7 +24,6 @@
 						</form>
 						<div class="d-flex flex-column tab" style="margin-top: 11px">
 
-
 							<c:forEach var="vecino" items="${vecinos}">
 								<button class="elemento1-agenda p-4"
 									onclick="cargaDatos(event, '${vecino.getNombre()}')">
@@ -50,28 +49,28 @@
 										<div class="contenedor5-agenda col-sm-4">
 											<div class="nombre-agenda">
 												nombre <br>
-												<div class="">Henry Zapata</div>
+												<div class="" id="nombrevecino"></div>
 											</div>
 											<div class="vivienda-agenda">
 												vivienda <br>
-												<div class=""></div>
+												<div class="" id="viviendavecino"></div>
 											</div>
 										</div>
 										<div class="correo-agenda col-sm-4">
 											correo electrónico <br>
-											<div class=""></div>
+											<div class="" id="correovecino"></div>
 										</div>
 									</div>
 								</div>
 								<div class="tab">
 									<button class="tablinks"
-										onclick="changeTableTab(event, 'pagos')"
+										onclick="changeTab(event, 'pagos', 'table-agenda')"
 										style="width: 50% !important">pagos</button>
 									<button class="tablinks"
-										onclick="changeTableTab(event, 'adeudos')"
+										onclick="changeTab(event, 'adeudos', 'table-agenda')"
 										style="width: 50% !important">adeudos</button>
 								</div>
-								<div id="pagos" class="tabcontent table-tabs active">
+								<div id="pagos" class="tabcontent table-agenda active">
 									<table class="table table-striped" style="width: 100%">
 										<thead>
 											<tr>
@@ -81,13 +80,13 @@
 												<th>Comprobante</th>
 											</tr>
 										</thead>
-										<tbody id="tabla">
+										<tbody id="tabla-pagos">
 
 
 										</tbody>
 									</table>
 								</div>
-								<div id="adeudos" class="tabcontent table-tabs">
+								<div id="adeudos" class="tabcontent table-agenda">
 									<table class="table table-striped" style="width: 100%">
 										<thead>
 											<tr>
@@ -97,83 +96,13 @@
 												<th>Comprobante</th>
 											</tr>
 										</thead>
-										<tbody>
-											<tr>
-												<td>28 junio 2018</td>
-												<td>CUOTA MENSUAL JUNIO</td>
-												<td><div class="cantidad1">$8,000</div></td>
-												<td><button>detalles</button></td>
-											</tr>
+										<tbody id="tabla-adeudos">
+											
 										</tbody>
 									</table>
 								</div>
 							</div>
-							<div id="usuario4" class="tabcontent datos">
-								<div class="contenedor3-agenda">
-									<div class="row">
-										<img class="img-derecha-agenda col-sm-4"
-											src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
-										<div class="contenedor5-agenda col-sm-4">
-											<div class="nombre-agenda">
-												nombre <br>
-												<div class="">Montserrat Casillas</div>
-											</div>
-											<div class="vivienda-agenda">
-												vivienda <br>
-												<div class=""></div>
-											</div>
-										</div>
-										<div class="correo-agenda col-sm-4">
-											correo electrónico <br>
-											<div class=""></div>
-										</div>
-									</div>
-								</div>
-								<div class="tab">
-									<button class="tablinks"
-										onclick="changeTableTab1(event, 'pagos')"
-										style="width: 50% !important">pagos</button>
-									<button class="tablinks"
-										onclick="changeTableTab1(event, 'adeudos')"
-										style="width: 50% !important">adeudos</button>
-								</div>
-								<div id="pagos" class="tabcontent table-tabs1 active">
-									<table class="table table-striped" style="width: 100%">
-										<thead>
-											<tr>
-												<th>Fecha</th>
-												<th>Concepto</th>
-												<th>Cantidad</th>
-												<th>Comprobante</th>
-											</tr>
-										</thead>
-										<tbody id="tabla">
-
-
-										</tbody>
-									</table>
-								</div>
-								<div id="adeudos" class="tabcontent table-tabs1">
-									<table class="table table-striped" style="width: 100%">
-										<thead>
-											<tr>
-												<th>Fecha</th>
-												<th>Concepto</th>
-												<th>Cantidad</th>
-												<th>Comprobante</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>28 junio 2018</td>
-												<td>CUOTA MENSUAL JUNIO</td>
-												<td><div class="cantidad1">$8,000</div></td>
-												<td><button>detalles</button></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>
