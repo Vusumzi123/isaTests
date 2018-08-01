@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <div class="body-container">
 	<form>
 		<input type="hidden" name="${_csrf.parameterName}"
@@ -9,8 +11,8 @@
 				<h3>Configuración del inmueble</h3>
 			</div>
 			<div class="contenedorimg-config">
-				<div class="img-container-config"
-					style="background-image: url('${ctx}/resources/img/imagenResidencia.svg')">
+				<div class="img-container-config" id="archivo1" name="archivo1"
+					style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg')">
 					<button class="cam">
 						<i class="fas fa-camera"></i>
 						<!-- <i class="fas fa-camera"></i> -->
@@ -89,6 +91,25 @@
 							type="text" class="form-control" id="web" name="web">
 					</div>
 				</div>
+			</div>
+			<div id="cuadro-contenedor1">
+				<input id="contador" name="contador" type="hidden"></input>
+			</div>
+			<div class="agregar-cuenta">
+				<button id="agregarcuenta1" type="button"
+					onclick="agregarCuadro1(event,numeroCuadro)"
+					style="border: none; background-color: transparent; cursor: pointer;">agregar
+					otra cuenta</button>
+			</div>
+			<div class="container1-config">
+				<div class="form-group col-sm-6"
+					style="margin-top: 10px; max-width: 31% !important;">
+					<label for="cuotamensual" class="bmd-label-floating"> cuota
+						mensual por vecino</label> <input type="text" class="form-control"
+						id="cuotamensual" name="cuotamensual">
+				</div>
+			</div>
+			<div class="barra-bot-config">
 				<div class="botonconfig">
 					<button class="actualizar-datos-perfil Rectangle-242-perfil">Actualizar
 						inmueble</button>

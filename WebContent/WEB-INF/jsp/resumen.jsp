@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
-<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,8 +34,7 @@
 		$('body').bootstrapMaterialDesign();
 	});
 </script>
-<link rel="stylesheet"
-	href="${ctx}/resources/resumen.css">
+<link rel="stylesheet" href="${ctx}/resources/resumen.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -59,18 +58,19 @@
 					<div class="contenido1 col-sm-6 mx-0">
 						<div class="datos-condominio">datos del condominio</div>
 						<div class="nombre-condominio">nombre del condominio</div>
-						<div class="nombre-condominio111">${condominio.getName1()}</div>
+						<div class="nombre-condominio111">${condo.getName1()}</div>
 						<div class="direccion">dirección</div>
 						<div class="direccion111">
 							<p>
-								${condominio.getStreet()} ${condominio.getNumber()},<br> ${condominio.getColonia()}, ${condominio.getCity()},<br>
-								${condominio.getCp()}, ${condominio.getCountry()}
+								${condo.getStreet()} ${condo.getNumber()},<br>
+								${condo.getColonia()}, ${condo.getCity()},<br>
+								${condo.getCp()}, ${condo.getCountry()}
 							</p>
 						</div>
 						<div class="contactos">contactos</div>
 						<div class="contactos111">
 							<p>
-								${condominio.getPhone()}<br> ${condominio.getWeb()}
+								${condo.getPhone()}<br> ${condo.getWeb()}
 							</p>
 						</div>
 					</div>
@@ -78,15 +78,15 @@
 			</div>
 			<div class="rectangulo1">
 				<div class="cuenta"></div>
-				<div class="alias111">${alias}</div>
-				<div class="tipo111">${tipo}</div>
-				<div class="monto-inicial111">${montoinicial}</div>
+				<div class="alias111">${finan.getAlias}</div>
+				<div class="tipo111">${finan.getTipo}</div>
+				<div class="monto-inicial111">${finan.getMontoinicial}</div>
 				<div class="numero-de-cuenta">número de cuenta</div>
-				<div class="numero-de-cuenta111">${numerocuenta}</div>
+				<div class="numero-de-cuenta111">${finan.getNumerocuenta}</div>
 				<div class="numero-de-tarjeta">número de tarjeta</div>
-				<div class="numero-de-tarjeta111">${numerotarjeta}</div>
+				<div class="numero-de-tarjeta111">${finan.getNumerotarjeta}</div>
 				<div class="numero-clabe">número de cuenta clabe</div>
-				<div class="numero-clabe111">${numeroclabe}</div>
+				<div class="numero-clabe111">${finan.getNumeroclabe}</div>
 			</div>
 			<div class="rectangulo2">
 				<div class="cuota-mensual">cuota mensual por vecino</div>
@@ -95,11 +95,13 @@
 			<div class="barra-bot">
 				<div class="logo-nav">
 					<div class="atras">
-						<a href="${pageContext.request.contextPath}/services/auth/finanzascon">atras</a>
+						<a
+							href="${pageContext.request.contextPath}/services/auth/finanzascon">atras</a>
 					</div>
 				</div>
 				<div class="finalizar">
-					<a href="${pageContext.request.contextPath}/services/auth/condominios">finalizar</a>
+					<a
+						href="${pageContext.request.contextPath}/services/auth/condominios">finalizar</a>
 				</div>
 			</div>
 		</form>

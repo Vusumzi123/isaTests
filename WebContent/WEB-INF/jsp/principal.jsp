@@ -65,14 +65,14 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-lg-auto">
-				<li class="nav-item main-Tab active" id="finanzas"><a class="nav-link"
-					role="button" id="loadfinanzas"
+				<li class="nav-item main-Tab active" id="finanzas"><a
+					class="nav-link" role="button" id="loadfinanzas"
 					onclick="changeTab(event, 'finanzas', 'main-Tab');loadContent('finanzas')"
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-dollar-sign"></i> <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item main-Tab" id="agendavecinos"><a class="nav-link"
-					role="button" id="loadagenda"
+				<li class="nav-item main-Tab" id="agendavecinos"><a
+					class="nav-link" role="button" id="loadagenda"
 					onclick="changeTab(event, 'agendavecinos');loadContent('agendavecinos')"
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-user-friends"></i>
@@ -104,16 +104,20 @@
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<div class="dropdown-item menu-header">Usuario</div>
-						<a class="dropdown-item" style="cursor: pointer" role="button" id="perfilusuario"
+						<a class="dropdown-item" style="cursor: pointer" role="button"
+							id="perfilusuario"
 							onclick="changeTab(event, 'perfil');loadContent('perfilusuario')">
 							<i class="fas fa-user"></i>&nbsp; Perfil de usuario
-						</a> <a class="dropdown-item" style="cursor: pointer" role="button" id="reglamento"
+						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
+							id="reglamento"
 							onclick="changeTab(event, 'reglamento');loadContent('reglamento')">
 							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
-						</a> <a class="dropdown-item" style="cursor: pointer" role="button" id="terminos"
+						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
+							id="terminos"
 							onclick="changeTab(event, 'terminos');loadContent('terminos')">
 							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
-						</a> <a class="dropdown-item" style="cursor: pointer" role="button" id="configinmueble"
+						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
+							id="configinmueble"
 							onclick="changeTab(event, 'configinmueble');loadContent('configinmueble')">
 							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
 						</a> <a class="dropdown-item" href="${ctx}/services/auth/condominios">
@@ -132,5 +136,7 @@
 	<script type="text/javascript" src="${ctx}/resources/js/finanzas.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/agendavecinos.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/avisos.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/configinmueble.js"></script>
+
 </body>
 </html>

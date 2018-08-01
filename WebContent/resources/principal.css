@@ -346,6 +346,7 @@ button.btn.btn-outline-secondary.border-left-0 {
 	color: #07354d !important;
 	display: flex;
 	align-items: center;
+	border: solid 1px
 }
 
 .img-elemento1-agenda {
@@ -686,4 +687,145 @@ label {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.nombre-alias, .monto-inicial, .numero-de-cuenta, .numero-de-tarjeta,
+	.numero-clabe {
+	width: 50% !important;
+}
+
+.datos-operaciones-config {
+	font-size: 18px;
+	color: #07354d;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+.cuota-mensual-config {
+	width: 27% !important;
+}
+
+.barra-bot-config {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 85px;
+	padding-right: 85px;
+}
+
+.cuenta-config {
+	font-size: 18px;
+	color: #07354d;
+	margin-bottom: 20px;
+}
+
+.rectangulo1-config {
+	width: 100%;
+	background-color: #f1f1f1;
+	padding-top: 24px;
+	display: flex;
+	align-items: center;
+}
+
+#cuadro-contenedor {
+	width: 100% !important;
+}
+
+.agregar-cuenta {
+	margin-top: 25px;
+	margin-bottom: 39px;
+	font-size: 16px;
+	color: #07354d !important;
+	border: none;
+	background-color: transparent;
+	text-align: center;
+}
+
+.atras-config {
+	color: #00949e !important;
+}
+
+.siguiente-config {
+	display: flex;
+	justify-content: flex-end;
+	color: #00949e !important;
+	font-size: 16px;
+	font-weight: normal;;
+	line-height: 1.19;
+	text-align: right;
+	background-color: transparent;
+}
+
+.container1-config {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background-color: #f1f1f1;
+	border-radius: 12px;
+	margin-top: 10px;
+}
+
+/*the container must be positioned relative:*/
+.tipo-select {
+	position: relative;
+	width: 50% !important;
+	margin-top: 19px;
+}
+
+.select-selected {
+	background-color: #f1f1f1;
+}
+/*style the arrow inside the select element:*/
+.select-selected:after {
+	position: absolute;
+	content: "";
+	top: 5px;
+	right: 16px;
+	width: 0;
+	height: 0;
+	border: 6px solid transparent;
+	border-color: #07354d transparent transparent transparent;
+}
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+	border-color: transparent transparent #07354d transparent;
+	top: 7px;
+}
+/*style the items (options), including the selected item:*/
+.select-items div, .select-selected {
+	color: #07354d;
+	border: 1px solid black;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+	user-select: none;
+}
+/*style items (options):*/
+.select-items {
+	position: absolute;
+	background-color: #f1f1f1;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+/*hide the items when the select box is closed:*/
+.select-hide {
+	display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.active {
+	display: block !important;
+}
+
+@media ( max-width : 991px) {
+	.form-container {
+		width: 90%;
+	}
 }

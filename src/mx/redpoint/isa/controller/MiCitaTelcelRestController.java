@@ -319,6 +319,14 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("configinmueble");
 		return model;
 	}
+	
+	@RequestMapping(value = "/auth/cuadroconfig", method = RequestMethod.GET)
+	public ModelAndView cuadroconfig(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("cuadroconfig");
+		int num = Integer.parseInt(request.getParameter("num"));
+		model.addObject("num", num);
+		return model;
+	}
 
 	private void generaDatosVecino() {//TODELETE
 		vecinosFalsos.clear();
@@ -336,7 +344,7 @@ public class MiCitaTelcelRestController {
 		pago1.setFecha(new Date());
 		pago1.setConcepto("Mensualidad");
 		pago1.setCantidad(6000.0);
-		pago2.setFecha(new Date());
+		pago2.setFecha(new Date("28/04/18"));
 		pago2.setConcepto("Mensualidad");
 		pago2.setCantidad(6000.0);
 		pagos.add(pago1);

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <div class="body-container">
 	<div class="form-container-avisos">
 		<div class="contenedor1-avisos">
