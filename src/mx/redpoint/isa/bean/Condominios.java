@@ -3,22 +3,24 @@ package mx.redpoint.isa.bean;
 import java.sql.Blob;
 
 public class Condominios {
-	private Blob foto;
+	private String photo;
 	private String name1;
-	private Blob archivo;
+	private Blob regulation;
 	private String country;
 	private String cp; 
 	private String city;
-	private String colonia;
+	private String colony;
 	private String street;
 	private String number;
 	private String phone;
 	private String web;
-	public Blob getFoto() {
-		return foto;
+	private Finanzas[] finanzas;
+	
+	public String getPhoto() {
+		return photo;
 	}
-	public void setFoto(Blob foto) {
-		this.foto = foto;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	public String getName1() {
 		return name1;
@@ -26,11 +28,11 @@ public class Condominios {
 	public void setName1(String name1) {
 		this.name1 = name1;
 	}
-	public Blob getArchivo() {
-		return archivo;
+	public Blob getRegulation() {
+		return regulation;
 	}
-	public void setArchivo(Blob archivo) {
-		this.archivo = archivo;
+	public void setRegulation(Blob regulation) {
+		this.regulation = regulation;
 	}
 	public String getCountry() {
 		return country;
@@ -50,11 +52,11 @@ public class Condominios {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getColonia() {
-		return colonia;
+	public String getColony() {
+		return colony;
 	}
-	public void setColonia(String colonia) {
-		this.colonia = colonia;
+	public void setColony(String colony) {
+		this.colony = colony;
 	}
 	public String getStreet() {
 		return street;
@@ -79,6 +81,12 @@ public class Condominios {
 	}
 	public void setWeb(String web) {
 		this.web = web;
+	}
+	public Finanzas[] getFinanzas() {
+		return finanzas;
+	}
+	public void setFinanzas(Finanzas[] finanzas) {
+		this.finanzas = finanzas;
 	}
 	
 	

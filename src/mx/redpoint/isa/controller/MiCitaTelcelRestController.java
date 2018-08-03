@@ -1,5 +1,8 @@
 package mx.redpoint.isa.controller;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Blob;
 import java.util.ArrayList;
@@ -7,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.rowset.serial.SerialBlob;
 
@@ -29,20 +33,24 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.w3c.dom.Document;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.util.RandomValueStringGenerator;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 
 @RestController
+@MultipartConfig
 @RequestMapping(value="/services")
 public class MiCitaTelcelRestController {
     
@@ -110,24 +118,19 @@ public class MiCitaTelcelRestController {
 	}
 
 	@RequestMapping(value = "/auth/resumen", method = RequestMethod.POST)
-	public ModelAndView resumen(HttpServletRequest request,
-			@RequestParam(value="archivo", required=false) CommonsMultipartFile archivo,
-			//@RequestParam(value="foto", required=true) CommonsMultipartFile foto,
-			MultipartHttpServletRequest mrequest) {
+	public ModelAndView resumen(HttpServletRequest request) {
 		
 		ModelAndView model = new ModelAndView("resumen");
-		ArrayList<Finanzas> cuadros = new ArrayList<Finanzas>();
-		Finanzas finan = new Finanzas();
+		Finanzas[] finan;
 		Condominios condo = new Condominios();
 		condo.setCity(request.getParameter("city"));
-		condo.setColonia(request.getParameter("colonia"));
+		condo.setColony(request.getParameter("colony"));
 		condo.setCountry(request.getParameter("country"));
 		condo.setCp(request.getParameter("cp"));
-		condo.setArchivo(BlobUtil.partFile2Blob(archivo));
-		System.out.println(condo.getArchivo());
-		//condo.setFoto(BlobUtil.partFile2Blob(foto));
+//		condo.setArchivo(BlobUtil.partFile2Blob(regulation));
+//		System.out.println(condo.getArchivo());
+		condo.setPhoto(request.getParameter("photo"));
 		condo.setName1(request.getParameter("name1"));
-		System.out.println("XXXXXXXXX:");
 		System.out.println(condo.getName1());
 		condo.setNumber(request.getParameter("number"));
 		condo.setPhone(request.getParameter("phone"));
@@ -136,25 +139,28 @@ public class MiCitaTelcelRestController {
 		//condo.setFile(file);
 		// Map parameterMap = request.getParameterMap();
 		int max = Integer.parseInt(request.getParameter("contador"));
-		for (int i = 1; i <= max; i++) {
-			String alias = request.getParameter("alias" + (i));
-			String tipo = request.getParameter("tipo" + (i));
-			String montoinicial = request.getParameter("montoinicial" + (i));
-			String numerocuenta = request.getParameter("numerocuenta" + (i));
-			String numerotarjeta = request.getParameter("numerotarjeta" + (i));
-			String numeroclabe = request.getParameter("numeroclabe" + (i));
-			finan.setAlias(alias);
-			finan.setTipo(tipo);
-			finan.setMontoinicial(montoinicial);
-			finan.setNumerocuenta(numerocuenta);
-			finan.setNumerotarjeta(numerotarjeta);
-			finan.setNumeroclabe(numeroclabe);
-			cuadros.add(finan);
+		System.out.println("xxxxx:"+max);
+		finan = new Finanzas[max];
+		for (int i = 0; i < max; i++) {
+			finan[i] = new Finanzas();
+			String alias = request.getParameter("alias" + (i+1));
+			String tipo = request.getParameter("tipo" + (i+1));
+			String montoinicial = request.getParameter("montoinicial" + (i+1));
+			String numerocuenta = request.getParameter("numerocuenta" + (i+1));
+			String numerotarjeta = request.getParameter("numerotarjeta" + (i+1));
+			String numeroclabe = request.getParameter("numeroclabe" + (i+1));
+			finan[i].setAlias(alias);
+			finan[i].setTipo(tipo);
+			finan[i].setMontoinicial(montoinicial);
+			finan[i].setNumerocuenta(numerocuenta);
+			finan[i].setNumerotarjeta(numerotarjeta);
+			finan[i].setNumeroclabe(numeroclabe);
 		}
+		condo.setFinanzas(finan);
 		String cuotamensual = request.getParameter("cuotamensual");
 		model.addObject("condominio", condo);
 		model.addObject("cuotamensual", cuotamensual);
-		model.addObject("cuadros", cuadros);
+		model.addObject("finanzas", finan);
 		return model;
 	}
 

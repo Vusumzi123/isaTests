@@ -48,7 +48,7 @@
 		<img class="imgusuario" src="${ctx}/resources/img/imagenPerfil.svg">
 	</div>
 	<div class="body-container">
-		<form id="registrodatos" enctype="multipart/form-data"
+		<form id="registrodatos"
 			action="${ctx}/services/auth/resumen?${_csrf.parameterName}=${_csrf.token}"
 			method="POST">
 			<input type="hidden" name="${_csrf.parameterName}"
@@ -56,13 +56,15 @@
 			<div class="form-container tabcontent active" id="atras">
 				<div class="registro-de-condominio">registro de condominio</div>
 				<div class="contenedorimg">
-					<div class="img-container" id="archivo1" name="archivo1"
+					<div class="img-container" id="photo" name="photo"
 						style="background-image: url('${ctx}/resources/img/imagenResidencia.svg')">
-						<button class="cam">
+						<button type="button" class="cam" id="photo-button">
 							<i class="fas fa-camera"></i>
 							<!-- <i class="fas fa-camera"></i> -->
 						</button>
 					</div>
+					<input type="hidden" name="photobase64" id="photobase64">
+					<input type="file" class="hidden" name="file-photo" id="file-photo">
 				</div>
 				<div class="container">
 					<div class="row">
@@ -84,7 +86,8 @@
 								<span id="nombre-arch"></span>&nbsp;<i class="fas fa-trash-alt"></i>
 							</button>
 							<input type="file" style="display: none" class="form-control"
-								id="archivo" name="archivo">
+								id="regulation" name="regulation">
+							<input type="hidden" name="filebase64" id="filebase64">
 						</div>
 					</div>
 					<div class="row">
@@ -96,9 +99,8 @@
 								type="text" class="form-control" id="country" name="country">
 						</div>
 						<div class="form-group col-sm-6">
-							<label for="cp" class="bmd-label-floating">nombre del
-								condominio</label> <input type="text" class="form-control" id="cp"
-								name="cp">
+							<label for="cp" class="bmd-label-floating">código postal</label>
+							<input type="text" class="form-control" id="cp" name="cp">
 						</div>
 					</div>
 					<div class="row">
