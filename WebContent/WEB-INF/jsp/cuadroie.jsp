@@ -11,13 +11,8 @@
 					<th>Comprobante</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><i class="fas fa-download"></i></td>
-				</tr>
+			<tbody id="tabla-todos">
+				
 			</tbody>
 		</table>
 	</div>
@@ -31,13 +26,8 @@
 					<th>Comprobante</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+			<tbody id="tabla-ingresos">
+				
 			</tbody>
 		</table>
 	</div>
@@ -51,13 +41,8 @@
 					<th>Comprobante</th>
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><i class="fas fa-download"></i></td>
-				</tr>
+			<tbody id="tabla-egresos">
+				
 			</tbody>
 		</table>
 	</div>

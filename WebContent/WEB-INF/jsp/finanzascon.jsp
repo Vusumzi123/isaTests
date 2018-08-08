@@ -56,9 +56,9 @@
 			<div class="form-container tabcontent active" id="atras">
 				<div class="registro-de-condominio">registro de condominio</div>
 				<div class="contenedorimg">
-					<div class="img-container" id="photo" name="photo"
+					<div class="img-container" id="photo-circle"
 						style="background-image: url('${ctx}/resources/img/imagenResidencia.svg')">
-						<button type="button" class="cam" id="photo-button">
+						<button type="button" class="cam" id="photo-button" onclick="addPhoto()">
 							<i class="fas fa-camera"></i>
 							<!-- <i class="fas fa-camera"></i> -->
 						</button>
@@ -110,7 +110,7 @@
 						</div>
 						<div class="form-group col-sm-6">
 							<label for="colonia" class="bmd-label-floating">colonia</label> <input
-								type="text" class="form-control" id="colonia" name="colonia">
+								type="text" class="form-control" id="colony" name="colony">
 						</div>
 					</div>
 					<div class="row">

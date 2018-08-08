@@ -9,17 +9,6 @@ function changeTab(evt, tab, clase) {
 	toActivete.addClass('active');
 }
 
-
-
-function changeDatos(evt, tab) {
-	var activeTabs = $('.datos');
-	activeTabs.each(function() {
-		$(this).removeClass('active');
-	})
-	var toActivete = $('#' + tab);
-	toActivete.addClass('active');
-}
-
 function loadContent(name){
 	sendToken();
 	var ajaxObj = {
@@ -39,30 +28,7 @@ function loadContent(name){
  * muestra el boton de borrado de archivo
  * 
  * */
-function addArchive(transaction){
-	var inputFile = $('#archivo-'+transaction);
-	var adjButton = $("#adj-"+transaction);
-	var delButton = $("#del-"+transaction);
-	var nobreArch = $("#nombre-arch-"+transaction);
-	inputFile.click();
-	inputFile.change(function(){
-		var nameTxt = inputFile[0].files[0].name;
-		nobreArch.text(nameTxt);
-	})
-	adjButton.addClass('hidden');
-	delButton.removeClass('hidden');
-}
 
-function removeArchive(transaction){
-	var inputFile = $('#archivo-'+transaction);
-	var adjButton = $("#adj-"+transaction);
-	var delButton = $("#del-"+transaction);
-	var nobreArch = $("#nombre-arch-"+transaction);
-	inputFile.val(null);
-	nobreArch.text('');
-	adjButton.removeClass('hidden');
-	delButton.addClass('hidden');
-}
 //var agregarButton = $("#loadfinanzas");r
 //var contenedor = $("#finanzas");
 //function agregarFinanzas(event) {

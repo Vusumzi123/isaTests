@@ -25,6 +25,8 @@ import mx.redpoint.isa.bean.Iegresos;
 import mx.redpoint.isa.bean.Mail;
 import mx.redpoint.isa.bean.Pagos;
 import mx.redpoint.isa.bean.Vecino;
+import mx.redpoint.isa.client.CondominiosClient;
+import mx.redpoint.isa.client.IegresosClient;
 import mx.redpoint.isa.util.BlobUtil;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -56,8 +58,7 @@ public class MiCitaTelcelRestController {
     
 	//datos falsos
 	private ArrayList<Vecino> vecinosFalsos = new ArrayList<Vecino>();
-	private ArrayList<Iegresos> ingresosFalsos = new ArrayList<Iegresos>();
-	private ArrayList<Iegresos> egresosFalsos = new ArrayList<Iegresos>();
+//	private ArrayList<Iegresos> iegresosFalsos = new ArrayList<Iegresos>();
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView helloWorld(HttpServletRequest request) {
@@ -122,14 +123,15 @@ public class MiCitaTelcelRestController {
 		
 		ModelAndView model = new ModelAndView("resumen");
 		Finanzas[] finan;
+		String nameRegulation = request.getParameter("regulation");
 		Condominios condo = new Condominios();
 		condo.setCity(request.getParameter("city"));
 		condo.setColony(request.getParameter("colony"));
 		condo.setCountry(request.getParameter("country"));
 		condo.setCp(request.getParameter("cp"));
-//		condo.setArchivo(BlobUtil.partFile2Blob(regulation));
+		condo.setRegulation(request.getParameter("filebase64"));
 //		System.out.println(condo.getArchivo());
-		condo.setPhoto(request.getParameter("photo"));
+		condo.setPhoto(request.getParameter("photobase64"));
 		condo.setName1(request.getParameter("name1"));
 		System.out.println(condo.getName1());
 		condo.setNumber(request.getParameter("number"));
@@ -145,7 +147,7 @@ public class MiCitaTelcelRestController {
 			finan[i] = new Finanzas();
 			String alias = request.getParameter("alias" + (i+1));
 			String tipo = request.getParameter("tipo" + (i+1));
-			String montoinicial = request.getParameter("montoinicial" + (i+1));
+			Double montoinicial = Double.parseDouble(request.getParameter("montoinicial" + (i+1)));
 			String numerocuenta = request.getParameter("numerocuenta" + (i+1));
 			String numerotarjeta = request.getParameter("numerotarjeta" + (i+1));
 			String numeroclabe = request.getParameter("numeroclabe" + (i+1));
@@ -158,6 +160,7 @@ public class MiCitaTelcelRestController {
 		}
 		condo.setFinanzas(finan);
 		String cuotamensual = request.getParameter("cuotamensual");
+		model.addObject("nameRegulation", nameRegulation);
 		model.addObject("condominio", condo);
 		model.addObject("cuotamensual", cuotamensual);
 		model.addObject("finanzas", finan);
@@ -167,6 +170,8 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/condominios", method = RequestMethod.GET)
 	public ModelAndView condominios(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("condominios");
+		Condominios condominios = CondominiosClient.getCondominioClient(); 
+		model.addObject("condominios", condominios);
 		return model;
 	}
 
@@ -196,55 +201,79 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/finanzas", method = RequestMethod.GET)
 	public ModelAndView finanzas(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("finanzas");
+		Iegresos iegresos = IegresosClient.getIegresoClient(); 
+		model.addObject("iegresos", iegresos);
 		return model;
 	}
 	
-	@RequestMapping(value = "/auth/cuadroie", method = RequestMethod.GET)
-	public ModelAndView cuadroie(HttpServletRequest request) {
-		generaDatosIegresos();
-		String tipo = request.getParameter("tipo");
-		ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
-		if (tipo.equals("todos")) {
-			respuesta.addAll(ingresosFalsos);
-			respuesta.addAll(egresosFalsos);
-		}else if(tipo.equals("ingresos")) {
-			respuesta.addAll(ingresosFalsos);
-		}else if(tipo.equals("egresos")) {
-			respuesta.addAll(egresosFalsos);
-		}
-		ModelAndView model = new ModelAndView("cuadroie");
-		model.addObject("registros",respuesta);
-		return model;
-	}
-
-	@RequestMapping(value = "/auth/cuadroie", method = RequestMethod.POST)
-	public ModelAndView insertaie(HttpServletRequest request) {
-		generaDatosIegresos();
-		String tipo = request.getParameter("tipo");
-		ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
-		if(tipo.equals("ingresos")) {
-			String cuentaIngreso = request.getParameter("cuenta-ingreso");
-			String conceptoIngreso = request.getParameter("concepto-ingreso");
-			String remitenteIngreso = request.getParameter("remitente-ingreso");
-			String fechaIngreso = request.getParameter("fecha-ingreso");
-			String cantidadIngreso = request.getParameter("cantidad-ingreso");
-			Iegresos nuevoDato = new Iegresos();
-			nuevoDato.setFecha(new Date(fechaIngreso));
-			nuevoDato.setConcepto(conceptoIngreso);
-			nuevoDato.setCantidad(cantidadIngreso);
-			nuevoDato.setCuenta(cuentaIngreso);
-			nuevoDato.setRemitente(remitenteIngreso);
-			
-			//agregar comprobante
-			respuesta.addAll(ingresosFalsos);
-			respuesta.add(nuevoDato);
-		}else if(tipo.equals("egresos")) {
-			respuesta.addAll(egresosFalsos);
-		}
-		ModelAndView model = new ModelAndView("cuadroie");
-		model.addObject("registros",respuesta);
-		return model;
-	}
+//	@RequestMapping(value = "/auth/datosFinanzas", method = RequestMethod.GET, produces = "application/json")
+//	public String datosFinanzas(HttpServletRequest request) {
+//		ObjectMapper mapper = new ObjectMapper();
+//		String fechaIegresos = request.getParameter("fecha");
+//		Iegresos iegresosActual = new Iegresos();
+//		String iegresosString = "";
+//		//datos falsos
+//		for(Iegresos iegresos : iegresosFalsos) {
+//			if(iegresos.getFecha().equals( fechaIegresos )){
+//				iegresosActual = iegresos;
+//			}
+//		}
+//		
+//		try {
+//			iegresosString = mapper.writeValueAsString(iegresosActual);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return iegresosString;
+//	}
+	
+//	@RequestMapping(value = "/auth/cuadroie", method = RequestMethod.GET)
+//	public ModelAndView cuadroie(HttpServletRequest request) {
+//		generaDatosIegresos();
+//		String tipo = request.getParameter("tipo");
+//		ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
+//		if (tipo.equals("todos")) {
+//			respuesta.addAll(ingresosFalsos);
+//			respuesta.addAll(egresosFalsos);
+//		}else if(tipo.equals("ingresos")) {
+//			respuesta.addAll(ingresosFalsos);
+//		}else if(tipo.equals("egresos")) {
+//			respuesta.addAll(egresosFalsos);
+//		}
+//		ModelAndView model = new ModelAndView("cuadroie");
+//		model.addObject("registros",respuesta);
+//		return model;
+//	}
+//
+//	@RequestMapping(value = "/auth/cuadroie", method = RequestMethod.POST)
+//	public ModelAndView insertaie(HttpServletRequest request) {
+//		generaDatosIegresos();
+//		String tipo = request.getParameter("tipo");
+//		ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
+//		if(tipo.equals("ingresos")) {
+//			String cuentaIngreso = request.getParameter("cuenta-ingreso");
+//			String conceptoIngreso = request.getParameter("concepto-ingreso");
+//			String remitenteIngreso = request.getParameter("remitente-ingreso");
+//			String fechaIngreso = request.getParameter("fecha-ingreso");
+//			String cantidadIngreso = request.getParameter("cantidad-ingreso");
+//			Iegresos nuevoDato = new Iegresos();
+//			nuevoDato.setFecha(new Date(fechaIngreso));
+//			nuevoDato.setConcepto(conceptoIngreso);
+//			nuevoDato.setCantidad(cantidadIngreso);
+//			nuevoDato.setCuenta(cuentaIngreso);
+//			nuevoDato.setRemitente(remitenteIngreso);
+//			
+//			//agregar comprobante
+//			respuesta.addAll(ingresosFalsos);
+//			respuesta.add(nuevoDato);
+//		}else if(tipo.equals("egresos")) {
+//			respuesta.addAll(egresosFalsos);
+//		}
+//		ModelAndView model = new ModelAndView("cuadroie");
+//		model.addObject("registros",respuesta);
+//		return model;
+//	}
 	
 	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
@@ -416,63 +445,63 @@ public class MiCitaTelcelRestController {
 		vecinosFalsos.add(vecino3);
 	}
 	
-	private void generaDatosIegresos() {//TODELETE
-		ingresosFalsos.clear();
-		egresosFalsos.clear();
-		Iegresos ingreso1 = new Iegresos();
-		Iegresos ingreso2 = new Iegresos();
-		Iegresos ingreso3 = new Iegresos();
-		Iegresos ingreso4 = new Iegresos();
-		Iegresos ingreso5 = new Iegresos();
-		Iegresos egreso1 = new Iegresos();
-		Iegresos egreso2 = new Iegresos();
-		Iegresos egreso3 = new Iegresos();
-		ingreso1.setFecha(new Date("04/30/2018"));
-		ingreso1.setConcepto("Cuota mensual Henry Zapata");
-		ingreso1.setCantidad("$8000.00");
-		ingreso1 = new Iegresos();
-		
-		ingreso2.setFecha(new Date("04/29/2018"));
-		ingreso2.setConcepto("Cuota mensual Montserrat Casillas");
-		ingreso2.setCantidad("$8000.00");
-		
-		ingreso3.setFecha(new Date("04/28/2018"));
-		ingreso3.setConcepto("Cuota mensual Alexis Negrete");
-		ingreso3.setCantidad("$8000.00");
-		
-		egreso1.setFecha(new Date("04/27/2018"));
-		egreso1.setConcepto("Servicio de luz");
-		egreso1.setCantidad("$2500.00");
-		
-		egreso2.setFecha(new Date("04/20/2018"));
-		egreso2.setConcepto("Servicio de agua");
-		egreso2.setCantidad("$2500.00");
-		
-		egreso3.setFecha(new Date("04/15/2018"));
-		egreso3.setConcepto("Bacheado de calle");
-		egreso3.setCantidad("$4800.00");
-		
-		ingreso4.setFecha(new Date("04/01/2018"));
-		ingreso4.setConcepto("Alta tarjeta de crédito");
-		ingreso4.setCantidad("$40000.00");
-		
-		ingreso5.setFecha(new Date("04/01/2018"));
-		ingreso5.setConcepto("Alta caja chica");
-		ingreso5.setCantidad("$16500.00");
-		
-		ingresosFalsos.add(ingreso1);
-		ingresosFalsos.add(ingreso2);
-		ingresosFalsos.add(ingreso3);
-		ingresosFalsos.add(ingreso4);
-		ingresosFalsos.add(ingreso5);
-		
-		egresosFalsos.add(egreso1);
-		egresosFalsos.add(egreso2);
-		egresosFalsos.add(egreso3);
-
-		
-		
-	}
+//	private void generaDatosIegresos() {//TODELETE
+//		ingresosFalsos.clear();
+//		egresosFalsos.clear();
+//		Iegresos ingreso1 = new Iegresos();
+//		Iegresos ingreso2 = new Iegresos();
+//		Iegresos ingreso3 = new Iegresos();
+//		Iegresos ingreso4 = new Iegresos();
+//		Iegresos ingreso5 = new Iegresos();
+//		Iegresos egreso1 = new Iegresos();
+//		Iegresos egreso2 = new Iegresos();
+//		Iegresos egreso3 = new Iegresos();
+//		ingreso1.setFecha(new Date("04/30/2018"));
+//		ingreso1.setConcepto("Cuota mensual Henry Zapata");
+//		ingreso1.setCantidad("$8000.00");
+//		ingreso1 = new Iegresos();
+//		
+//		ingreso2.setFecha(new Date("04/29/2018"));
+//		ingreso2.setConcepto("Cuota mensual Montserrat Casillas");
+//		ingreso2.setCantidad("$8000.00");
+//		
+//		ingreso3.setFecha(new Date("04/28/2018"));
+//		ingreso3.setConcepto("Cuota mensual Alexis Negrete");
+//		ingreso3.setCantidad("$8000.00");
+//		
+//		egreso1.setFecha(new Date("04/27/2018"));
+//		egreso1.setConcepto("Servicio de luz");
+//		egreso1.setCantidad("$2500.00");
+//		
+//		egreso2.setFecha(new Date("04/20/2018"));
+//		egreso2.setConcepto("Servicio de agua");
+//		egreso2.setCantidad("$2500.00");
+//		
+//		egreso3.setFecha(new Date("04/15/2018"));
+//		egreso3.setConcepto("Bacheado de calle");
+//		egreso3.setCantidad("$4800.00");
+//		
+//		ingreso4.setFecha(new Date("04/01/2018"));
+//		ingreso4.setConcepto("Alta tarjeta de crédito");
+//		ingreso4.setCantidad("$40000.00");
+//		
+//		ingreso5.setFecha(new Date("04/01/2018"));
+//		ingreso5.setConcepto("Alta caja chica");
+//		ingreso5.setCantidad("$16500.00");
+//		
+//		ingresosFalsos.add(ingreso1);
+//		ingresosFalsos.add(ingreso2);
+//		ingresosFalsos.add(ingreso3);
+//		ingresosFalsos.add(ingreso4);
+//		ingresosFalsos.add(ingreso5);
+//		
+//		egresosFalsos.add(egreso1);
+//		egresosFalsos.add(egreso2);
+//		egresosFalsos.add(egreso3);
+//
+//		
+//		
+//	}
 
 	
 }

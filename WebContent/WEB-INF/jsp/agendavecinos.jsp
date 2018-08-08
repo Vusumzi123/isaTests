@@ -35,6 +35,7 @@
 									</div>
 								</button>
 							</c:forEach>
+							
 						</div>
 					</div>
 				</div>
@@ -49,16 +50,16 @@
 										<div class="contenedor5-agenda col-sm-4">
 											<div class="nombre-agenda">
 												nombre <br>
-												<div class="" id="nombrevecino"></div>
+												<div class="" id="nombrevecino" name="nombrevecino"></div>
 											</div>
 											<div class="vivienda-agenda">
 												vivienda <br>
-												<div class="" id="viviendavecino"></div>
+												<div class="" id="viviendavecino" name="viviendavecino"></div>
 											</div>
 										</div>
 										<div class="correo-agenda col-sm-4">
 											correo electrónico <br>
-											<div class="" id="correovecino"></div>
+											<div class="" id="correovecino" name="correovecino"></div>
 										</div>
 									</div>
 								</div>
@@ -70,7 +71,7 @@
 										onclick="changeTab(event, 'adeudos', 'table-agenda')"
 										style="width: 50% !important">adeudos</button>
 								</div>
-								<div id="pagos" class="tabcontent table-agenda active">
+								<div id="pagos" name="pagos" class="tabcontent table-agenda active">
 									<table class="table table-striped" style="width: 100%">
 										<thead>
 											<tr>
@@ -86,7 +87,7 @@
 										</tbody>
 									</table>
 								</div>
-								<div id="adeudos" class="tabcontent table-agenda">
+								<div id="adeudos" name="adeudos" class="tabcontent table-agenda">
 									<table class="table table-striped" style="width: 100%">
 										<thead>
 											<tr>

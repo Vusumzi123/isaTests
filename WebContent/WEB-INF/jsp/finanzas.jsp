@@ -225,8 +225,8 @@
 												type="text" class="form-control" id="concepto-egreso">
 										</div>
 										<div class="form-group modal-form-group">
-											<label for="cuenta" class="bmd-label-floating">remitente</label>
-											<select class="form-control" id="cuenta">
+											<label for="remitente-egreso" class="bmd-label-floating">remitente</label>
+											<select class="form-control" id="remitente-egreso">
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
@@ -236,8 +236,8 @@
 										</div>
 										<div class="form-group modal-form-group">
 											<label for="fecha-egreso" class="bmd-label-floating">fecha</label>
-											<input id="fecha-egreso" class="form-control" name="fecha"
-												placeholder="mm/dd/aaaa" />
+											<input id="fecha-egreso" class="form-control"
+												name="fecha-egreso" placeholder="mm/dd/aaaa" />
 											<script>
 												$('#fecha-egreso').datepicker({
 													uiLibrary : 'bootstrap4'
@@ -250,7 +250,8 @@
 												<div class="input-group-prepend">
 													<div class="input-group-text">$</div>
 												</div>
-												<input type="text" class="form-control" id="cantidad">
+												<input type="text" class="form-control" id="cantidad-egreso"
+													name="cantidad-egreso">
 											</div>
 										</div>
 										<div class="form-group bmd-form-group">
@@ -267,10 +268,9 @@
 													class="fas fa-trash-alt"></i>
 											</button>
 											<input type="file" style="display: none" class="form-control"
-												id="archivo-egreso">
+												id="archivo-egreso" name="archivo-egreso">
 										</div>
 									</form>
-
 								</div>
 								<div class="modal-footer d-flex justify-content-center">
 									<button type="button" id="agregaIngreso"
@@ -286,12 +286,54 @@
 	</div>
 	<div class="form-container">
 		<div class="tab">
-			<button class="tablinks "
-				onclick="llamarTabla('todos')">todos</button>
-			<button class="tablinks "
-				onclick="llamarTabla('ingresos')">ingresos</button>
-			<button class="tablinks "
-				onclick="llamarTabla('egresos')">egresos</button>
+			<button class="tablinks " onclick="llamarTabla('todos')">todos</button>
+			<button class="tablinks " onclick="llamarTabla('ingresos')">ingresos</button>
+			<button class="tablinks " onclick="llamarTabla('egresos')">egresos</button>
 		</div>
-		<div id="contenedor-cuadroie"></div>
+		<!-- 		<div id="contenedor-cuadroie"></div> -->
+		<div id="todos" class="tabcontent table-tabs active">
+			<table class="table table-striped" style="width: 100%">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Concepto</th>
+						<th>Cantidad</th>
+						<th>Comprobante</th>
+					</tr>
+				</thead>
+				<tbody id="tabla-todos">
+
+				</tbody>
+			</table>
+		</div>
+		<div id="ingresos" class="tabcontent table-tabs">
+			<table class="table table-striped" style="width: 100%">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Concepto</th>
+						<th>Cantidad</th>
+						<th>Comprobante</th>
+					</tr>
+				</thead>
+				<tbody id="tabla-ingresos">
+
+				</tbody>
+			</table>
+		</div>
+		<div id="egresos" class="tabcontent table-tabs">
+			<table class="table table-striped" style="width: 100%">
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Concepto</th>
+						<th>Cantidad</th>
+						<th>Comprobante</th>
+					</tr>
+				</thead>
+				<tbody id="tabla-egresos">
+
+				</tbody>
+			</table>
+		</div>
 	</div>

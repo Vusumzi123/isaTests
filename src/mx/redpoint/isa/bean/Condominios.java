@@ -1,11 +1,9 @@
 package mx.redpoint.isa.bean;
 
-import java.sql.Blob;
-
 public class Condominios {
 	private String photo;
 	private String name1;
-	private Blob regulation;
+	private String regulation;
 	private String country;
 	private String cp; 
 	private String city;
@@ -14,6 +12,7 @@ public class Condominios {
 	private String number;
 	private String phone;
 	private String web;
+	private Double cuotamensual;
 	private Finanzas[] finanzas;
 	
 	public String getPhoto() {
@@ -28,10 +27,10 @@ public class Condominios {
 	public void setName1(String name1) {
 		this.name1 = name1;
 	}
-	public Blob getRegulation() {
+	public String getRegulation() {
 		return regulation;
 	}
-	public void setRegulation(Blob regulation) {
+	public void setRegulation(String regulation) {
 		this.regulation = regulation;
 	}
 	public String getCountry() {
@@ -87,6 +86,12 @@ public class Condominios {
 	}
 	public void setFinanzas(Finanzas[] finanzas) {
 		this.finanzas = finanzas;
+	}
+	public Double getCuotamensual() {
+		return cuotamensual;
+	}
+	public void setCuotamensual(Double cuotamensual) {
+		this.cuotamensual = cuotamensual;
 	}
 	
 	

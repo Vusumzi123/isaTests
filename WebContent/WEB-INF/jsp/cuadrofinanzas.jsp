@@ -18,10 +18,10 @@
 				<label for="tipo${num}" class="bmd-label-floating">Tipo
 					select</label> <select class="form-control" id="tipo${num}"
 					name="tipo${num}" style="margin-top: -8px">
-					<option value="1">Débito</option>
-					<option value="2">Crédito</option>
-					<option value="3">Cheques</option>
-					<option value="4">Caja chica</option>
+					<option value="Débito">Débito</option>
+					<option value="Crédito">Crédito</option>
+					<option value="Cheques">Cheques</option>
+					<option value="Caja chica">Caja chica</option>
 				</select>
 			</div>
 		</div>

@@ -54,24 +54,16 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="contenedor-carousel">
-								<a href="${ctx}/services/auth/altavecinos"> <img
-									class="imgcondominio"
-									src="${pageContext.request.contextPath}/resources/img/imagenResidencia.svg"
-									alt="First slide"></a>
+								<img class="imgcondominio"
+									src="${condominios.getPhoto()}"
+									alt="first slide">
 							</div>
 						</div>
 						<div class="carousel-item">
 							<div class="contenedor-carousel">
 								<img class="imgcondominio"
-									src="${pageContext.request.contextPath}/resources/img/imagenResidencia.svg"
+									src="${condominios2.getPhoto()}"
 									alt="second slide">
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="contenedor-carousel">
-								<img class="imgcondominio"
-									src="${pageContext.request.contextPath}/resources/img/imagenResidencia.svg"
-									alt="third slide">
 							</div>
 						</div>
 					</div>

@@ -63,24 +63,30 @@
 	background-color: #f1f1f1;
 	margin-top: 33px;
 	padding-top: 24px;
-	padding-bottom: 24px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 35px;
 }
 
 .rectangulo1 {
 	background-color: #f1f1f1;
-	margin-top: 35px;
+	margin-bottom: 10px;
 	padding-top: 19px;
 	padding-bottom: 19px;
 	padding-left: 56px;
 	padding-right: 56px;
 	display: flex;
-	align-items: center;
 	flex-direction: column;
+	width: 318px;
+	border-right: solid 10px #ffffff;
+	border-left: solid 10px #ffffff;
 }
 
 .cuenta {
 	font-size: 18px;
-	color: #07354d;
+	color: black;
+	margin-bottom: 15px;
 }
 
 .alias111 {
@@ -95,7 +101,8 @@
 
 .monto-inicial111 {
 	color: #07354d;
-	font-size: 16px;	
+	font-size: 16px;
+	margin-bottom: 10px;	
 }
 
 .numero-de-cuenta {
@@ -105,7 +112,8 @@
 
 .numero-de-cuenta111 {
 	color: #07354d;
-	font-size: 16px;	
+	font-size: 16px;
+	margin-bottom: 10px;	
 }
 
 .numero-de-tarjeta {
@@ -116,6 +124,7 @@
 .numero-de-tarjeta111 {
 	color: #07354d;
 	font-size: 16px;	
+	margin-bottom: 10px;
 }
 
 .numero-clabe {
@@ -131,7 +140,6 @@
 .rectangulo2 {
 	width: 100%;
 	background-color: #f1f1f1;
-	margin-top: 35px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -140,24 +148,22 @@
 .cuota-mensual {
 	font-size: 10px;
 	color: #00949e;
-	padding-bottom: 10px;
 	padding-top: 10px;
 }
 
 .cuota-mensual111 {
 	color: #07354d;
 	font-size: 16px;
+	padding-bottom: 10px;
 }
 
 .contenido {
-	max-width: 320px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
 
 .contenido1 {
-	max-width: 151px;
 	display: flex;
 	align-items: left;
 	flex-direction: column;
@@ -165,7 +171,8 @@
 
 .datos-condominio {
 	font-size: 18px;
-	color: #07354d;
+	color: black;
+	margin-bottom: 15px;
 }
 
 .nombre-condominio {
@@ -176,6 +183,7 @@
 .nombre-condominio111 {
 	color: #07354d;
 	font-size: 16px;
+	margin-bottom: 10px;
 }
 
 .direccion {
@@ -186,6 +194,7 @@
 .direccion111 {
 	color: #07354d;
 	font-size: 16px;
+	margin-bottom: 10px;
 }
 
 .contactos {
@@ -196,6 +205,16 @@
 .contactos111 {
 	color: #07354d;
 	font-size: 16px;
+}
+
+.reglamento{
+	font-size: 10px;
+	color: #00949e;
+}
+
+.reglamento111 {
+	color: #07354d;
+	font-size: 16px
 }
 
 .img-container {

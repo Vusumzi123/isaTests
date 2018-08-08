@@ -1,21 +1,16 @@
 package mx.redpoint.isa.bean;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 public class Iegresos {
-	private Date fecha;
+	private String fecha;
 	private String concepto;
 	private String cantidad;
 	private String comprobante;
 	private String remitente;
 	private String cuenta;
-//	private ArrayList<Iegresos> ingresos;  ADMINISTRADOR
-//	private ArrayList<Iegresos> egresos; ADMINISTRADOR
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	public String getConcepto() {
@@ -48,5 +43,4 @@ public class Iegresos {
 	public void setCuenta(String cuenta) {
 		this.cuenta = cuenta;
 	}
-	
 }

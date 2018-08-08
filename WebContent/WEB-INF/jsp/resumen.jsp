@@ -49,10 +49,10 @@
 		<form class="form-container">
 			<div class="resumen">resumen</div>
 			<div class="rectangulo">
-				<div class="row">
+				<div class="row" style="width: 100%; display: flex; align-items: center;">
 					<div class="contenido col-sm-6 mx-0">
 						<div class="img-container"
-							style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg')">
+							style="background-image: url('${condominio.getPhoto()}'), url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg') ">
 						</div>
 					</div>
 					<div class="contenido1 col-sm-6 mx-0">
@@ -73,23 +73,31 @@
 								${condominio.getPhone()}<br> ${condominio.getWeb()}
 							</p>
 						</div>
+						<div class="reglamento">reglamento</div>
+						<div class="reglamento111">
+							<p>
+								<a href="${condominio.getRegulation()}" target="_blank">${nameRegulation}</a>
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
-			<c:forEach var="finan" items="${condominio.getFinanzas()}">
-				<div class="rectangulo1">
-					<div class="cuenta"></div>
-					<div class="alias111">${finan.getAlias()}</div>
-					<div class="tipo111">${finan.getTipo()}</div>
-					<div class="monto-inicial111">${finan.getMontoinicial()}</div>
-					<div class="numero-de-cuenta">número de cuenta</div>
-					<div class="numero-de-cuenta111">${finan.getNumerocuenta()}</div>
-					<div class="numero-de-tarjeta">número de tarjeta</div>
-					<div class="numero-de-tarjeta111">${finan.getNumerotarjeta()}</div>
-					<div class="numero-clabe">número de cuenta clabe</div>
-					<div class="numero-clabe111">${finan.getNumeroclabe()}</div>
-				</div>
-			</c:forEach>
+			<div class="row">
+				<c:forEach var="finan" items="${condominio.getFinanzas()}">
+					<div class="rectangulo1 col-sm-6">
+						<div class="cuenta">cuenta</div>
+						<div class="alias111">${finan.getAlias()}</div>
+						<div class="tipo111">${finan.getTipo()}</div>
+						<div class="monto-inicial111">${finan.getMontoinicial()}</div>
+						<div class="numero-de-cuenta">número de cuenta</div>
+						<div class="numero-de-cuenta111">${finan.getNumerocuenta()}</div>
+						<div class="numero-de-tarjeta">número de tarjeta</div>
+						<div class="numero-de-tarjeta111">${finan.getNumerotarjeta()}</div>
+						<div class="numero-clabe">número de cuenta clabe</div>
+						<div class="numero-clabe111">${finan.getNumeroclabe()}</div>
+					</div>
+				</c:forEach>
+			</div>
 			<div class="rectangulo2">
 				<div class="cuota-mensual">cuota mensual por vecino</div>
 				<div class="cuota-mensual111">${cuotamensual}</div>

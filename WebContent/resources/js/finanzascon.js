@@ -36,7 +36,7 @@ $("body").ready(function() {
 });
 
 function addArchive(){
-	var inputFile = $('#archivo');
+	var inputFile = $('#regulation');
 	var adjButton = $("#adj");
 	var delButton = $("#del");
 	var nobreArch = $("#nombre-arch");
@@ -58,8 +58,8 @@ function addPhoto(){
 	var addPhotoButton = $('#photo-button');
 	var inputBase64 = $('#photobase64');
 	var callback = function (base64String){
-		inputBase64.val(base64String);
-		$('#photo').ccs('background-image','url('+base64String+')');
+		$('#photobase64').val(base64String);
+		$('#photo-circle').css('background-image','url('+base64String+')');
 	}
 	inputPhoto.click();
 	inputPhoto.change(function(){
@@ -79,6 +79,7 @@ function removeArchive(){
 }
 
 function getBase64(photo, callback) {
+	console.log(photo);
     var reader = new FileReader();
     reader.readAsDataURL(photo);
     reader.onload = function () {
