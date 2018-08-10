@@ -43,6 +43,16 @@ protected void configure(HttpSecurity http) throws Exception {
     .loginPage("/services/login")  
     .and()  
     .logout()  
-    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));  
+    .logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 
+    
+    http.authorizeRequests()
+    .antMatchers("/services/neig/**").hasRole("USER") 
+    .and()  
+    .formLogin()  
+    .loginPage("/services/login")  
+    .and()  
+    .logout()  
+    .logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 
 }    
+
 }  

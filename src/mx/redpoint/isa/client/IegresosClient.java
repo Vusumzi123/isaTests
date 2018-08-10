@@ -15,7 +15,7 @@ public class IegresosClient {
 		Iegresos obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/finanzascon1/finanzascon");
+			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/FinanzasIE/finanzas");
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");

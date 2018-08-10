@@ -87,11 +87,11 @@
 					<a class="carousel-control-prev" href="#carouselExampleIndicators"
 						role="button" data-slide="prev"> <span aria-hidden="true"><i
 							class="fas fa-arrow-circle-left"
-							style="color: grey; font-size: 60px""></i></span> <span class="sr-only">Previous</span>
+							style="color: grey; font-size: 60px"></i></span> <span class="sr-only">Previous</span>
 					</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
 						role="button" data-slide="next"> <span aria-hidden="true"><i
 							class="fas fa-arrow-circle-right"
-							style="color: grey; font-size: 60px;""></i></span> <span class="sr-only">Next</span>
+							style="color: grey; font-size: 60px;"></i></span> <span class="sr-only">Next</span>
 					</a>
 				</div>
 				<div class="row">

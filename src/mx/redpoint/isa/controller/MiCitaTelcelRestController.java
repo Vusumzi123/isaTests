@@ -172,6 +172,7 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("condominios");
 		Condominios condominios = CondominiosClient.getCondominioClient(); 
 		model.addObject("condominios", condominios);
+		System.out.println(model);
 		return model;
 	}
 
@@ -362,6 +363,40 @@ public class MiCitaTelcelRestController {
 		model.addObject("num", num);
 		return model;
 	}
+	
+	@RequestMapping(value = "/neig/principalvec", method = RequestMethod.GET)
+	public ModelAndView principalvec(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("principalvec");
+		return model;
+	}
+	
+	@RequestMapping(value = "/neig/avisosvec", method = RequestMethod.GET)
+	public ModelAndView avisosvec(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("avisosvec");
+		return model;
+	}
+	
+	@RequestMapping(value = "/neig/notificacionesvec", method = RequestMethod.GET)
+	public ModelAndView notificacionesvec(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("notificacionesvec");
+		return model;
+	}
+	
+	@RequestMapping(value = "/neig/perfilusuariovec", method = RequestMethod.GET)
+	public ModelAndView perfilusuariovec(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("perfilusuariovec");
+		return model;
+	}
+	@RequestMapping(value = "/neig/reglamentovec", method = RequestMethod.GET)
+	public ModelAndView reglamentovec(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("reglamentovec");
+		return model;
+	}
+	@RequestMapping(value = "/neig/terminosvec", method = RequestMethod.GET)
+	public ModelAndView terminosvec(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("terminosvec");
+		return model;
+	}
 
 	private void generaDatosVecino() {//TODELETE
 		vecinosFalsos.clear();
@@ -379,7 +414,7 @@ public class MiCitaTelcelRestController {
 		pago1.setFecha(new Date());
 		pago1.setConcepto("Mensualidad");
 		pago1.setCantidad(6000.0);
-		pago2.setFecha(new Date("28/04/18"));
+		pago2.setFecha(new Date("30/05/18"));
 		pago2.setConcepto("Mensualidad");
 		pago2.setCantidad(6000.0);
 		pagos.add(pago1);

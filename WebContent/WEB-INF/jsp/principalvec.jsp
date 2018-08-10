@@ -46,8 +46,8 @@
 	type="text/javascript"></script>
 <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css"
 	rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="${ctx}/resources/principal.css">
-<link rel="stylesheet" href="${ctx}/resources/notificaciones.css">
+<link rel="stylesheet" href="${ctx}/resources/principalvec.css">
+<link rel="stylesheet" href="${ctx}/resources/notificacionesvec.css">
 </head>
 <body>
 	<nav class="barra-titulo">
@@ -65,21 +65,15 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-lg-auto">
-				<li class="nav-item main-Tab active" id="finanzas"><a
-					class="nav-link" role="button" id="loadfinanzas"
-					onclick="changeTab(event, 'finanzas', 'main-Tab');loadContent('finanzas')"
+				<li class="nav-item main-Tab active" id="finanzasvec"><a
+					class="nav-link" role="button" id="loadfinanzasvec"
+					onclick="changeTab(event, 'finanzasvec', 'main-Tab');loadContent('finanzasvec')"
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-dollar-sign"></i> <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item main-Tab" id="agendavecinos"><a
-					class="nav-link" role="button" id="loadagenda"
-					onclick="changeTab(event, 'agendavecinos');loadContent('agendavecinos')"
-					style="font-size: 24px; cursor: pointer"> <i
-						class="fas fa-user-friends"></i>
-				</a></li>
-				<li class="nav-item main-Tab" id="avisos"><a class="nav-link"
-					role="button" id="loadavisos"
-					onclick="changeTab(event, 'avisos');loadContent('avisos')"
+				<li class="nav-item main-Tab" id="avisosvec"><a class="nav-link"
+					role="button" id="loadavisosvec"
+					onclick="changeTab(event, 'avisosvec');loadContent('avisosvec')"
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-comment-alt"></i>
 				</a></li>
@@ -92,8 +86,8 @@
 						<div class="dropdown-item menu-header">Notificaciones</div>
 						<a class="dropdown-item" href="#">No hay notificaciones</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" role="button" id="notificaciones"
-							onclick="changeTab(event, 'notificaciones');loadContent('notificaciones')"
+						<a class="dropdown-item" role="button" id="notificacionesvec"
+							onclick="changeTab(event, 'notificacionesvec');loadContent('notificacionesvec')"
 							style="cursor: pointer">Mostrar todo</a>
 					</div></li>
 				<li class="nav-item dropdown"><a
@@ -105,23 +99,17 @@
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<div class="dropdown-item menu-header">Usuario</div>
 						<a class="dropdown-item" style="cursor: pointer" role="button"
-							id="perfilusuario"
-							onclick="changeTab(event, 'perfil');loadContent('perfilusuario')">
+							id="perfilusuariovec"
+							onclick="changeTab(event, 'perfilvec');loadContent('perfilusuariovec')">
 							<i class="fas fa-user"></i>&nbsp; Perfil de usuario
 						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
-							id="reglamento"
-							onclick="changeTab(event, 'reglamento');loadContent('reglamento')">
+							id="reglamentovec"
+							onclick="changeTab(event, 'reglamentovec');loadContent('reglamentovec')">
 							<i class="fas fa-file-alt"></i>&nbsp; Reglamento del condominio
 						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
-							id="terminos"
-							onclick="changeTab(event, 'terminos');loadContent('terminos')">
+							id="terminosvec"
+							onclick="changeTab(event, 'terminosvec');loadContent('terminosvec')">
 							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
-						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
-							id="configinmueble"
-							onclick="changeTab(event, 'configinmueble');loadContent('configinmueble')">
-							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
-						</a> <a class="dropdown-item" href="${ctx}/services/auth/condominios">
-							<i class="fas fa-home"></i>&nbsp; Mis condominios
 						</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="${ctx}/logout">Salir</a>
@@ -132,11 +120,9 @@
 	</nav>
 	<div id="contenedorPrincipal"></div>
 	<script type="text/javascript" src="${ctx}/resources/js/util.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/finanzas.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/agendavecinos.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/avisos.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/configinmueble.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/principalvec.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/finanzasvec.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/avisosvec.js"></script>
 
 </body>
 </html>

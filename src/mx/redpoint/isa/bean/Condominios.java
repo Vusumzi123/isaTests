@@ -93,6 +93,4 @@ public class Condominios {
 	public void setCuotamensual(Double cuotamensual) {
 		this.cuotamensual = cuotamensual;
 	}
-	
-	
 }

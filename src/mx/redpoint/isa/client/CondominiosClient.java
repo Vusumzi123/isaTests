@@ -16,7 +16,7 @@ public class CondominiosClient {
 		Condominios obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/finanzascon1/finanzascon");
+			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/condominios1/finanzascon");
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
