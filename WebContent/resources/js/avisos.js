@@ -72,9 +72,23 @@ function getBase64(photo, callback) {
     };
  }
 
-
-//$.getJSON(
-//		'https://4goihg4vob.execute-api.us-west-2.amazonaws.com/aviso1/avisos',
-//		function(data) {
-//			// data is the JSON string
-//		});
+function cargaAvisos(event, name){
+	var url = contexto + "/services/auth/listaAvisos?nombre="+name ;
+	var messageVecino = $("#messageaviso");
+	var dateAviso = $("#dateaviso");
+	var nameAviso = $("#nameaviso");
+	var lastnameAviso = $("#lastnameaviso");
+	var photoAviso = $("#photoaviso");
+	$.ajax({
+		url: url,
+		dataType : "json",
+		success: function (response, status){
+			console.log(response);
+			aviso.forEach(function(){
+				var aviso = generaCuadro( name, lastname, photo, message, date );
+			})
+			
+		}
+	})
+	return aviso;
+}

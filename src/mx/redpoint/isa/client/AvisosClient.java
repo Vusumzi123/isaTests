@@ -16,7 +16,7 @@ public class AvisosClient {
 		Avisos obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/aviso1/avisos");
+			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/aviso/avisos");
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
