@@ -9,8 +9,8 @@
 			</div>
 			<form class="cuadro-chat-avisos" id="comment-form">
 				<div class="row">
-					<img class="usuario1-avisos col-sm-2"
-						src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
+					<div class="usuario1-avisos-input col-sm-2"
+						style="background-image: url('${avisos.getPhoto()}')"></div>
 					<div class="form-group col-sm-8">
 						<label for="comment">Escribir mensaje...</label>
 						<textarea id="text-com" name="text-com" class="form-control"
@@ -27,20 +27,92 @@
 			</form>
 			<div class="linea-avisos"></div>
 			<div id="avisos-container"></div>
-			<div class="aviso1-avisos">
-				<div class="row">
-					<img class="usuario1-avisos col-sm-2"
-						src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
-					<div class="usuario-dijo-avisos">
-						Henry Zapata dijo... <br>
-						<div class="fecha-post-avisos">01-julio-2018</div>
+			<c:forEach var="aviso" items="${avisos}">
+				<div class="aviso1-avisos">
+					<div class="row">
+						<div class="usuario1-avisos col-sm-2"
+							style="background-image: url('${avisos.getPhoto()}')"></div>
+						<div class="usuario-dijo-avisos">
+							${avisos.getName()} ${avisos.getLastname()} dijo...<br>
+							<div class="fecha-post-avisos">${avisos.getDate}</div>
+						</div>
 					</div>
+					<div class="mensaje-escrito-avisos">${avisos.getMessage}</div>
 				</div>
-				<div class="mensaje-escrito-avisos">Ya se han ingresado los
-					montos del capital con el que contamos. En la tarjeta de débito
-					tenemos $40,000.00 y en caja chica $16,500.00, hacen un total de
-					$56,500.00.</div>
-			</div>
+			</c:forEach>
+			<!-- 			<div class="aviso1-avisos"> -->
+			<!-- 				<div class="row"> -->
+			<!-- 					<div class="usuario1-avisos col-sm-2" -->
+			<%-- 						style="background-image: url('${principaladmins.getPhoto()}')"> --%>
+			<!-- 					</div> -->
+			<!-- 					<div class="usuario-dijo-avisos"> -->
+			<%-- 						${principaladmins.getName()} ${principaladmins.getLastname()} --%>
+			<!-- 						dijo...<br> -->
+			<!-- 						<div class="fecha-post-avisos">27-abril-2018</div> -->
+			<!-- 					</div> -->
+			<!-- 				</div> -->
+			<!-- 				<div class="mensaje-escrito-avisos">Se les recuerda que la -->
+			<!-- 					fecha limite del pago mensual de mantenimiento es el 30 de abril. -->
+			<!-- 					Saludo!</div> -->
+			<!-- 			</div> -->
+			<!-- 			<div class="aviso1-avisos"> -->
+			<!-- 				<div class="row"> -->
+			<!-- 					<div class="usuario1-avisos col-sm-2" -->
+			<%-- 						style="background-image: url('${principaladmins.getPhoto()}')"> --%>
+			<!-- 					</div> -->
+			<!-- 					<div class="usuario-dijo-avisos"> -->
+			<%-- 						${principaladmins.getName()} ${principaladmins.getLastname()} --%>
+			<!-- 						dijo...<br> -->
+			<!-- 						<div class="fecha-post-avisos">27-abril-2018</div> -->
+			<!-- 					</div> -->
+			<!-- 				</div> -->
+			<!-- 				<div class="mensaje-escrito-avisos">Se ha realizado el pago -->
+			<!-- 					de servicio de luz por el monto de $2,500.00.</div> -->
+			<!-- 			</div> -->
+			<!-- 			<div class="aviso1-avisos"> -->
+			<!-- 				<div class="row"> -->
+			<!-- 					<div class="usuario1-avisos col-sm-2" -->
+			<%-- 						style="background-image: url('${principaladmins.getPhoto()}')"> --%>
+			<!-- 					</div> -->
+			<!-- 					<div class="usuario-dijo-avisos"> -->
+			<%-- 						${principaladmins.getName()} ${principaladmins.getLastname()} --%>
+			<!-- 						dijo...<br> -->
+			<!-- 						<div class="fecha-post-avisos">20-abril-2018</div> -->
+			<!-- 					</div> -->
+			<!-- 				</div> -->
+			<!-- 				<div class="mensaje-escrito-avisos">Se ha realizado el pago de -->
+			<!-- 					servicio de agua por el monto de $800.00.</div> -->
+			<!-- 			</div> -->
+			<!-- 			<div class="aviso1-avisos"> -->
+			<!-- 				<div class="row"> -->
+			<!-- 					<div class="usuario1-avisos col-sm-2" -->
+			<%-- 						style="background-image: url('${principaladmins.getPhoto()}')"> --%>
+			<!-- 					</div> -->
+			<!-- 					<div class="usuario-dijo-avisos"> -->
+			<%-- 						${principaladmins.getName()} ${principaladmins.getLastname()} --%>
+			<!-- 						dijo...<br> -->
+			<!-- 						<div class="fecha-post-avisos">09-abril-2018</div> -->
+			<!-- 					</div> -->
+			<!-- 				</div> -->
+			<!-- 				<div class="mensaje-escrito-avisos">Ya se han ingresado los -->
+			<!-- 					montos del capital con el que contamos. En la tarjeta de debito -->
+			<!-- 					tenemos $40,000.00 y en caja chica $16,500.00, hacen un total de -->
+			<!-- 					$56,500.00.</div> -->
+			<!-- 			</div> -->
+			<!-- 			<div class="aviso1-avisos"> -->
+			<!-- 				<div class="row"> -->
+			<!-- 					<div class="usuario1-avisos col-sm-2" -->
+			<%-- 						style="background-image: url('${principaladmins.getPhoto()}')"> --%>
+			<!-- 					</div> -->
+			<!-- 					<div class="usuario-dijo-avisos"> -->
+			<%-- 						${principaladmins.getName()} ${principaladmins.getLastname()} --%>
+			<!-- 						dijo...<br> -->
+			<!-- 						<div class="fecha-post-avisos">01-abril-2018</div> -->
+			<!-- 					</div> -->
+			<!-- 				</div> -->
+			<!-- 				<div class="mensaje-escrito-avisos">Chamos! Hoy iniciamos con -->
+			<!-- 					la administracion del condominio con el servicio isa.</div> -->
+			<!-- 			</div> -->
 		</div>
 	</div>
 </div>

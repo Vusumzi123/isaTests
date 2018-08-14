@@ -7,15 +7,16 @@ import java.net.URL;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import mx.redpoint.isa.bean.Iegresos;
+import mx.redpoint.isa.bean.Avisos;
 
-public class IegresosClient {
-	public static final Iegresos getIegresoClient() {
+public class AvisosClient {
+	
+	public static final Avisos getAvisoClient() {
 		HttpURLConnection conn = null;
-		Iegresos obj = null;
+		Avisos obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/FinanzasIE/finanzas");
+			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/aviso1/avisos");
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -35,7 +36,7 @@ public class IegresosClient {
 					json = json + output;
 				}
 				
-				obj = mapper.readValue(json, Iegresos.class);
+				obj = mapper.readValue(json, Avisos.class);
 				
 				
 		}catch (Exception e) {
@@ -46,4 +47,7 @@ public class IegresosClient {
 		
 		return obj;
 	}
+	
+	
 }
+

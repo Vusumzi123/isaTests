@@ -18,7 +18,6 @@ function loadContent(name){
 	contentAjax(ajaxObj, "contenedorPrincipal");
 }
 
-
 /*
  * Input { transaction: string}
  * 

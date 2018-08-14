@@ -469,6 +469,42 @@ button.btn.btn-outline-secondary.border-left-0 {
 	background-color: transparent;
 }
 
+.usuario1-avisos-input {
+	border-radius: 50%;
+    width: 287px;
+    height: 82px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+.usuario1-avisos {
+	border-radius: 50%;
+    width: 42px;
+    height: 82px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 15px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+    margin-right: 10px;
+    margin-left: 10px
+}
+
+.fecha-post-avisos {
+	color: #00949e;
+	font-size: 12px;
+	text-align: left;
+}
+
 /* PERFIL DE USUARIO */
 .body-container, form {
 	width: 100%;
@@ -491,6 +527,7 @@ button.btn.btn-outline-secondary.border-left-0 {
 	background-position: center;
 	color: #ffffff;
 	font-size: 21px;
+	cursor: pointer;
 }
 
 .img-container-perfil {

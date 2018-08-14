@@ -7,7 +7,7 @@
 			<h3>Perfil de usuario</h3>
 		</div>
 		<div class="img-container-perfil" id="imgu"
-			style="background-image: url('${principaladmins.getPhoto()}')">
+			style="background-image: url('${principalvecinos.getPhotov()}')">
 			<button class="cam">
 				<i class="fas fa-camera"></i>
 				<!-- <i class="fas fa-camera"></i> -->
@@ -16,22 +16,23 @@
 		<div class="row">
 			<div class="form-group col-sm-12">
 				<label for="name" class="bmd-label-floating">nombre(s)</label> <input
-					type="text" class="form-control" id="name" name="name" value="${principaladmins.getName()}">
+					type="text" class="form-control" id="name" name="name"
+					value="${principalvecinos.getNamev()}">
 			</div>
 			<div class="form-group col-sm-12">
 				<label for="lastname" class="bmd-label-floating">apellido(s)</label>
 				<input type="text" class="form-control" id="lastname"
-					name="lastname" value="${principaladmins.getLastname()}">
+					name="lastname" value="${principalvecinos.getLastnamev()}">
 			</div>
 			<div class="form-group col-sm-12">
 				<label for="email" class="bmd-label-floating">correo
 					electrónico</label> <input type="email" class="form-control" id="email"
-					name="email" value="${principaladmins.getMail()}">
+					name="email" value="${principalvecinos.getMailv()}">
 			</div>
 			<div class="form-group col-sm-12">
 				<label for="password" class="bmd-label-floating">contraseña</label>
 				<input type="password" class="form-control" id="password"
-					name="password" value="${principaladmins.getPassword()}">
+					name="password" value="${principalvecinos.getPasswordv()}">
 			</div>
 		</div>
 		<input type="hidden" name="${_csrf.parameterName}"

@@ -18,15 +18,21 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import mx.redpoint.isa.bean.Adeudos;
+import mx.redpoint.isa.bean.Avisos;
 import mx.redpoint.isa.bean.Comentario;
 import mx.redpoint.isa.bean.Condominios;
 import mx.redpoint.isa.bean.Finanzas;
 import mx.redpoint.isa.bean.Iegresos;
 import mx.redpoint.isa.bean.Mail;
 import mx.redpoint.isa.bean.Pagos;
-import mx.redpoint.isa.bean.Vecino;
+import mx.redpoint.isa.bean.Principaladmins;
+import mx.redpoint.isa.bean.Principalvecinos;
+import mx.redpoint.isa.bean.Vecinos;
+import mx.redpoint.isa.client.AvisosClient;
 import mx.redpoint.isa.client.CondominiosClient;
-import mx.redpoint.isa.client.IegresosClient;
+import mx.redpoint.isa.client.FinanzasClient;
+import mx.redpoint.isa.client.PrincipaladminsClient;
+import mx.redpoint.isa.client.PrincipalvecinosClient;
 import mx.redpoint.isa.util.BlobUtil;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -57,7 +63,7 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 public class MiCitaTelcelRestController {
     
 	//datos falsos
-	private ArrayList<Vecino> vecinosFalsos = new ArrayList<Vecino>();
+	private ArrayList<Vecinos> vecinosFalsos = new ArrayList<Vecinos>();
 //	private ArrayList<Iegresos> iegresosFalsos = new ArrayList<Iegresos>();
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -131,9 +137,9 @@ public class MiCitaTelcelRestController {
 		condo.setCp(request.getParameter("cp"));
 		condo.setRegulation(request.getParameter("filebase64"));
 //		System.out.println(condo.getArchivo());
-		condo.setPhoto(request.getParameter("photobase64"));
-		condo.setName1(request.getParameter("name1"));
-		System.out.println(condo.getName1());
+		condo.setPhotoc(request.getParameter("photocbase64"));
+		condo.setNamec(request.getParameter("namec"));
+		System.out.println(condo.getNamec());
 		condo.setNumber(request.getParameter("number"));
 		condo.setPhone(request.getParameter("phone"));
 		condo.setStreet(request.getParameter("street"));
@@ -196,14 +202,16 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/principal", method = RequestMethod.GET)
 	public ModelAndView principal(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("principal");
+		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
+		model.addObject("principaladmins", principaladmins);
 		return model;
 	}
 	
 	@RequestMapping(value = "/auth/finanzas", method = RequestMethod.GET)
 	public ModelAndView finanzas(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("finanzas");
-		Iegresos iegresos = IegresosClient.getIegresoClient(); 
-		model.addObject("iegresos", iegresos);
+		Finanzas[] finanzas = FinanzasClient.getFinanzasClient(); 
+		model.addObject("finanzas", finanzas);
 		return model;
 	}
 	
@@ -288,10 +296,10 @@ public class MiCitaTelcelRestController {
 	public String datosAgendavecinos(HttpServletRequest request) {
 		ObjectMapper mapper = new ObjectMapper();
 		String nombreVecino = request.getParameter("nombre");
-		Vecino vecinoActual = new Vecino();
+		Vecinos vecinoActual = new Vecinos();
 		String vecinoString = "";
 		//datos falsos
-		for(Vecino vecino : vecinosFalsos) {
+		for(Vecinos vecino : vecinosFalsos) {
 			if(vecino.getNombre().equals( nombreVecino )){
 				vecinoActual = vecino;
 			}
@@ -309,6 +317,8 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/avisos", method = RequestMethod.GET)
 	public ModelAndView avisos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("avisos");
+		Avisos avisos = AvisosClient.getAvisoClient();
+		model.addObject("avisos", avisos);
 		return model;
 	}
 	
@@ -322,6 +332,8 @@ public class MiCitaTelcelRestController {
 		comentario.setDate(fecha);
 		comentario.setIdUser("Henry Zapata");
 		ModelAndView model = new ModelAndView("agregarcom");
+		Avisos avisos = AvisosClient.getAvisoClient();
+		model.addObject("avisos", avisos);
 		model.addObject("comment", comentario);
 		return model;
 	}
@@ -332,15 +344,20 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 	
+	
 	@RequestMapping(value = "/auth/perfilusuario", method = RequestMethod.GET)
 	public ModelAndView perfilusuario(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("perfilusuario");
+		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
+		model.addObject("principaladmins", principaladmins);
 		return model;
 	}
 	
 	@RequestMapping(value = "/auth/reglamento", method = RequestMethod.GET)
 	public ModelAndView reglamento(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("reglamento");
+		Condominios condominios = CondominiosClient.getCondominioClient(); 
+		model.addObject("condominios", condominios);
 		return model;
 	}
 	
@@ -353,6 +370,8 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/configinmueble", method = RequestMethod.GET)
 	public ModelAndView configinmueble(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("configinmueble");
+		Condominios condominios = CondominiosClient.getCondominioClient(); 
+		model.addObject("condominios", condominios);
 		return model;
 	}
 	
@@ -360,19 +379,32 @@ public class MiCitaTelcelRestController {
 	public ModelAndView cuadroconfig(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("cuadroconfig");
 		int num = Integer.parseInt(request.getParameter("num"));
+		System.out.println(num); 
 		model.addObject("num", num);
+		Condominios condominios = CondominiosClient.getCondominioClient();
+		model.addObject("condominios", condominios);
 		return model;
 	}
 	
 	@RequestMapping(value = "/neig/principalvec", method = RequestMethod.GET)
 	public ModelAndView principalvec(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("principalvec");
+		Principalvecinos principalvecinos = PrincipalvecinosClient.getPrincipalvecinoClient();
+		model.addObject("principalvecinos", principalvecinos);
+		return model;
+	}
+	
+	@RequestMapping(value = "/neig/finanzasvec", method = RequestMethod.GET)
+	public ModelAndView finanzasvec(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("finanzasvec");
 		return model;
 	}
 	
 	@RequestMapping(value = "/neig/avisosvec", method = RequestMethod.GET)
 	public ModelAndView avisosvec(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("avisosvec");
+		Avisos avisos = AvisosClient.getAvisoClient();
+		model.addObject("avisos", avisos);
 		return model;
 	}
 	
@@ -385,11 +417,15 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/neig/perfilusuariovec", method = RequestMethod.GET)
 	public ModelAndView perfilusuariovec(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("perfilusuariovec");
+		Principalvecinos principalvecinos = PrincipalvecinosClient.getPrincipalvecinoClient();
+		model.addObject("principalvecinos", principalvecinos);
 		return model;
 	}
 	@RequestMapping(value = "/neig/reglamentovec", method = RequestMethod.GET)
 	public ModelAndView reglamentovec(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("reglamentovec");
+		Condominios condominios = CondominiosClient.getCondominioClient(); 
+		model.addObject("condominios", condominios);
 		return model;
 	}
 	@RequestMapping(value = "/neig/terminosvec", method = RequestMethod.GET)
@@ -400,9 +436,9 @@ public class MiCitaTelcelRestController {
 
 	private void generaDatosVecino() {//TODELETE
 		vecinosFalsos.clear();
-		Vecino vecino1 = new Vecino();
-		Vecino vecino2 = new Vecino();
-		Vecino vecino3 = new Vecino();
+		Vecinos vecino1 = new Vecinos();
+		Vecinos vecino2 = new Vecinos();
+		Vecinos vecino3 = new Vecinos();
 		vecino1.setNombre("Henry");
 		vecino1.setApellido("Zapata");
 		vecino1.setCorreo("h.zapata@supaada.mx");

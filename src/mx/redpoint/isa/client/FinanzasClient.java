@@ -7,15 +7,15 @@ import java.net.URL;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import mx.redpoint.isa.bean.Vecinos;
+import mx.redpoint.isa.bean.Finanzas;
 
-public class AgendavecinosClient {
-	public static final Vecinos getVecinoClient() {
+public class FinanzasClient {
+	public static final Finanzas[] getFinanzasClient() {
 		HttpURLConnection conn = null;
-		Vecinos obj = null;
+		Finanzas[] obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/vecino1/agendavecino1");
+			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/finanzasIE/finanzas");
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -30,12 +30,12 @@ public class AgendavecinosClient {
 
 				String output;
 				String json = "";
-				System.out.println("Output from Server .... \n");
+				System.out.println("entro a consulta de servicio");
 				while ((output = br.readLine()) != null) {
 					json = json + output;
 				}
 				
-				obj = mapper.readValue(json, Vecinos.class);
+				obj = mapper.readValue(json, Finanzas[].class);
 				
 				
 		}catch (Exception e) {
@@ -46,5 +46,4 @@ public class AgendavecinosClient {
 		
 		return obj;
 	}
-	
 }

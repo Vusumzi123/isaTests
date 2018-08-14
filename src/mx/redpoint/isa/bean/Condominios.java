@@ -1,8 +1,8 @@
 package mx.redpoint.isa.bean;
 
 public class Condominios {
-	private String photo;
-	private String name1;
+	private String photoc;
+	private String namec;
 	private String regulation;
 	private String country;
 	private String cp; 
@@ -15,17 +15,17 @@ public class Condominios {
 	private Double cuotamensual;
 	private Finanzas[] finanzas;
 	
-	public String getPhoto() {
-		return photo;
+	public String getPhotoc() {
+		return photoc;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setPhotoc(String photoc) {
+		this.photoc = photoc;
 	}
-	public String getName1() {
-		return name1;
+	public String getNamec() {
+		return namec;
 	}
-	public void setName1(String name1) {
-		this.name1 = name1;
+	public void setNamec(String namec) {
+		this.namec = namec;
 	}
 	public String getRegulation() {
 		return regulation;

@@ -52,13 +52,13 @@
 				<div class="row" style="width: 100%; display: flex; align-items: center;">
 					<div class="contenido col-sm-6 mx-0">
 						<div class="img-container"
-							style="background-image: url('${condominio.getPhoto()}'), url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg') ">
+							style="background-image: url('${condominio.getPhotoc()}'), url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg') ">
 						</div>
 					</div>
 					<div class="contenido1 col-sm-6 mx-0">
 						<div class="datos-condominio">datos del condominio</div>
 						<div class="nombre-condominio">nombre del condominio</div>
-						<div class="nombre-condominio111">${condominio.getName1()}</div>
+						<div class="nombre-condominio111">${condominio.getNamec()}</div>
 						<div class="direccion">dirección</div>
 						<div class="direccion111">
 							<p>

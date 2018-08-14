@@ -2,7 +2,7 @@ package mx.redpoint.isa.bean;
 
 import java.util.ArrayList;
 
-public class Vecino {
+public class Vecinos {
 	private String nombre;
 	private String apellido;
 	private String vivienda;

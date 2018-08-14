@@ -94,10 +94,10 @@
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <img class="imgusuario"
-						src="${ctx}/resources/img/imagenPerfil.svg">
+						src="${principalvecinos.getPhotov()}">
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<div class="dropdown-item menu-header">Usuario</div>
+						<div class="dropdown-item menu-header">${principalvecinos.getNamev()} ${principalvecinos.getLastnamev()}</div>
 						<a class="dropdown-item" style="cursor: pointer" role="button"
 							id="perfilusuariovec"
 							onclick="changeTab(event, 'perfilvec');loadContent('perfilusuariovec')">

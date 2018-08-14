@@ -10,17 +10,16 @@
 			<div id="avisos-container"></div>
 			<div class="aviso1-avisos">
 				<div class="row">
-					<img class="usuario1-avisos col-sm-2"
-						src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
+					<div class="usuario1-avisos col-sm-2"
+						style="background-image: url('${avisos.getPhoto()}')">
+					</div>
 					<div class="usuario-dijo-avisos">
-						Henry Zapata dijo... <br>
-						<div class="fecha-post-avisos">01-julio-2018</div>
+						${avisos.getName()} ${avisos.getLastname()}
+						dijo...<br>
+						<div class="fecha-post-avisos">${avisos.getDate}</div>
 					</div>
 				</div>
-				<div class="mensaje-escrito-avisos">Ya se han ingresado los
-					montos del capital con el que contamos. En la tarjeta de débito
-					tenemos $40,000.00 y en caja chica $16,500.00, hacen un total de
-					$56,500.00.</div>
+				<div class="mensaje-escrito-avisos">${avisos.getMessage}</div>
 			</div>
 		</div>
 	</div>

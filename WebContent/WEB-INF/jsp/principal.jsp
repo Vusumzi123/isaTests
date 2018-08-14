@@ -100,10 +100,10 @@
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> <img class="imgusuario"
-						src="${ctx}/resources/img/imagenPerfil.svg">
+						src="${principaladmins.getPhoto()}">
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<div class="dropdown-item menu-header">Usuario</div>
+						<div class="dropdown-item menu-header">${principaladmins.getName()} ${principaladmins.getLastname()}</div>
 						<a class="dropdown-item" style="cursor: pointer" role="button"
 							id="perfilusuario"
 							onclick="changeTab(event, 'perfil');loadContent('perfilusuario')">
@@ -118,7 +118,7 @@
 							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
 						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
 							id="configinmueble"
-							onclick="changeTab(event, 'configinmueble');loadContent('configinmueble')">
+							onclick="changeTab(event, 'configinmueble');loadConfigInmueble()">
 							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
 						</a> <a class="dropdown-item" href="${ctx}/services/auth/condominios">
 							<i class="fas fa-home"></i>&nbsp; Mis condominios

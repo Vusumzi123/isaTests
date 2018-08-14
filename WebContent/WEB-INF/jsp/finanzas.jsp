@@ -11,78 +11,68 @@
 				<div id="carouselExampleIndicators" class="carousel slide"
 					data-ride="carousel">
 					<ol class="carousel-indicators">
-						<li data-target="#carouselExampleIndicators" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						<c:forEach var="cuenta" items="${finanzas}" varStatus="i">
+							<c:when test="${i==0}">
+								<li data-target="#carouselExampleIndicators" data-slide-to="0"
+									class="active"></li>
+							</c:when>
+							<c:otherwise>
+								<li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
+							</c:otherwise>
+
+						</c:forEach>
 					</ol>
 					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<div class="contenedor-carousel" alt="First slide">
-								<div class="renglon1">CUENTA 1</div>
-								<div class="renglon2">**** 3896</div>
-								<div class="renglon3">$95,700 MXN</div>
-								<div class="container1">
-									<div class="row">
-										<div class="col-sm-1"></div>
-										<div class="ingresos-mes col-sm-4">
-											Ingresos del mes <br>
-											<div class="cantidad-ingresos">$89,000.00</div>
+						<c:forEach var="cuenta" items="${finanzas}" varStatus="i">
+							<c:when test="${i==0}">
+								<div class="carousel-item active">
+									<div class="contenedor-carousel" alt="First slide">
+										<div class="renglon1">cuenta.getAlias()</div>
+										<div class="renglon2">cuenta.getNumerotarjeta()</div>
+										<div class="renglon3" id="monto-total">$95,700 MXN</div>
+										<div class="container1">
+											<div class="row">
+												<div class="col-sm-1"></div>
+												<div class="ingresos-mes col-sm-4">
+													Ingresos del mes <br>
+													<div class="cantidad-ingresos" id="ingreso-total">$89,000.00</div>
+												</div>
+												<div class="linea-vertical col-sm-2"></div>
+												<div class="egresos-mes col-sm-4">
+													Egresos del mes <br>
+													<div class="cantidad-egresos" id="egreso-total">$14,000.00</div>
+												</div>
+												<div class="col-sm-1"></div>
+											</div>
 										</div>
-										<div class="linea-vertical col-sm-2"></div>
-										<div class="egresos-mes col-sm-4">
-											Egresos del mes <br>
-											<div class="cantidad-egresos">$14,000.00</div>
-										</div>
-										<div class="col-sm-1"></div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="contenedor-carousel" alt="Second slide">
-								<div class="renglon1">SALDO TOTAL</div>
-								<div class="renglon2">Fecha de corte: 30-junio-2018</div>
-								<div class="renglon3">$100,700 MXN</div>
-								<div class="container1">
-									<div class="row">
-										<div class="col-sm-1"></div>
-										<div class="ingresos-mes col-sm-4">
-											Ingresos del mes <br>
-											<div class="cantidad-ingresos">$89,000.00</div>
+							</c:when>
+							<c:otherwise>
+								<div class="carousel-item">
+									<div class="contenedor-carousel" alt=First slide">
+										<div class="renglon1">cuenta.getAlias()</div>
+										<div class="renglon2">cuenta.getNumerotarjeta()</div>
+										<div class="renglon3" id="monto-total"></div>
+										<div class="container1">
+											<div class="row">
+												<div class="col-sm-1"></div>
+												<div class="ingresos-mes col-sm-4">
+													Ingresos del mes <br>
+													<div class="cantidad-ingresos" id="ingreso-total"></div>
+												</div>
+												<div class="linea-vertical col-sm-2"></div>
+												<div class="egresos-mes col-sm-4">
+													Egresos del mes <br>
+													<div class="cantidad-egresos" id="egreso-total"></div>
+												</div>
+												<div class="col-sm-1"></div>
+											</div>
 										</div>
-										<div class="linea-vertical col-sm-2"></div>
-										<div class="egresos-mes col-sm-4">
-											Egresos del mes <br>
-											<div class="cantidad-egresos">$14,000.00</div>
-										</div>
-										<div class="col-sm-1"></div>
 									</div>
 								</div>
-							</div>
-						</div>
-						<div class="carousel-item">
-							<div class="contenedor-carousel" alt="Third slide">
-								<div class="renglon1">CAJA CHICA</div>
-								<div class="renglon2">****</div>
-								<div class="renglon3">$15,000 MXN</div>
-								<div class="container1">
-									<div class="row">
-										<div class="col-sm-1"></div>
-										<div class="ingresos-mes col-sm-4">
-											Ingresos del mes <br>
-											<div class="cantidad-ingresos">$89,000.00</div>
-										</div>
-										<div class="linea-vertical col-sm-2"></div>
-										<div class="egresos-mes col-sm-4">
-											Egresos del mes <br>
-											<div class="cantidad-egresos">$14,000.00</div>
-										</div>
-										<div class="col-sm-1"></div>
-									</div>
-								</div>
-							</div>
-						</div>
+							</c:otherwise>
+						</c:forEach>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators"
 						role="button" data-slide="prev"> <span aria-hidden="true"><i

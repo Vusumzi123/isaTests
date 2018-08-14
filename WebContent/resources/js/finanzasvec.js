@@ -1,40 +1,3 @@
-var agregarButton = $("#agregarcuenta1");
-// agregarButton.click(agregarCuadro);
-var contador = 1
-function agregarCuadro1(e) {
-	e.preventDefault();
-	var contenedor = $("#cuadro-contenedor1");
-	var url = contexto + "/services/auth/cuadroconfig?num=" + contador;
-	$.ajax({
-		url : url,
-		method : 'GET',
-		success : function(response, status) {
-			console.log(response);
-			contenedor.append(response);
-			$("#contador").val(contador);
-			$('body').bootstrapMaterialDesign()
-		},
-		error : function(error) {
-			console.log(error);
-		}
-	})
-	contador++;
-}
-
-function loadConfigInmueble(){
-	sendToken();
-	var ajaxObj = {
-			url: contexto+"/services/auth/configinmueble",
-			method: 'GET',
-			success: function(response, status){
-				$("#contenedorPrincipal").html(response);
-				var e = new Event("click");
-				agregarCuadro1(e);
-			},
-	}
-	contentAjax(ajaxObj, "contenedorPrincipal");
-}
-
 function addArchive(){
 	var inputFile = $('#regulation');
 	var adjButton = $("#adj");
@@ -92,5 +55,3 @@ function getBase64(photo, callback) {
       console.log('Error: ', error);
     };
  }
-
-

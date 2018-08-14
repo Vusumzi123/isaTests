@@ -203,6 +203,27 @@ li.nav-item {
 	flex-direction: column;
 }
 
+.img-container {
+	background-image:
+		url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
+	border-radius: 50%;
+	width: 160px;
+	height: 160px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 15px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.contenedorimg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 /* Style the tab */
 .tab {
 	overflow: hidden;
@@ -355,7 +376,7 @@ button.btn.btn-outline-secondary.border-left-0 {
 .aviso1-avisos {
 	background-color: #ffffff;
 	margin-top: 22px;
-	border-bottom: 1px solid  #8b8b8b;
+	margin-bottom: 22px;
 	padding-left: 15px;
 	padding-right: 15px;
 	padding-bottom: 15px;
@@ -422,6 +443,7 @@ button.btn.btn-outline-secondary.border-left-0 {
 	background-position: center;
 	color: #ffffff;
 	font-size: 21px;
+	cursor: pointer;
 }
 
 .img-container-perfil {
