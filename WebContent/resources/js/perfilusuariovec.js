@@ -4,7 +4,7 @@ function addArchive(){
 	var delButton = $("#del");
 	var nobreArch = $("#nombre-arch");
 	var callback = function(base64String){
-		$('#filebase64-finanzasvec').val(base64String);
+		$('#filebase64-perfilvec').val(base64String);
 	}
 	inputFile.click();
 	inputFile.change(function(){
@@ -16,13 +16,13 @@ function addArchive(){
 	delButton.removeClass('hidden');
 }
 
-function addPhotofv(){
-	var inputPhoto = $('#file-photo-finanzasvec');
-	var addPhotoButton = $('#photo-button-finanzasvec');
-	var inputBase64 = $('#photobase64-finanzasvec');
+function addPhotop(){
+	var inputPhoto = $('#file-photo-perfilvec');
+	var addPhotoButton = $('#photo-button-perfilvec');
+	var inputBase64 = $('#photobase64-perfilvec');
 	var callback = function (base64String){
-		$('#photobase64-finanzasvec').val(base64String);
-		$('#photo-circle-finanzasvec').css('background-image','url('+base64String+')');
+		$('#photobase64-perfilvec').val(base64String);
+		$('#photo-circle-perfilvec').css('background-image','url('+base64String+')');
 	}
 	inputPhoto.click();
 	inputPhoto.change(function(){

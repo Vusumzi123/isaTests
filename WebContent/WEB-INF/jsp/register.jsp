@@ -24,6 +24,10 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
+<script>
+	var contexto = "${ctx}";
+</script>
+
 <link rel="stylesheet" href="${ctx}/resources/register.css">
 </head>
 <body>
@@ -37,21 +41,29 @@
 	<div class="body-container">
 		<form class="form-container" id="formulario" method="post"
 			action="${pageContext.request.contextPath}/services/confirm">
-			<div class="img-container" id="imgu"
-				style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
-				<button type="file" class="cam">
-					<i class="fas fa-camera"></i>
-					<!-- <i class="fas fa-camera"></i> -->
-				</button>
+
+			<div class="contenedorimg">
+				<div class="img-container" id="photo-circle-register"
+					style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
+					<button type="button" class="cam" id="photo-button-register"
+						onclick="addPhotor()">
+						<i class="fas fa-camera"></i>
+						<!-- <i class="fas fa-camera"></i> -->
+					</button>
+				</div>
+				<input type="hidden" name="photobase64-register"
+					id="photobase64-register"> <input type="file"
+					class="hidden" style="display: none !important"
+					name="file-photo-register" id="file-photo-register">
 			</div>
 			<div class="row">
 				<div class="input-field nombres col s12">
-					<input id="name" name="nombres" type="text" class="validate">
+					<input id="name" name="name" type="text" class="validate">
 					<label for="name">nombre(s)</label>
 				</div>
 
 				<div class="input-field apellidos col s12">
-					<input id="lastname" name="apellidos" type="text" class="validate">
+					<input id="lastname" name="lastname" type="text" class="validate">
 					<label for="lastname">apellido(s)</label>
 				</div>
 
@@ -75,5 +87,6 @@
 			</div>
 		</form>
 	</div>
+	<script type="text/javascript" src="${ctx}/resources/js/register.js"></script>
 </body>
 </html>

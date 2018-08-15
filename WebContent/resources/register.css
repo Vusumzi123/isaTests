@@ -166,3 +166,7 @@ label {
 	color: #07354d !important;
 	font-weight: 300!important;	
 }
+
+.hidden {
+	display: none!important;
+}

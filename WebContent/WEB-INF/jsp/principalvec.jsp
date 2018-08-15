@@ -123,6 +123,7 @@
 	<script type="text/javascript" src="${ctx}/resources/js/principalvec.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/finanzasvec.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/avisosvec.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/perfilusuariovec.js"></script>
 
 </body>
 </html>

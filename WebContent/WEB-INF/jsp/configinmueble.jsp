@@ -10,15 +10,17 @@
 			<div class="textoarriba">
 				<h3>Configuración del inmueble</h3>
 			</div>
-			<div class="contenedorimg-config">
-				<div class="img-container-config" id="archivo1" name="archivo1"
-					style="background-image: url('${condominios.getPhotoc()}')">
-					<button class="cam">
-						<i class="fas fa-camera"></i>
-						<!-- <i class="fas fa-camera"></i> -->
-					</button>
+			<div class="contenedorimg" style="display:flex; align-items:center; justify-content:center;">
+					<div class="img-container-config" id="photo-circle-config"
+						style="background-image: url('${condominios.getPhotoc()}')">
+						<button type="button" class="cam" id="photo-button-config" onclick="addPhotoc()">
+							<i class="fas fa-camera"></i>
+							<!-- <i class="fas fa-camera"></i> -->
+						</button>
+					</div>
+					<input type="hidden" name="photobase64-config" id="photobase64-config">
+					<input type="file" class="hidden" name="file-photo-config" id="file-photo-config">
 				</div>
-			</div>
 			<div class="container-config">
 				<div class="row">
 					<div class="form-group col-sm-6">
@@ -30,7 +32,7 @@
 						<button type="button" id="adj" onclick="addArchive()"
 							class="btn btn-block d-flex justify-content-between btn-archivo"
 							style="color: #07354d !important;">
-							Subir reglamento (solo pdf)&nbsp;<i
+							${condominios.getRegulation()}&nbsp;<i
 								class="fas fa-paperclip rotate45"></i>
 						</button>
 						<button type="button" id="del" onclick="removeArchive()"
@@ -39,7 +41,7 @@
 							<span id="nombre-arch"></span>&nbsp;<i class="fas fa-trash-alt"></i>
 						</button>
 						<input type="file" style="display: none" class="form-control"
-							id="archivo" name="archivo" value="${condominios.getRegulation()}">
+							id="archivo" name="archivo">
 					</div>
 				</div>
 				<div class="row">

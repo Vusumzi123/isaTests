@@ -114,17 +114,17 @@
 								<div class="modal-body" style="margin-bottom: -50px;">
 									<form id="vecino-form">
 										<div class="contenedorimg">
-											<div class="img-container" id="photo-circle"
-												style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg')">
-												<button type="button" class="cam" id="photo-button"
-													onclick="addPhoto()">
+											<div class="img-container" id="photo-circle-finanzasvec"
+												style="background-image: url('${pageContext.request.contextPath}/resources/img/iconoPhoto.svg')">
+												<button type="button" class="cam" id="photo-button-finanzasvec"
+													onclick="addPhotofv()">
 													<i class="fas fa-camera"></i>
 													<!-- <i class="fas fa-camera"></i> -->
 												</button>
 											</div>
-											<input type="hidden" name="photobase64" id="photobase64">
-											<input type="file" class="hidden" name="file-photo"
-												id="file-photo">
+											<input type="hidden" name="photobase64-finanzasvec" id="photobase64-finanzasvec">
+											<input type="file" class="hidden" name="file-photo-finanzasvec"
+												id="file-photo-finanzasvec">
 										</div>
 										<div class="form-group modal-form-group">
 											<label for="vecino-comprobante" class="bmd-label-floating">vecino

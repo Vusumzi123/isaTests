@@ -136,6 +136,7 @@
 	<script type="text/javascript" src="${ctx}/resources/js/finanzas.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/agendavecinos.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/avisos.js"></script>
+	<script type="text/javascript" src="${ctx}/resources/js/perfilusuario.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/configinmueble.js"></script>
 
 </body>

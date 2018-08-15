@@ -41,7 +41,7 @@ function addArchive(){
 	var delButton = $("#del");
 	var nobreArch = $("#nombre-arch");
 	var callback = function(base64String){
-		$('#filebase64').val(base64String);
+		$('#filebase64-config').val(base64String);
 	}
 	inputFile.click();
 	inputFile.change(function(){
@@ -53,13 +53,13 @@ function addArchive(){
 	delButton.removeClass('hidden');
 }
 
-function addPhoto(){
-	var inputPhoto = $('#file-photo');
-	var addPhotoButton = $('#photo-button');
-	var inputBase64 = $('#photobase64');
+function addPhotoc(){
+	var inputPhoto = $('#file-photo-config');
+	var addPhotoButton = $('#photo-button-config');
+	var inputBase64 = $('#photobase64-config');
 	var callback = function (base64String){
-		$('#photobase64').val(base64String);
-		$('#photo-circle').css('background-image','url('+base64String+')');
+		$('#photobase64-config').val(base64String);
+		$('#photo-circle-config').css('background-image','url('+base64String+')');
 	}
 	inputPhoto.click();
 	inputPhoto.change(function(){

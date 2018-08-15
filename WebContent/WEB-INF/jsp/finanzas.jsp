@@ -51,8 +51,8 @@
 							<c:otherwise>
 								<div class="carousel-item">
 									<div class="contenedor-carousel" alt=First slide">
-										<div class="renglon1">cuenta.getAlias()</div>
-										<div class="renglon2">cuenta.getNumerotarjeta()</div>
+										<div class="renglon1">${cuenta.getAlias()}</div>
+										<div class="renglon2">${cuenta.getNumerotarjeta()}</div>
 										<div class="renglon3" id="monto-total"></div>
 										<div class="container1">
 											<div class="row">
