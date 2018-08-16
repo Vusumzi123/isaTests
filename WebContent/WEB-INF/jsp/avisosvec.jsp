@@ -22,10 +22,10 @@
 			<div class="aviso1-avisos">
 				<div class="row">
 					<div class="usuario1-avisos col-sm-2"
-						style="background-image: url('${principaladmins.getPhoto()}')">
+						style="background-image: url('${avisos.getPhoto()}')">
 					</div>
 					<div class="usuario-dijo-avisos">
-						${principaladmins.getName()} ${principaladmins.getLastname()}
+						${avisos.getName()} ${avisos.getLastname()}
 						dijo...<br>
 						<div class="fecha-post-avisos">27-abril-2018</div>
 					</div>
@@ -37,10 +37,10 @@
 			<div class="aviso1-avisos">
 				<div class="row">
 					<div class="usuario1-avisos col-sm-2"
-						style="background-image: url('${principaladmins.getPhoto()}')">
+						style="background-image: url('${avisos.getPhoto()}')">
 					</div>
 					<div class="usuario-dijo-avisos">
-						${principaladmins.getName()} ${principaladmins.getLastname()}
+						${avisos.getName()} ${avisos.getLastname()}
 						dijo...<br>
 						<div class="fecha-post-avisos">27-abril-2018</div>
 					</div>
@@ -51,10 +51,10 @@
 			<div class="aviso1-avisos">
 				<div class="row">
 					<div class="usuario1-avisos col-sm-2"
-						style="background-image: url('${principaladmins.getPhoto()}')">
+						style="background-image: url('${avisos.getPhoto()}')">
 					</div>
 					<div class="usuario-dijo-avisos">
-						${principaladmins.getName()} ${principaladmins.getLastname()}
+						${avisos.getName()} ${avisos.getLastname()}
 						dijo...<br>
 						<div class="fecha-post-avisos">20-abril-2018</div>
 					</div>
@@ -65,10 +65,10 @@
 			<div class="aviso1-avisos">
 				<div class="row">
 					<div class="usuario1-avisos col-sm-2"
-						style="background-image: url('${principaladmins.getPhoto()}')">
+						style="background-image: url('${avisos.getPhoto()}')">
 					</div>
 					<div class="usuario-dijo-avisos">
-						${principaladmins.getName()} ${principaladmins.getLastname()}
+						${avisos.getName()} ${avisos.getLastname()}
 						dijo...<br>
 						<div class="fecha-post-avisos">09-abril-2018</div>
 					</div>
@@ -81,10 +81,10 @@
 			<div class="aviso1-avisos">
 				<div class="row">
 					<div class="usuario1-avisos col-sm-2"
-						style="background-image: url('${principaladmins.getPhoto()}')">
+						style="background-image: url('${avisos.getPhoto()}')">
 					</div>
 					<div class="usuario-dijo-avisos">
-						${principaladmins.getName()} ${principaladmins.getLastname()}
+						${avisos.getName()} ${avisos.getLastname()}
 						dijo...<br>
 						<div class="fecha-post-avisos">01-abril-2018</div>
 					</div>

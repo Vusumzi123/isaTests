@@ -43,10 +43,10 @@
 			action="${pageContext.request.contextPath}/services/confirm">
 
 			<div class="contenedorimg">
-				<div class="img-container" id="photo-circle-register"
+				<div class="img-container" id="imgu"
 					style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenPerfil.svg')">
 					<button type="button" class="cam" id="photo-button-register"
-						onclick="addPhotor()">
+						onclick="addPhotor()" style="cursor:pointer;">
 						<i class="fas fa-camera"></i>
 						<!-- <i class="fas fa-camera"></i> -->
 					</button>

@@ -27,6 +27,7 @@
 	background-position: center;
 	color: #ffffff;
 	font-size: 21px;
+	cursor: pointer;
 }
 
 .img-container {
@@ -113,6 +114,7 @@
 	line-height: 2;
 	text-align: center;
 	color: #ffffff;
+	cursor: pointer;
 }
 
 .o-Entrar-con-una-cuenta-existente {

@@ -33,6 +33,7 @@ import mx.redpoint.isa.client.CondominiosClient;
 import mx.redpoint.isa.client.FinanzasClient;
 import mx.redpoint.isa.client.PrincipaladminsClient;
 import mx.redpoint.isa.client.PrincipalvecinosClient;
+import mx.redpoint.isa.client.VecinosClient;
 import mx.redpoint.isa.util.BlobUtil;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -63,7 +64,7 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 public class MiCitaTelcelRestController {
     
 	//datos falsos
-	private ArrayList<Vecinos> vecinosFalsos = new ArrayList<Vecinos>();
+	private ArrayList<Vecinos> vecinosLista = new ArrayList<Vecinos>();
 //	private ArrayList<Iegresos> iegresosFalsos = new ArrayList<Iegresos>();
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -287,32 +288,34 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("agendavecinos");
-		generaDatosVecino();
-		model.addObject("vecinos", vecinosFalsos);
+//		generaDatosVecino();
+//		model.addObject("vecinos", vecinosFalsos);
+		Vecinos[] vecinos = VecinosClient.getVecinoClient(); 
+		model.addObject("vecinos", vecinos);
 		return model;
 	}
 
-	@RequestMapping(value = "/auth/datosAgendavecinos", method = RequestMethod.GET, produces = "application/json")
-	public String datosAgendavecinos(HttpServletRequest request) {
-		ObjectMapper mapper = new ObjectMapper();
-		String nombreVecino = request.getParameter("nombre");
-		Vecinos vecinoActual = new Vecinos();
-		String vecinoString = "";
-		//datos falsos
-		for(Vecinos vecino : vecinosFalsos) {
-			if(vecino.getNombre().equals( nombreVecino )){
-				vecinoActual = vecino;
-			}
-		}
-		
-		try {
-			vecinoString = mapper.writeValueAsString(vecinoActual);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return vecinoString;
-	}
+//	@RequestMapping(value = "/auth/datosAgendavecinos", method = RequestMethod.GET, produces = "application/json")
+//	public String datosAgendavecinos(HttpServletRequest request) {
+//		ObjectMapper mapper = new ObjectMapper();
+//		String nombreVecino = request.getParameter("namev");
+//		Vecinos vecinoActual = new Vecinos();
+//		String vecinoString = "";
+//		
+//		for(Vecinos vecino : vecinosLista) {
+//			if(vecino.getNamev().equals( nombreVecino )){
+//				vecinoActual = vecino;
+//			}
+//		}
+//		
+//		try {
+//			vecinoString = mapper.writeValueAsString(vecinoActual);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return vecinoString;
+//	}
 	
 	@RequestMapping(value = "/auth/avisos", method = RequestMethod.GET)
 	public ModelAndView avisos(HttpServletRequest request) {
@@ -434,88 +437,92 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	private void generaDatosVecino() {//TODELETE
-		vecinosFalsos.clear();
-		Vecinos vecino1 = new Vecinos();
-		Vecinos vecino2 = new Vecinos();
-		Vecinos vecino3 = new Vecinos();
-		vecino1.setNombre("Henry");
-		vecino1.setApellido("Zapata");
-		vecino1.setCorreo("h.zapata@supaada.mx");
-		vecino1.setVivienda("101");
-		ArrayList<Pagos> pagos = new ArrayList<Pagos>();
-		ArrayList<Adeudos> adeudos = new ArrayList<Adeudos>();
-		Pagos pago1 = new Pagos();
-		Pagos pago2 = new Pagos();
-		pago1.setFecha(new Date());
-		pago1.setConcepto("Mensualidad");
-		pago1.setCantidad(6000.0);
-		pago2.setFecha(new Date("30/05/18"));
-		pago2.setConcepto("Mensualidad");
-		pago2.setCantidad(6000.0);
-		pagos.add(pago1);
-		pagos.add(pago2);
-		Adeudos adeu1 = new Adeudos();
-		adeu1.setFecha(new Date());
-		adeu1.setConcepto("Mensualidad");
-		adeu1.setCantidad(6000.0);
-		adeudos.add(adeu1);
-		vecino1.setPagos( pagos );
-		vecino1.setAdeudos(adeudos);
-		
-		vecino2.setNombre("Montserrat");
-		vecino2.setApellido("Casillas");
-		vecino2.setCorreo("m.casillas@supaada.mx");
-		vecino2.setVivienda("105");
-		ArrayList<Pagos> pagos1 = new ArrayList<Pagos>();
-		ArrayList<Adeudos> adeudos1 = new ArrayList<Adeudos>();
-		Pagos pago3 = new Pagos();
-		Pagos pago4 = new Pagos();
-		pago3.setFecha(new Date());
-		pago3.setConcepto("Mensualidad");
-		pago3.setCantidad(5000.0);
-		pago4.setFecha(new Date());
-		pago4.setConcepto("Mensualidad");
-		pago4.setCantidad(5000.0);
-		pagos1.add(pago3);
-		pagos1.add(pago4);
-		Adeudos adeu2 = new Adeudos();
-		adeu2.setFecha(new Date());
-		adeu2.setConcepto("Mensualidad");
-		adeu2.setCantidad(5000.0);
-		adeudos1.add(adeu2);
-		vecino2.setPagos( pagos1 );
-		vecino2.setAdeudos(adeudos1);
-		
-		vecino3.setNombre("Alexis");
-		vecino3.setApellido("Negrete");
-		vecino3.setCorreo("a.negrete@supaada.mx");
-		vecino3.setVivienda("103");
-		ArrayList<Pagos> pagos2 = new ArrayList<Pagos>();
-		ArrayList<Adeudos> adeudos2 = new ArrayList<Adeudos>();
-		Pagos pago5 = new Pagos();
-		Pagos pago6 = new Pagos();
-		pago5.setFecha(new Date());
-		pago5.setConcepto("Mensualidad");
-		pago5.setCantidad(8000.0);
-		pago6.setFecha(new Date());
-		pago6.setConcepto("Mensualidad");
-		pago6.setCantidad(8000.0);
-		pagos2.add(pago5);
-		pagos2.add(pago6);
-		Adeudos adeu3 = new Adeudos();
-		adeu3.setFecha(new Date());
-		adeu3.setConcepto("Mensualidad");
-		adeu3.setCantidad(8000.0);
-		adeudos2.add(adeu3);
-		vecino3.setPagos( pagos2 );
-		vecino3.setAdeudos(adeudos2);
-		
-		vecinosFalsos.add(vecino1);
-		vecinosFalsos.add(vecino2);
-		vecinosFalsos.add(vecino3);
-	}
-	
+//	private void generaDatosVecino() {//TODELETE
+//		vecinosFalsos.clear();
+//		Vecinos vecino1 = new Vecinos();
+//		Vecinos vecino2 = new Vecinos();
+//		Vecinos vecino3 = new Vecinos();
+//		vecino1.setNombre("Henry");
+//		vecino1.setApellido("Zapata");
+//		vecino1.setCorreo("h.zapata@supaada.mx");
+//		vecino1.setVivienda("101");
+//		ArrayList<Pagos> pagos = new ArrayList<Pagos>();
+//		ArrayList<Adeudos> adeudos = new ArrayList<Adeudos>();
+//		Pagos pago1 = new Pagos();
+//		Pagos pago2 = new Pagos();
+//		pago1.setFecha(new Date());
+//		pago1.setConcepto("Mensualidad");
+//		pago1.setCantidad(6000.0);
+//		pago2.setFecha(new Date("30/05/18"));
+//		pago2.setConcepto("Mensualidad");
+//		pago2.setCantidad(6000.0);
+//		pagos.add(pago1);
+//		pagos.add(pago2);
+//		Adeudos adeu1 = new Adeudos();
+//		adeu1.setFecha(new Date());
+//		adeu1.setConcepto("Mensualidad");
+//		adeu1.setCantidad(6000.0);
+//		adeudos.add(adeu1);
+//		vecino1.setPagos( pagos );
+//		vecino1.setAdeudos(adeudos);
+//		
+//		vecino2.setNombre("Montserrat");
+//		vecino2.setApellido("Casillas");
+//		vecino2.setCorreo("m.casillas@supaada.mx");
+//		vecino2.setVivienda("105");
+//		ArrayList<Pagos> pagos1 = new ArrayList<Pagos>();
+//		ArrayList<Adeudos> adeudos1 = new ArrayList<Adeudos>();
+//		Pagos pago3 = new Pagos();
+//		Pagos pago4 = new Pagos();
+//		pago3.setFecha(new Date());
+//		pago3.setConcepto("Mensualidad");
+//		pago3.setCantidad(5000.0);
+//		pago4.setFecha(new Date());
+//		pago4.setConcepto("Mensualidad");
+//		pago4.setCantidad(5000.0);
+//		pagos1.add(pago3);
+//		pagos1.add(pago4);
+//		Adeudos adeu2 = new Adeudos();
+//		adeu2.setFecha(new Date());
+//		adeu2.setConcepto("Mensualidad");
+//		adeu2.setCantidad(5000.0);
+//		adeudos1.add(adeu2);
+//		vecino2.setPagos( pagos1 );
+//		vecino2.setAdeudos(adeudos1);
+//		
+//		vecino3.setNombre("Alexis");
+//		vecino3.setApellido("Negrete");
+//		vecino3.setCorreo("a.negrete@supaada.mx");
+//		vecino3.setVivienda("103");
+//		ArrayList<Pagos> pagos2 = new ArrayList<Pagos>();
+//		ArrayList<Adeudos> adeudos2 = new ArrayList<Adeudos>();
+//		Pagos pago5 = new Pagos();
+//		Pagos pago6 = new Pagos();
+//		pago5.setFecha(new Date());
+//		pago5.setConcepto("Mensualidad");
+//		pago5.setCantidad(8000.0);
+//		pago6.setFecha(new Date());
+//		pago6.setConcepto("Mensualidad");
+//		pago6.setCantidad(8000.0);
+//		pagos2.add(pago5);
+//		pagos2.add(pago6);
+//		Adeudos adeu3 = new Adeudos();
+//		adeu3.setFecha(new Date());
+//		adeu3.setConcepto("Mensualidad");
+//		adeu3.setCantidad(8000.0);
+//		adeudos2.add(adeu3);
+//		vecino3.setPagos( pagos2 );
+//		vecino3.setAdeudos(adeudos2);
+//		
+//		vecinosFalsos.add(vecino1);
+//		vecinosFalsos.add(vecino2);
+//		vecinosFalsos.add(vecino3);
+//	}
+	//
+	//
+	//
+	//
+	//
 //	private void generaDatosIegresos() {//TODELETE
 //		ingresosFalsos.clear();
 //		egresosFalsos.clear();

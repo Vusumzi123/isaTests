@@ -26,16 +26,16 @@
 
 							<c:forEach var="vecino" items="${vecinos}">
 								<button class="elemento1-agenda p-4"
-									onclick="cargaDatos(event, '${vecino.getNombre()}')">
+									onclick="cargaDatos(event, '${vecino.getNamev()}')">
 									<img class="img-elemento1-agenda"
 										src="${ctx}/resources/img/imagenPerfil.svg">
 									<div>
-										${vecino.getNombre()} ${vecino.getApellido() } <br>
-										<div class="numvivienda-agenda">${vecino.getVivienda()}</div>
+										${vecino.getNamev()} ${vecino.getLastnamev() } <br>
+										<div class="numvivienda-agenda">${vecino.getNumberv()}</div>
 									</div>
 								</button>
 							</c:forEach>
-							
+
 						</div>
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 										</div>
 										<div class="correo-agenda col-sm-4">
 											correo electrónico <br>
-											<div class="" id="correovecino" name="correovecino"></div>
+											<div class="" id="correovecino" name="correovecino">${vecino.getEmailv()}</div>
 										</div>
 									</div>
 								</div>
@@ -71,7 +71,8 @@
 										onclick="changeTab(event, 'adeudos', 'table-agenda')"
 										style="width: 50% !important">adeudos</button>
 								</div>
-								<div id="pagos" name="pagos" class="tabcontent table-agenda active">
+								<div id="pagos" name="pagos"
+									class="tabcontent table-agenda active">
 									<table class="table table-striped" style="width: 100%">
 										<thead>
 											<tr>
@@ -98,7 +99,7 @@
 											</tr>
 										</thead>
 										<tbody id="tabla-adeudos">
-											
+
 										</tbody>
 									</table>
 								</div>

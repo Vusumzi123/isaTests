@@ -4,8 +4,8 @@ $(document).ready(function(){
     	event.preventDefault();
     	var nombres = $("#name").val().trim();
     	var apellidos = $("#lastname").val().trim();
-        var correo = $("#uemail").val().trim();
-        var contrasena = $("#ucontrasena").val().trim();
+        var correo = $("#email").val().trim();
+        var contrasena = $("#password").val().trim();
         var foto = $("#photo-circle-register").val().trim();
 
         if(nombres != "" && apellidos != "" && correo != "" && contrasena != "" ){
@@ -13,7 +13,7 @@ $(document).ready(function(){
                 url:url,
                 type:'POST',
                 dataType: "json",
-                data:{name:nombres,lastname:apellidos,uemail:correo,ucontrasena:contrasena,imgu:foto},
+                data:{name:nombres,lastname:apellidos,email:correo,password:contrasena,imgu:foto},
                 success:function(response){
                     var msg = "";
                     console.log(response);
@@ -56,7 +56,7 @@ function addPhotor(){
 	var inputBase64 = $('#photobase64-register');
 	var callback = function (base64String){
 		$('#photobase64-register').val(base64String);
-		$('#photo-circle-register').css('background-image','url('+base64String+')');
+		$('#imgu').css('background-image','url('+base64String+')');
 	}
 	inputPhoto.click();
 	inputPhoto.change(function(){

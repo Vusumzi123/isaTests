@@ -6,27 +6,28 @@ function cargaDatos(event, nombre){
 	var nombreVecino = $("#nombrevecino");
 	var viviendaVecino = $("#viviendavecino");
 	var correoVecino = $("#correovecino");
+
 	$.ajax({
 		url: url,
 		dataType : "json",
 		success: function (response, status){
 			console.log(response);
-			var rowsAdeudos = response.adeudos;
-			var rowsPagos = response.pagos;
-			nombreRes.text(response);
-			tableAdeudos.html("");
-			tablePagos.html("");
-			rowsAdeudos.forEach(function(row){
-				var row = generaFila( row.fecha, row.concepto, row.cantidad );
-				tableAdeudos.append(row);
-			})
-			rowsPagos.forEach(function(row){
-				var row = generaFila( row.fecha, row.concepto, row.cantidad );
-				tablePagos.append(row);
-			})
-			nombreVecino.html(response.nombre+" "+response.apellido);
-			viviendaVecino.html(response.vivienda);
-			correoVecino.html(response.correo);
+//			var rowsAdeudos = response.adeudos;
+//			var rowsPagos = response.pagos;
+//			nombreRes.text(response);
+//			tableAdeudos.html("");
+//			tablePagos.html("");
+//			rowsAdeudos.forEach(function(row){
+//				var row = generaFila( row.fecha, row.concepto, row.cantidad );
+//				tableAdeudos.append(row);
+//			})
+//			rowsPagos.forEach(function(row){
+//				var row = generaFila( row.fecha, row.concepto, row.cantidad );
+//				tablePagos.append(row);
+//			})
+			nombreVecino.html(response.namev+" "+response.lastnamev);
+			viviendaVecino.html(response.numberv);
+			correoVecino.html(response.emailv);
 			
 		}
 	})

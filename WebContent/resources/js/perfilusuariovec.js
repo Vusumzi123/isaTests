@@ -16,7 +16,7 @@ function addArchive(){
 	delButton.removeClass('hidden');
 }
 
-function addPhotop(){
+function addPhotopv(){
 	var inputPhoto = $('#file-photo-perfilvec');
 	var addPhotoButton = $('#photo-button-perfilvec');
 	var inputBase64 = $('#photobase64-perfilvec');

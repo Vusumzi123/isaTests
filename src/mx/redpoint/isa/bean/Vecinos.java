@@ -3,35 +3,36 @@ package mx.redpoint.isa.bean;
 import java.util.ArrayList;
 
 public class Vecinos {
-	private String nombre;
-	private String apellido;
-	private String vivienda;
-	private String correo;
+	private String namev;
+	private String lastnamev;
+	private String numberv;
+	private String emailv;
 	private ArrayList<Pagos> pagos;
 	private ArrayList<Adeudos> adeudos;
-	public String getNombre() {
-		return nombre;
+	
+	public String getNamev() {
+		return namev;
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNamev(String namev) {
+		this.namev = namev;
 	}
-	public String getApellido() {
-		return apellido;
+	public String getLastnamev() {
+		return lastnamev;
 	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setLastnamev(String lastnamev) {
+		this.lastnamev = lastnamev;
 	}
-	public String getVivienda() {
-		return vivienda;
+	public String getNumberv() {
+		return numberv;
 	}
-	public void setVivienda(String vivienda) {
-		this.vivienda = vivienda;
+	public void setNumberv(String numberv) {
+		this.numberv = numberv;
 	}
-	public String getCorreo() {
-		return correo;
+	public String getEmailv() {
+		return emailv;
 	}
-	public void setCorreo(String correo) {
-		this.correo = correo;
+	public void setEmailv(String emailv) {
+		this.emailv = emailv;
 	}
 	public ArrayList<Pagos> getPagos() {
 		return pagos;
