@@ -56,10 +56,10 @@
 				</div>
 			</form>
 			<c:if test="${param.error != null}">
-				<div id="message">Correo y contraseña son inválidos!</div>
+				<div id="message" class="desconexion">Correo y/o contraseña son inválidos!</div>
 			</c:if>
 			<c:if test="${param.logout != null}">
-				<div id="logout">You have been logged out.</div>
+				<div class="desconexion" id="logout">Ha sido desconectado satisfactoriamente.</div>
 			</c:if>
 			<div class="Has-olvidado-tu-contrasea">¿Has olvidado tu
 				contraseña?</div>

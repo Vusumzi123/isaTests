@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="col-sm-11"></div>
 			<div class="col-sm-1 Entrar">
-				<a href="${pageContext.request.contextPath}/services/login">Entrar</a>
+				<a href="${pageContext.request.contextPath}/services/role">Entrar</a>
 			</div>
 		</div>
 		<div class="row">

@@ -129,7 +129,7 @@ form>* {
 	font-weight: 500;
 	line-height: 1.19;
 	text-align: center;
-	margin-bottom: 60px;
+	margin-bottom: 15px;
 	color: #ffffff !important;
 }
 
@@ -137,6 +137,12 @@ form>* {
 	width: 186.2px;
 	height: 65.8px;
 	margin-top: 50px;
+}
+
+.desconexion {
+	margin-bottom: 28px;
+    font-size: 16px;
+    color: lightcoral;
 }
 
 label {
