@@ -82,15 +82,16 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/role", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/role", method = RequestMethod.GET)
 	public ModelAndView role(HttpServletRequest request) {
-		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)    
-		SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-		System.out.println(authorities);
-		if(authorities.equals("ADMIN")) {
+		Set<String> roles = AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+		System.out.println(roles);
+		if(roles.contains("ROLE_ADMIN")) {
+			System.out.println("entro como admin");
 			return condominios(request);
-		} 
-		return principalvec(request); 
+		}
+		System.out.println("entro como user");
+		return principalvec(request);
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -577,7 +578,7 @@ public class MiCitaTelcelRestController {
 	// egreso3.setCantidad("$4800.00");
 	//
 	// ingreso4.setFecha(new Date("04/01/2018"));
-	// ingreso4.setConcepto("Alta tarjeta de crédito");
+	// ingreso4.setConcepto("Alta tarjeta de crï¿½dito");
 	// ingreso4.setCantidad("$40000.00");
 	//
 	// ingreso5.setFecha(new Date("04/01/2018"));
