@@ -87,15 +87,16 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/role", method = RequestMethod.GET)
+	@RequestMapping(value = "/auth/role", method = RequestMethod.GET)
 	public ModelAndView role(HttpServletRequest request) {
-		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)    
-		SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-		System.out.println(authorities);
-		if(authorities.equals("ADMIN")) {
+		Set<String> roles = AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+		System.out.println(roles);
+		if(roles.contains("ROLE_ADMIN")) {
+			System.out.println("entro como admin");
 			return condominios(request);
-		} 
-		return principalvec(request); 
+		}
+		System.out.println("entro como user");
+		return principalvec(request);
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
