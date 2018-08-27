@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +45,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -65,7 +68,9 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 @MultipartConfig
 @RequestMapping(value = "/services")
 public class MiCitaTelcelRestController {
-
+	
+	private final static Logger LOGGER = Logger.getLogger(MiCitaTelcelRestController.class.getName());
+	
 	// datos falsos
 	private ArrayList<Vecinos> vecinosLista = new ArrayList<Vecinos>();
 	// private ArrayList<Iegresos> iegresosFalsos = new ArrayList<Iegresos>();
@@ -214,9 +219,10 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	@RequestMapping(value = "/auth/principal", method = RequestMethod.GET)
-	public ModelAndView principal(HttpServletRequest request) {
+	@RequestMapping(value = "/auth/principal/{page}", method = RequestMethod.GET)
+	public ModelAndView principal(HttpServletRequest request, @PathVariable("page") String page) {
 		ModelAndView model = new ModelAndView("principal");
+		LOGGER.log(Level.parse("INFO"), page );
 		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
 		model.addObject("principaladmins", principaladmins);
 		return model;
@@ -577,7 +583,7 @@ public class MiCitaTelcelRestController {
 	// egreso3.setCantidad("$4800.00");
 	//
 	// ingreso4.setFecha(new Date("04/01/2018"));
-	// ingreso4.setConcepto("Alta tarjeta de crédito");
+	// ingreso4.setConcepto("Alta tarjeta de crï¿½dito");
 	// ingreso4.setCantidad("$40000.00");
 	//
 	// ingreso5.setFecha(new Date("04/01/2018"));
