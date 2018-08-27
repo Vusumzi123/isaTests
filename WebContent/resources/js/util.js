@@ -1,15 +1,22 @@
 function contentAjax(ajaxObj, containerId){
-	if(ajaxObj.success === null || ajaxObj.success === undefined){
+	var url = ajaxObj.url;
+	var name =  url.split("/").pop();
+	if(ajaxObj.success === undefined || ajaxObj.success === null){
 		ajaxObj.success = function(response, status){
 			$("#"+containerId).html(response);
 		}
 	}
-	if(ajaxObj.error === null || ajaxObj.error === undefined){
+	if(ajaxObj.error === undefined || ajaxObj.error === null){
 		ajaxObj.error = function(error, status){
 			$("#"+containerId).html(error);
 		}
 	}
 	$.ajax(ajaxObj);
+	var strObj = ajaxObj;
+	var stateObj = {
+			url: url,
+	}
+	window.history.pushState(stateObj, name, url);
 }
 
 function sendToken(){
@@ -21,3 +28,29 @@ function sendToken(){
 		});
 	});
 }
+
+
+//funcion para convertir un objecto a json
+jQuery.extend({
+    stringify  : function stringify(obj) {
+        var t = typeof (obj);
+        if (t != "object" || obj === null) {
+            // simple data type
+            if (t == "string") obj = '"' + obj + '"';
+            return String(obj);
+        } else {
+            // recurse array or object
+            var n, v, json = [], arr = (obj && obj.constructor == Array);
+
+            for (n in obj) {
+                v = obj[n];
+                t = typeof(v);
+                if (obj.hasOwnProperty(n)) {
+                    if (t == "string") v = '"' + v + '"'; else if (t == "object" && v !== null) v = jQuery.stringify(v);
+                    json.push((arr ? "" : '"' + n + '":') + String(v));
+                }
+            }
+            return (arr ? "[" : "{") + String(json) + (arr ? "]" : "}");
+        }
+    }
+});
