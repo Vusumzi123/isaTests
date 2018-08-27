@@ -10,7 +10,7 @@ function changeTab(evt, tab) {
 
 function agregaEmail(){
 	var ajaxObject = {
-			url : contexto + "/services/auth/agregarmail",
+			url : contexto + "/services/admin/agregarmail",
 			method : 'POST',
 			data : { correoInvite : $("#correo-invite").val()},
 			success : function(response, status) {

@@ -1,6 +1,6 @@
 function agregaComent() {
 	var ajaxObject = {
-		url : contexto + "/services/auth/agregarcom",
+		url : contexto + "/services/admin/agregarcom",
 		method : 'POST',
 		data : {
 			textCom : $("#text-com").val()
@@ -20,7 +20,7 @@ function addArchive(){
 	var delButton = $("#del");
 	var nobreArch = $("#nombre-arch");
 	var callback = function(base64String){
-		$('#filebase64').val(base64String);
+		$('#imgbase64').val(base64String);
 	}
 	inputFile.click();
 	inputFile.change(function(){
@@ -32,13 +32,13 @@ function addArchive(){
 	delButton.removeClass('hidden');
 }
 
-function addPhoto(){
-	var inputPhoto = $('#file-photo');
-	var addPhotoButton = $('#photo-button');
-	var inputBase64 = $('#photobase64');
+function addImg(){
+	var inputPhoto = $('#file-img');
+	var addPhotoButton = $('#img-button');
+	var inputBase64 = $('#imgbase64');
 	var callback = function (base64String){
-		$('#photobase64').val(base64String);
-		$('#photo-circle').css('background-image','url('+base64String+')');
+		$('#imgbase64').val(base64String);
+		$('#img-circle').css('background-image','url('+base64String+')');
 	}
 	inputPhoto.click();
 	inputPhoto.change(function(){
@@ -72,23 +72,23 @@ function getBase64(photo, callback) {
     };
  }
 
-function cargaAvisos(event, name){
-	var url = contexto + "/services/auth/listaAvisos?nombre="+name ;
-	var messageVecino = $("#messageaviso");
-	var dateAviso = $("#dateaviso");
-	var nameAviso = $("#nameaviso");
-	var lastnameAviso = $("#lastnameaviso");
-	var photoAviso = $("#photoaviso");
-	$.ajax({
-		url: url,
-		dataType : "json",
-		success: function (response, status){
-			console.log(response);
-			aviso.forEach(function(){
-				var aviso = generaCuadro( name, lastname, photo, message, date );
-			})
-			
-		}
-	})
-	return aviso;
-}
+//function cargaAvisos(event, name){
+//	var url = contexto + "/services/admin/listaAvisos?nombre="+name ;
+//	var messageVecino = $("#messageaviso");
+//	var dateAviso = $("#dateaviso");
+//	var nameAviso = $("#nameaviso");
+//	var lastnameAviso = $("#lastnameaviso");
+//	var photoAviso = $("#photoaviso");
+//	$.ajax({
+//		url: url,
+//		dataType : "json",
+//		success: function (response, status){
+//			console.log(response);
+//			aviso.forEach(function(){
+//				var aviso = generaCuadro( name, lastname, photo, message, date );
+//			})
+//			
+//		}
+//	})
+//	return aviso;
+//}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <div class="body-container">
 	<div class="rectangulo1">
@@ -27,20 +28,20 @@
 							<c:when test="${i==0}">
 								<div class="carousel-item active">
 									<div class="contenedor-carousel" alt="First slide">
-										<div class="renglon1">cuenta.getAlias()</div>
-										<div class="renglon2">cuenta.getNumerotarjeta()</div>
-										<div class="renglon3" id="monto-total">$95,700 MXN</div>
+										<div class="renglon1">${cuenta.getAlias()}</div>
+										<div class="renglon2">${cuenta.getNumerotarjeta()}</div>
+										<div class="renglon3" id="monto-total">{{ingresototal-egresototal}}</div>
 										<div class="container1">
 											<div class="row">
 												<div class="col-sm-1"></div>
 												<div class="ingresos-mes col-sm-4">
 													Ingresos del mes <br>
-													<div class="cantidad-ingresos" id="ingreso-total">$89,000.00</div>
+													<div class="cantidad-ingresos" id="ingresototal">$89,000.00</div>
 												</div>
 												<div class="linea-vertical col-sm-2"></div>
 												<div class="egresos-mes col-sm-4">
 													Egresos del mes <br>
-													<div class="cantidad-egresos" id="egreso-total">$14,000.00</div>
+													<div class="cantidad-egresos" id="egresototal">$14,000.00</div>
 												</div>
 												<div class="col-sm-1"></div>
 											</div>
@@ -50,7 +51,7 @@
 							</c:when>
 							<c:otherwise>
 								<div class="carousel-item">
-									<div class="contenedor-carousel" alt=First slide">
+									<div class="contenedor-carousel" alt=Firstslide">
 										<div class="renglon1">${cuenta.getAlias()}</div>
 										<div class="renglon2">${cuenta.getNumerotarjeta()}</div>
 										<div class="renglon3" id="monto-total"></div>

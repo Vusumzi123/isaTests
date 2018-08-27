@@ -1,7 +1,7 @@
 function agregaDato(tipo){
 	var datos = $("#ingreso-form").serialize();
 	var ajaxObject = {
-			url : contexto + "/services/auth/cuadroie?tipo=" + tipo,
+			url : contexto + "/services/admin/cuadroie?tipo=" + tipo,
 			method : 'POST',
 			data : datos,
 			success : function(response, status) {
@@ -25,7 +25,7 @@ function changeDatos(evt, tab) {
 
 function llamarTabla(tipo){
 	var ajaxObj = {
-			url : contexto + "/services/auth/cuadroie?tipo=" + tipo,
+			url : contexto + "/services/admin/cuadroie" + tipo,
 			method : 'GET',
 			success: function (response, status) {
 				console.log(response);

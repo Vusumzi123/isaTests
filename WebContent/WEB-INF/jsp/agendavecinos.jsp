@@ -59,7 +59,7 @@
 										</div>
 										<div class="correo-agenda col-sm-4">
 											correo electrónico <br>
-											<div class="" id="correovecino" name="correovecino">${vecino.getEmailv()}</div>
+											<div class="" id="correovecino" name="correovecino"></div>
 										</div>
 									</div>
 								</div>

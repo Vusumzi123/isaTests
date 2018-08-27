@@ -106,12 +106,12 @@
 				<div class="logo-nav">
 					<div class="atras">
 						<a
-							href="${pageContext.request.contextPath}/services/auth/finanzascon">atras</a>
+							href="${pageContext.request.contextPath}/services/admin/finanzascon">atras</a>
 					</div>
 				</div>
 				<div class="finalizar">
 					<a
-						href="${pageContext.request.contextPath}/services/auth/condominios">finalizar</a>
+						href="${pageContext.request.contextPath}/services/admin/condominios">finalizar</a>
 				</div>
 			</div>
 		</form>

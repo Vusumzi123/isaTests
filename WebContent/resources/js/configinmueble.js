@@ -4,7 +4,7 @@ var contador = 1
 function agregarCuadro1(e) {
 	e.preventDefault();
 	var contenedor = $("#cuadro-contenedor1");
-	var url = contexto + "/services/auth/cuadroconfig?num=" + contador;
+	var url = contexto + "/services/admin/cuadroconfig?num=" + contador;
 	$.ajax({
 		url : url,
 		method : 'GET',
@@ -24,7 +24,7 @@ function agregarCuadro1(e) {
 function loadConfigInmueble(){
 	sendToken();
 	var ajaxObj = {
-			url: contexto+"/services/auth/configinmueble",
+			url: contexto+"/services/admin/configinmueble",
 			method: 'GET',
 			success: function(response, status){
 				$("#contenedorPrincipal").html(response);

@@ -54,7 +54,7 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="contenedor-carousel">
-								<a href="${pageContext.request.contextPath}/services/auth/altavecinos"><img class="imgcondominio"
+								<a href="${pageContext.request.contextPath}/services/admin/altavecinos"><img class="imgcondominio"
 									src="${condominios.getPhotoc()}"
 									alt="first slide"></a>
 							</div>
@@ -87,7 +87,7 @@
 				</div>
 				<div class="agregarcuenta">
 					<a
-						href="${pageContext.request.contextPath}/services/auth/finanzascon">agregar
+						href="${pageContext.request.contextPath}/services/admin/finanzascon">agregar
 						cuenta</a>
 				</div>
 			</div>

@@ -87,7 +87,7 @@
 					</div>
 					<div class="continuar">
 						<a
-							href="${pageContext.request.contextPath}/services/auth/principal">continuar</a>
+							href="${pageContext.request.contextPath}/services/admin/principal">continuar</a>
 					</div>
 				</div>
 			</div>
@@ -124,7 +124,7 @@
 					</div>
 					<div class="continuar">
 						<a
-							href="${pageContext.request.contextPath}/services/auth/principal">continuar</a>
+							href="${pageContext.request.contextPath}/services/admin/principal">continuar</a>
 					</div>
 				</div>
 			</div>

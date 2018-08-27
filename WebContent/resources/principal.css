@@ -11,7 +11,12 @@
 }
 
 .imgusuario {
+	border-radius: 50%;
 	width: 34px;
+	height: 34px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .banner-img3 {

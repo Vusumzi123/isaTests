@@ -205,7 +205,7 @@
 		</div>
 	</div>
 	<a class="modal fade" id="exampleModalCenter"
-		href="${ctx }/services/auth/finanzascon" tabindex="-1" role="dialog"
+		href="${ctx }/services/admin/finanzascon" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered"
 			style="max-width: 100%" role="document">

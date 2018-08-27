@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <div class="body-container">
 	<form class="form-container-perfil">
@@ -15,8 +16,9 @@
 					<!-- <i class="fas fa-camera"></i> -->
 				</button>
 			</div>
-			<input type="hidden" name="photobase64-perfil" id="photobase64-perfil"> <input
-				type="file" class="hidden" name="file-photo-perfil" id="file-photo-perfil">
+			<input type="hidden" name="photobase64-perfil"
+				id="photobase64-perfil"> <input type="file" class="hidden"
+				name="file-photo-perfil" id="file-photo-perfil">
 		</div>
 		<div class="row">
 			<div class="form-group col-sm-12">

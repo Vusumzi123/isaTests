@@ -11,9 +11,9 @@ import mx.redpoint.isa.bean.Avisos;
 
 public class AvisosClient {
 	
-	public static final Avisos getAvisoClient() {
+	public static final Avisos[] getAvisoClient() {
 		HttpURLConnection conn = null;
-		Avisos obj = null;
+		Avisos[] obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/aviso/avisos");
@@ -36,7 +36,7 @@ public class AvisosClient {
 					json = json + output;
 				}
 				
-				obj = mapper.readValue(json, Avisos.class);
+				obj = mapper.readValue(json, Avisos[].class);
 				
 				
 		}catch (Exception e) {

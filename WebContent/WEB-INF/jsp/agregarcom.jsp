@@ -3,9 +3,9 @@
 <div class="aviso1-avisos">
 	<div class="row">
 		<img class="usuario1-avisos col-sm-2"
-			src="${avisos.getPhoto()}">
+			src="${comentario.getPhoto()}">
 		<div class="usuario-dijo-avisos">
-			${comment.getIdUser()} dijo...<br>
+			${comentario.getIdUser()} dijo...<br>
 			<div class="fecha-post-avisos">${comment.getDate()}</div>
 		</div>
 	</div>

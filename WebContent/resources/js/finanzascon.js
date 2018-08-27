@@ -14,7 +14,7 @@ var contenedor = $("#cuadro-contenedor");
 function agregarCuadro(e, num) {
 	numeroCuadro = num;
 	e.preventDefault();
-	var url = contexto + "/services/auth/cuadrofinanzas?num=" + numeroCuadro;
+	var url = contexto + "/services/admin/cuadrofinanzas?num=" + numeroCuadro;
 	$.ajax({
 		url : url,
 		method : 'GET',

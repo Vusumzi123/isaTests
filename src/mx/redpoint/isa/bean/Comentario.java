@@ -2,7 +2,7 @@ package mx.redpoint.isa.bean;
 
 import java.util.Date;
 
-public class Comentarioadm {
+public class Comentario {
 	private String idUser;
 	private String body;
 	private String title;
@@ -38,5 +38,4 @@ public class Comentarioadm {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	
 }

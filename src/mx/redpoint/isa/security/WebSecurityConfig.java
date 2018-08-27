@@ -37,7 +37,9 @@ public UserDetailsService userDetailsService() {
 protected void configure(HttpSecurity http) throws Exception {    
       
     http.authorizeRequests()
-    .antMatchers("/services/auth/**").hasRole("ADMIN") 
+    .antMatchers("/services/admin/**").hasRole("ADMIN") 
+    .antMatchers("/services/neig/**").hasRole("USER")
+    .antMatchers("/services/auth/**").authenticated()
     .and()  
     .formLogin()  
     .loginPage("/services/login")  
@@ -45,14 +47,7 @@ protected void configure(HttpSecurity http) throws Exception {
     .logout()  
     .logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 
     
-    http.authorizeRequests()
-    .antMatchers("/services/neig/**").hasRole("USER") 
-    .and()  
-    .formLogin()  
-    .loginPage("/services/login")  
-    .and()  
-    .logout()  
-    .logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 
+ 
 }    
 
 }  

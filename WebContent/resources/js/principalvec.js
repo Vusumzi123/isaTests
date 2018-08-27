@@ -11,9 +11,14 @@ function changeTab(evt, tab, clase) {
 
 function loadContent(name){
 	sendToken();
+	var url = contexto+"/services/neig/"+name;
 	var ajaxObj = {
-			url: contexto+"/services/neig/"+name,
+			url: url,
 			method: 'GET',
+			success: function(response, status){
+				window.history.pushState(null, name, url);
+				$("#contenedorPrincipal").html(response);
+			}
 	}
 	contentAjax(ajaxObj, "contenedorPrincipal");
 }
