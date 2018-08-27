@@ -1,6 +1,5 @@
 $(document).ready(function() {
-	loadContent('finanzas');
-	
+	loadContent(pageId);
 })
 
 function changeTab(evt, tab, clase) {
@@ -14,7 +13,7 @@ function changeTab(evt, tab, clase) {
 
 function loadContent(name) {
 	sendToken();
-	var url = contexto + "/services/admin/" + name;
+	var url = contexto + "/services/auth/" + name;
 	var ajaxObj = {
 		url : url,
 		method : 'GET',
@@ -100,7 +99,6 @@ function removeArchive() {
 }
 
 function getBase64(photo, callback) {
-	console.log(photo);
 	var reader = new FileReader();
 	reader.readAsDataURL(photo);
 	reader.onload = function() {
@@ -131,6 +129,7 @@ function addPhotoc() {
 
 window.addEventListener('popstate', function(event) {
 	console.log(event);
+	event.preventDefault();
 	sendToken();
 	$.ajax({
 		url: event.state.url,

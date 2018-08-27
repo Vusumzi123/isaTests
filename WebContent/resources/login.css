@@ -8,6 +8,9 @@
 
 body {
 	background-image: linear-gradient(to top, #00949e, #07354d);
+	    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 
 #message {

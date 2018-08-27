@@ -7,7 +7,6 @@ public class Comentario {
 	private String body;
 	private String title;
 	private Date date;
-	private String photo;
 	public String getIdUser() {
 		return idUser;
 	}
@@ -32,10 +31,5 @@ public class Comentario {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+	
 }

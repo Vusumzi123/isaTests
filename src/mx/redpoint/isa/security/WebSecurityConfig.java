@@ -37,7 +37,7 @@ public UserDetailsService userDetailsService() {
 protected void configure(HttpSecurity http) throws Exception {    
       
     http.authorizeRequests()
-    .antMatchers("/services/admin/**").hasRole("ADMIN") 
+    .antMatchers("/services/admin/**").hasRole("ADMIN")
     .antMatchers("/services/neig/**").hasRole("USER")
     .antMatchers("/services/auth/**").authenticated()
     .and()  
@@ -46,8 +46,6 @@ protected void configure(HttpSecurity http) throws Exception {
     .and()  
     .logout()  
     .logoutRequestMatcher(new AntPathRequestMatcher("/logout")); 
-    
- 
 }    
 
 }  

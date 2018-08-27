@@ -13,10 +13,16 @@ function contentAjax(ajaxObj, containerId){
 	}
 	$.ajax(ajaxObj);
 	var strObj = ajaxObj;
+	var splittedURL = url.split("/");
+	splittedURL.pop();
+	splittedURL.push("principal");
+	splittedURL.push(name);
+	var refreshedUrl = splittedURL.join("/");
 	var stateObj = {
 			url: url,
 	}
-	window.history.pushState(stateObj, name, url);
+	
+	window.history.pushState(stateObj, name, refreshedUrl);
 }
 
 function sendToken(){

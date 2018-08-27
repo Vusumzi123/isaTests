@@ -11,9 +11,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import com.google.gson.Gson;
@@ -46,6 +49,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -69,7 +73,9 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 @MultipartConfig
 @RequestMapping(value = "/services")
 public class MiCitaTelcelRestController {
-
+	
+	private final static Logger LOGGER = Logger.getLogger(MiCitaTelcelRestController.class.getName());
+	
 	// datos falsos
 	private ArrayList<Vecinos> vecinosLista = new ArrayList<Vecinos>();
 	// private ArrayList<Iegresos> iegresosFalsos = new ArrayList<Iegresos>();
@@ -85,17 +91,25 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("login");
 		return model;
 	}
-
+	
+	/*
+	 * 
+	 * Metodo que redirecciona al controlador correspondiente
+	 * al detectar el rol del usuario
+	 * 
+	 * */
 	@RequestMapping(value = "/auth/role", method = RequestMethod.GET)
 	public ModelAndView role(HttpServletRequest request) {
 		Set<String> roles = AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
-		System.out.println(roles);
-		if(roles.contains("ROLE_ADMIN")) {
-			System.out.println("entro como admin");
+		HttpSession session = request.getSession(true); //Obtiene el objeto de sesion
+		boolean isAdmin = roles.contains("ROLE_ADMIN"); //Comprueba si el usuario tiene rol de administrador
+		session.setAttribute("isAdmin", isAdmin); //guarda el rol del usuario en el objeto de sesiÃ³n 
+		if(isAdmin) {
+			LOGGER.log(Level.parse("INFO") , "entro como admin");
 			return condominios(request);
 		}
-		System.out.println("entro como user");
-		return principal(request);
+		LOGGER.log(Level.parse("INFO") , "entro como user");
+		return principal(request, "finanzas");
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -159,7 +173,7 @@ public class MiCitaTelcelRestController {
 		// System.out.println(condo.getArchivo());
 		condo.setPhotoc(request.getParameter("photocbase64"));
 		condo.setNamec(request.getParameter("namec"));
-		System.out.println(condo.getNamec());
+		LOGGER.info(condo.getNamec());
 		condo.setNumber(request.getParameter("number"));
 		condo.setPhone(request.getParameter("phone"));
 		condo.setStreet(request.getParameter("street"));
@@ -198,7 +212,6 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("condominios");
 		Condominios condominios = CondominiosClient.getCondominioClient();
 		model.addObject("condominios", condominios);
-		System.out.println(model);
 		return model;
 	}
 
@@ -212,7 +225,6 @@ public class MiCitaTelcelRestController {
 	public ModelAndView agregarmail(HttpServletRequest request) {
 		Mail mail = new Mail();
 		String correo = request.getParameter("correoInvite");
-		System.out.println(correo);
 		mail.setCorreo(correo);
 		ModelAndView model = new ModelAndView("agregarmail");
 		model.addObject("mail1", mail);
@@ -220,10 +232,12 @@ public class MiCitaTelcelRestController {
 	}
 
 	@RequestMapping(value = "/auth/principal/{page}", method = RequestMethod.GET)
-	public ModelAndView principal(HttpServletRequest request) {
+	public ModelAndView principal(HttpServletRequest request, @PathVariable("page") String page) {
 		ModelAndView model = new ModelAndView("principal");
+		LOGGER.log(Level.parse("INFO"), page );
 		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
 		model.addObject("principaladmins", principaladmins);
+		model.addObject("pageId", page);
 		return model;
 	}
 
@@ -585,7 +599,7 @@ public class MiCitaTelcelRestController {
 	// egreso3.setCantidad("$4800.00");
 	//
 	// ingreso4.setFecha(new Date("04/01/2018"));
-	// ingreso4.setConcepto("Alta tarjeta de crédito");
+	// ingreso4.setConcepto("Alta tarjeta de crï¿½dito");
 	// ingreso4.setCantidad("$40000.00");
 	//
 	// ingreso5.setFecha(new Date("04/01/2018"));

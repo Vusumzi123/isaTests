@@ -57,13 +57,13 @@
 				</div>
 				<div class="container">
 					<div class="texto1">Invita a tus vecinos a ser parte de este
-						condominio. Ingresa su correo electrónico. También puedes
+						condominio. Ingresa su correo electrï¿½nico. Tambiï¿½n puedes
 						descargar nuestro formato Excel para ayudarte.</div>
 					<div class="contenido1">
 						<form class="input-field invitacion-correo">
 							<input id="correo-invite" name="correo-invite" type="email"
 								class="validate"> <label for="correo-invite">invitar
-								con correo electrónico</label>
+								con correo electrï¿½nico</label>
 							<div class="boton1-avisos">
 								<button id="agregar-correo" onclick="agregaEmail()"
 									type="button" class="Iniciar-sesin2 Rectangle-706">Enviar
@@ -87,7 +87,7 @@
 					</div>
 					<div class="continuar">
 						<a
-							href="${pageContext.request.contextPath}/services/admin/principal">continuar</a>
+							href="${pageContext.request.contextPath}/services/auth/principal/finanzas">continuar</a>
 					</div>
 				</div>
 			</div>
@@ -100,13 +100,13 @@
 						onclick="changeTab(event, 'sub-administradores')">sub-administradores</button>
 				</div>
 				<div class="container">
-					<div class="texto1">Actualmente, tú eres el administrador del
+					<div class="texto1">Actualmente, tï¿½ eres el administrador del
 						inmueble, puedes designar a sub administradores que gestionen
-						grupos más pequeños de vecinos para facilitar tu labor.</div>
+						grupos mï¿½s pequeï¿½os de vecinos para facilitar tu labor.</div>
 					<div class="contenido1">
 						<div class="input-field invitacion-correo">
 							<input type="email"> <label>invitar con correo
-								electrónico</label>
+								electrï¿½nico</label>
 						</div>
 						<div class="contador-viviendas">Viviendas restantes:${num}</div>
 					</div>
@@ -124,7 +124,7 @@
 					</div>
 					<div class="continuar">
 						<a
-							href="${pageContext.request.contextPath}/services/admin/principal">continuar</a>
+							href="${pageContext.request.contextPath}/services/auth/principal/finanzas">continuar</a>
 					</div>
 				</div>
 			</div>
