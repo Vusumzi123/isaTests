@@ -115,12 +115,12 @@
 						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
 							id="terminos"
 							onclick="changeTab(event, 'terminos');loadContent('terminos')">
-							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
+							<i class="fas fa-file-invoice"></i>&nbsp; Tï¿½rminos y condiciones
 						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
 							id="configinmueble"
 							onclick="changeTab(event, 'configinmueble');loadConfigInmueble()">
-							<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
-						</a> <a class="dropdown-item" href="${ctx}/services/auth/condominios">
+							<i class="fas fa-cogs"></i>&nbsp; Configuraciï¿½n de inmueble
+						</a> <a class="dropdown-item" href="${ctx}/services/admin/condominios">
 							<i class="fas fa-home"></i>&nbsp; Mis condominios
 						</a>
 						<div class="dropdown-divider"></div>
