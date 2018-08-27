@@ -2,6 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
+<c:set var="isAdmin" value="${sessionScope.isAdmin}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,6 +16,8 @@
 
 <script>
 	var contexto = "${ctx}";
+	var pageId = "${pageId}";
+	var isAdmin = ${isAdmin};
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -71,12 +74,14 @@
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-dollar-sign"></i> <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item main-Tab" id="agendavecinos"><a
+				<c:if test="${isAdmin}">
+					<li class="nav-item main-Tab" id="agendavecinos"><a
 					class="nav-link" role="button" id="loadagenda"
 					onclick="changeTab(event, 'agendavecinos');loadContent('agendavecinos')"
 					style="font-size: 24px; cursor: pointer"> <i
 						class="fas fa-user-friends"></i>
-				</a></li>
+					</a></li>
+				</c:if>
 				<li class="nav-item main-Tab" id="avisos"><a class="nav-link"
 					role="button" id="loadavisos"
 					onclick="changeTab(event, 'avisos');loadContent('avisos')"

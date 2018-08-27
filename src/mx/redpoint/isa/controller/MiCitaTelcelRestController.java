@@ -107,7 +107,7 @@ public class MiCitaTelcelRestController {
 			return condominios(request);
 		}
 		LOGGER.log(Level.parse("INFO") , "entro como user");
-		return principalvec(request);
+		return principal(request, "finanzas");
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -235,6 +235,7 @@ public class MiCitaTelcelRestController {
 		LOGGER.log(Level.parse("INFO"), page );
 		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
 		model.addObject("principaladmins", principaladmins);
+		model.addObject("pageId", page);
 		return model;
 	}
 
