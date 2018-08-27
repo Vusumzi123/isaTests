@@ -10,11 +10,13 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
 
 import com.google.gson.Gson;
@@ -58,6 +60,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.w3c.dom.Document;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -86,16 +89,24 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("login");
 		return model;
 	}
-
+	
+	/*
+	 * 
+	 * Metodo que redirecciona al controlador correspondiente
+	 * al detectar el rol del usuario
+	 * 
+	 * */
 	@RequestMapping(value = "/auth/role", method = RequestMethod.GET)
 	public ModelAndView role(HttpServletRequest request) {
 		Set<String> roles = AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
-		System.out.println(roles);
-		if(roles.contains("ROLE_ADMIN")) {
-			System.out.println("entro como admin");
+		HttpSession session = request.getSession(true); //Obtiene el objeto de sesion
+		boolean isAdmin = roles.contains("ROLE_ADMIN"); //Comprueba si el usuario tiene rol de administrador
+		session.setAttribute("isAdmin", isAdmin); //guarda el rol del usuario en el objeto de sesión 
+		if(isAdmin) {
+			LOGGER.log(Level.parse("INFO") , "entro como admin");
 			return condominios(request);
 		}
-		System.out.println("entro como user");
+		LOGGER.log(Level.parse("INFO") , "entro como user");
 		return principalvec(request);
 	}
 
@@ -199,7 +210,6 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("condominios");
 		Condominios condominios = CondominiosClient.getCondominioClient();
 		model.addObject("condominios", condominios);
-		System.out.println(model);
 		return model;
 	}
 
@@ -213,7 +223,6 @@ public class MiCitaTelcelRestController {
 	public ModelAndView agregarmail(HttpServletRequest request) {
 		Mail mail = new Mail();
 		String correo = request.getParameter("correoInvite");
-		System.out.println(correo);
 		mail.setCorreo(correo);
 		ModelAndView model = new ModelAndView("agregarmail");
 		model.addObject("mail1", mail);
