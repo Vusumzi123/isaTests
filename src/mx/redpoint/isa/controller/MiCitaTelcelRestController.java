@@ -171,7 +171,7 @@ public class MiCitaTelcelRestController {
 		// System.out.println(condo.getArchivo());
 		condo.setPhotoc(request.getParameter("photocbase64"));
 		condo.setNamec(request.getParameter("namec"));
-		System.out.println(condo.getNamec());
+		LOGGER.info(condo.getNamec());
 		condo.setNumber(request.getParameter("number"));
 		condo.setPhone(request.getParameter("phone"));
 		condo.setStreet(request.getParameter("street"));
