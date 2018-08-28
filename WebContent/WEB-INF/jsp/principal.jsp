@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
 <meta name="_csrf" content="${_csrf.token}" />
 <!-- default header name is X-CSRF-TOKEN -->
 <meta name="_csrf_header" content="${_csrf.headerName}" />
@@ -121,13 +121,13 @@
 						</a> <a class="dropdown-item" style="cursor: pointer" role="button"
 							id="terminos"
 							onclick="changeTab(event, 'terminos');loadContent('terminos')">
-							<i class="fas fa-file-invoice"></i>&nbsp; Tï¿½rminos y condiciones
+							<i class="fas fa-file-invoice"></i>&nbsp; Términos y condiciones
 						</a>
 						<c:if test="${isAdmin}">
 							<a class="dropdown-item" style="cursor: pointer" role="button"
 								id="configinmueble"
 								onclick="changeTab(event, 'configinmueble');loadConfigInmueble()">
-								<i class="fas fa-cogs"></i>&nbsp; Configuraciï¿½n de inmueble
+								<i class="fas fa-cogs"></i>&nbsp; Configuración de inmueble
 							</a>
 						</c:if>
 						<c:if test="${isAdmin}">

@@ -1,7 +1,7 @@
 function agregaDato(tipo){
 	var datos = $("#ingreso-form").serialize();
 	var ajaxObject = {
-			url : contexto + "/services/admin/cuadroie?tipo=" + tipo,
+			url : contexto + "/services/auth/cuadroie?tipo=" + tipo,
 			method : 'POST',
 			data : datos,
 			success : function(response, status) {
@@ -84,7 +84,34 @@ function generaFila( fecha, concepto, cantidad ){
 	row.appendChild(cantidadNode);
 	row.appendChild(comprobante);
 	
-	return row;
-	
-	
+	return row;		
 }
+
+function addPhotofv(){
+	var inputPhoto = $('#file-photo-finanzasvec');
+	var addPhotoButton = $('#photo-button-finanzasvec');
+	var inputBase64 = $('#photobase64-finanzasvec');
+	var callback = function (base64String){
+		$('#photobase64-finanzasvec').val(base64String);
+		$('#photo-circle-finanzasvec').css('background-image','url('+base64String+')');
+	}
+	inputPhoto.click();
+	inputPhoto.change(function(){
+		getBase64(inputPhoto[0].files[0],callback);
+	})
+}
+
+function getBase64(photo, callback) {
+	console.log(photo);
+    var reader = new FileReader();
+    reader.readAsDataURL(photo);
+    reader.onload = function () {
+      console.log(reader.result);
+      
+      callback(reader.result);
+      
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
+ }

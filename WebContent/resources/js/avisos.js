@@ -1,6 +1,6 @@
 function agregaComent() {
 	var ajaxObject = {
-		url : contexto + "/services/admin/agregarcom",
+		url : contexto + "/services/auth/agregarcom",
 		method : 'POST',
 		data : {
 			textCom : $("#text-com").val()

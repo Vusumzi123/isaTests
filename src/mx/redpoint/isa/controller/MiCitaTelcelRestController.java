@@ -25,7 +25,6 @@ import com.google.gson.GsonBuilder;
 import mx.redpoint.isa.bean.Adeudos;
 import mx.redpoint.isa.bean.Avisos;
 import mx.redpoint.isa.bean.Comentario;
-import mx.redpoint.isa.bean.Comentarioadm;
 import mx.redpoint.isa.bean.Condominios;
 import mx.redpoint.isa.bean.Finanzas;
 import mx.redpoint.isa.bean.Iegresos;
@@ -366,7 +365,7 @@ public class MiCitaTelcelRestController {
 
 	@RequestMapping(value = "/auth/agregarcom", method = RequestMethod.POST)
 	public ModelAndView agregarcom(HttpServletRequest request) {
-		Comentarioadm comentario1 = new Comentarioadm();
+		Comentario comentario1 = new Comentario();
 		Comentario comentario = ComentarioClient.getComentarioClient();
 		String cuerpo = request.getParameter("textCom");
 		System.out.println(cuerpo);
