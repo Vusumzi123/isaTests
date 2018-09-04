@@ -22,18 +22,27 @@ function changeDatos(evt, tab) {
 	toActivete.addClass('active');
 }
 
-
-function llamarTabla(tipo){
-	var ajaxObj = {
-			url : contexto + "/services/auth/cuadroie" + tipo,
-			method : 'GET',
-			success: function (response, status) {
-				console.log(response);
-			}
-			
-	}
-	contentAjax(ajaxObj, "contenedor-cuadroie");
+function changeTab(evt, tab) {
+	var activeTabs = $('.active');
+	activeTabs.each(function() {
+		$(this).removeClass('active');
+	})
+	var toActivete = $('#' + tab);
+	toActivete.addClass('active');
 }
+
+
+//function llamarTabla(tipo){
+//	var ajaxObj = {
+//			url : contexto + "/services/auth/cuadroie?tipo=" + tipo,
+//			method : 'GET',
+//			success: function (response, status) {
+//				console.log(response);
+//			}
+//			
+//	}
+//	contentAjax(ajaxObj, "contenedor-cuadroie");
+//}
 
 function addArchive(transaction){
 	var inputFile = $('#archivo-'+transaction);
@@ -60,32 +69,32 @@ function removeArchive(transaction){
 	delButton.addClass('hidden');
 }
 
-function generaFila( fecha, concepto, cantidad ){
-	var row = document.createElement("tr");
-	var fechaNode = document.createElement("td");
-	var conceptoNode = document.createElement("td");
-	var cantidadNode = document.createElement("td");
-	var comprobante = document.createElement("td");
-	var botonComprobante = document.createElement("button");
-	botonComprobante.classList.add("boton-comprobante");
-	
-	var fechaText = document.createTextNode(fecha);
-	fechaNode.appendChild( fechaText );
-	var conceptoText = document.createTextNode(concepto);
-	conceptoNode.appendChild( conceptoText );
-	var cantidadText = document.createTextNode(cantidad);
-	cantidadNode.appendChild( cantidadText );
-	var botonComprobanteText = document.createTextNode("Comprobante");
-	botonComprobante.appendChild( botonComprobanteText );
-	comprobante.appendChild(botonComprobante);
-	
-	row.appendChild(fechaNode);
-	row.appendChild(conceptoNode);
-	row.appendChild(cantidadNode);
-	row.appendChild(comprobante);
-	
-	return row;		
-}
+//function generaFila( fecha, concepto, cantidad ){
+//	var row = document.createElement("tr");
+//	var fechaNode = document.createElement("td");
+//	var conceptoNode = document.createElement("td");
+//	var cantidadNode = document.createElement("td");
+//	var comprobante = document.createElement("td");
+//	var botonComprobante = document.createElement("button");
+//	botonComprobante.classList.add("boton-comprobante");
+//	
+//	var fechaText = document.createTextNode(fecha);
+//	fechaNode.appendChild( fechaText );
+//	var conceptoText = document.createTextNode(concepto);
+//	conceptoNode.appendChild( conceptoText );
+//	var cantidadText = document.createTextNode(cantidad);
+//	cantidadNode.appendChild( cantidadText );
+//	var botonComprobanteText = document.createTextNode("Comprobante");
+//	botonComprobante.appendChild( botonComprobanteText );
+//	comprobante.appendChild(botonComprobante);
+//	
+//	row.appendChild(fechaNode);
+//	row.appendChild(conceptoNode);
+//	row.appendChild(cantidadNode);
+//	row.appendChild(comprobante);
+//	
+//	return row;		
+//}
 
 function addPhotofv(){
 	var inputPhoto = $('#file-photo-finanzasvec');

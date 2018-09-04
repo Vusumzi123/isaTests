@@ -13,20 +13,12 @@
 					<div id="carouselExampleIndicators" class="carousel slide"
 						data-ride="carousel">
 						<ol class="carousel-indicators">
-							<%-- 						<c:forEach var="cuenta" items="${finanzas}" varStatus="i"> --%>
-							<%-- 							<c:when test="${i==0}"> --%>
 							<li data-target="#carouselExampleIndicators" data-slide-to="0"
 								class="active"></li>
-							<%-- 							</c:when> --%>
-							<%-- 							<c:otherwise> --%>
 							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-							<%-- 							</c:otherwise> --%>
-							<%-- 						</c:forEach> --%>
 						</ol>
 						<div class="carousel-inner">
-							<%-- 							<c:forEach var="cuenta" items="${finanzas}" varStatus="i"> --%>
-							<%-- 								<c:when test="${i==0}"> --%>
 							<div class="carousel-item active">
 								<div class="contenedor-carousel" alt="First slide">
 									<div class="renglon1">CUENTA 1</div>
@@ -458,53 +450,84 @@
 	</div>
 	<div class="form-container">
 		<div class="tab">
-			<button class="tablinks " onclick="llamarTabla('todos')">todos</button>
-			<button class="tablinks " onclick="llamarTabla('ingresos')">ingresos</button>
-			<button class="tablinks " onclick="llamarTabla('egresos')">egresos</button>
+			<button class="tablinks " onclick="changeTab(event , 'todos')">todos</button>
+			<button class="tablinks " onclick="changeTab(event , 'ingresos')">ingresos</button>
+			<button class="tablinks " onclick="changeTab(event , 'egresos')">egresos</button>
 		</div>
-		<!-- 		<div id="contenedor-cuadroie"></div> -->
-		<div id="todos" class="tabcontent table-tabs active">
+		<div id="contenedor-cuadroie"></div>
+		<div id="todos" class="tabcontent active">
 			<table class="table table-striped" style="width: 100%">
 				<thead>
 					<tr>
 						<th>Fecha</th>
 						<th>Concepto</th>
 						<th>Cantidad</th>
-						<th>Comprobante todos</th>
+						<th>Comprobante</th>
 					</tr>
 				</thead>
-				<tbody id="tabla-todos">
-
+				<tbody>
+					<c:forEach var="ingreso" items="${ingresos}">
+						<tr>
+							<td>${ingreso.getFecha()}</td>
+							<td>${ingreso.getConcepto()}</td>
+							<td style="color: #029c4a;">${ingreso.getCantidad()}</td>
+							<td>${ingreso.getComprobante()}</td>
+						</tr>
+					</c:forEach>
+					<c:forEach var="egreso" items="${egresos}">
+						<tr>
+							<td>${egreso.getFecha()}</td>
+							<td>${egreso.getConcepto()}</td>
+							<td style="color: #ed0723;">${egreso.getCantidad()}</td>
+							<td>${egreso.getComprobante()}</td>
+						</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div id="ingresos" class="tabcontent table-tabs">
+		<div id="ingresos" class="tabcontent">
 			<table class="table table-striped" style="width: 100%">
 				<thead>
 					<tr>
 						<th>Fecha</th>
 						<th>Concepto</th>
 						<th>Cantidad</th>
-						<th>Comprobante ingresos</th>
+						<th>Comprobante</th>
 					</tr>
 				</thead>
-				<tbody id="tabla-ingresos">
-
+				<tbody>
+					<c:forEach var="ingreso" items="${ingresos}">
+						<tr>
+							<td>${ingreso.getFecha()}</td>
+							<td>${ingreso.getConcepto()}</td>
+							<td style="color: #029c4a;">${ingreso.getCantidad()}</td>
+							<td>${ingreso.getComprobante()}</td>
+						<tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div id="egresos" class="tabcontent table-tabs">
+		<div id="egresos" class="tabcontent">
 			<table class="table table-striped" style="width: 100%">
 				<thead>
 					<tr>
 						<th>Fecha</th>
 						<th>Concepto</th>
 						<th>Cantidad</th>
-						<th>Comprobante egresos</th>
+						<th>Comprobante</th>
 					</tr>
 				</thead>
-				<tbody id="tabla-egresos">
-
+				<tbody>
+					<%-- 						<c:forEach begin="1" end="${ no }" step="1" --%>
+					<%--  							varStatus="loopCounter" value="${lstBooks}" var="book">  --%>
+					<c:forEach var="egreso" items="${egresos}">
+						<tr>
+							<td>${egreso.getFecha()}</td>
+							<td>${egreso.getConcepto()}</td>
+							<td style="color: #ed0723;">${egreso.getCantidad()}</td>
+							<td>${egreso.getComprobante()}</td>
+						<tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>

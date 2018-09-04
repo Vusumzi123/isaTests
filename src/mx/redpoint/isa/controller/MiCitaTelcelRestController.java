@@ -26,8 +26,10 @@ import mx.redpoint.isa.bean.Adeudos;
 import mx.redpoint.isa.bean.Avisos;
 import mx.redpoint.isa.bean.Comentario;
 import mx.redpoint.isa.bean.Condominios;
+import mx.redpoint.isa.bean.Egresos;
 import mx.redpoint.isa.bean.Finanzas;
 import mx.redpoint.isa.bean.Iegresos;
+import mx.redpoint.isa.bean.Ingresos;
 import mx.redpoint.isa.bean.Mail;
 import mx.redpoint.isa.bean.Pagos;
 import mx.redpoint.isa.bean.Principaladmins;
@@ -37,7 +39,9 @@ import mx.redpoint.isa.client.AvisosClient;
 import mx.redpoint.isa.client.ComentarioClient;
 import mx.redpoint.isa.client.CondominiosClient;
 import mx.redpoint.isa.client.CuentasClient;
+import mx.redpoint.isa.client.EgresosClient;
 import mx.redpoint.isa.client.FinanzasClient;
+import mx.redpoint.isa.client.IngresosClient;
 import mx.redpoint.isa.client.PrincipaladminsClient;
 import mx.redpoint.isa.client.PrincipalvecinosClient;
 import mx.redpoint.isa.client.VecinosClient;
@@ -73,9 +77,9 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 @MultipartConfig
 @RequestMapping(value = "/services")
 public class MiCitaTelcelRestController {
-	
+
 	private final static Logger LOGGER = Logger.getLogger(MiCitaTelcelRestController.class.getName());
-	
+
 	// datos falsos
 	private ArrayList<Vecinos> vecinosLista = new ArrayList<Vecinos>();
 	// private ArrayList<Iegresos> iegresosFalsos = new ArrayList<Iegresos>();
@@ -91,24 +95,25 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("login");
 		return model;
 	}
-	
+
 	/*
 	 * 
-	 * Metodo que redirecciona al controlador correspondiente
-	 * al detectar el rol del usuario
+	 * Metodo que redirecciona al controlador correspondiente al detectar el rol del
+	 * usuario
 	 * 
-	 * */
+	 */
 	@RequestMapping(value = "/auth/role", method = RequestMethod.GET)
 	public ModelAndView role(HttpServletRequest request) {
-		Set<String> roles = AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
-		HttpSession session = request.getSession(true); //Obtiene el objeto de sesion
-		boolean isAdmin = roles.contains("ROLE_ADMIN"); //Comprueba si el usuario tiene rol de administrador
-		session.setAttribute("isAdmin", isAdmin); //guarda el rol del usuario en el objeto de sesión 
-		if(isAdmin) {
-			LOGGER.log(Level.parse("INFO") , "entro como admin");
+		Set<String> roles = AuthorityUtils
+				.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities());
+		HttpSession session = request.getSession(true); // Obtiene el objeto de sesion
+		boolean isAdmin = roles.contains("ROLE_ADMIN"); // Comprueba si el usuario tiene rol de administrador
+		session.setAttribute("isAdmin", isAdmin); // guarda el rol del usuario en el objeto de sesión
+		if (isAdmin) {
+			LOGGER.log(Level.parse("INFO"), "entro como admin");
 			return condominios(request);
 		}
-		LOGGER.log(Level.parse("INFO") , "entro como user");
+		LOGGER.log(Level.parse("INFO"), "entro como user");
 		return principal(request, "finanzas");
 	}
 
@@ -234,7 +239,7 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/principal/{page}", method = RequestMethod.GET)
 	public ModelAndView principal(HttpServletRequest request, @PathVariable("page") String page) {
 		ModelAndView model = new ModelAndView("principal");
-		LOGGER.log(Level.parse("INFO"), page );
+		LOGGER.log(Level.parse("INFO"), page);
 		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
 		model.addObject("principaladmins", principaladmins);
 		model.addObject("pageId", page);
@@ -244,8 +249,10 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/finanzas", method = RequestMethod.GET)
 	public ModelAndView finanzas(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("finanzas");
-		Finanzas[] finanzas = FinanzasClient.getFinanzasClient();
-		model.addObject("finanzas", finanzas);
+		Ingresos[] ingresos = IngresosClient.getIngresoClient();
+		Egresos[] egresos = EgresosClient.getEgresoClient();
+		model.addObject("ingresos", ingresos);
+		model.addObject("egresos", egresos);
 		return model;
 	}
 
@@ -272,16 +279,37 @@ public class MiCitaTelcelRestController {
 	// return iegresosString;
 	// }
 
-	// @RequestMapping(value = "/auth/cuadroie", method = RequestMethod.GET)
-	// public ModelAndView cuadroie(HttpServletRequest request) {
+	@RequestMapping(value = "/auth/cuadroie", method = RequestMethod.GET)
+	public ModelAndView cuadroie(HttpServletRequest request) {
+		ModelAndView model = new ModelAndView("cuadroie");
+		Ingresos[] ingresos = IngresosClient.getIngresoClient();
+		Egresos[] egresos = EgresosClient.getEgresoClient();
+		model.addObject("ingresos", ingresos);
+		model.addObject("egresos", egresos);
+		return model;
+	}
+	//
+	// @RequestMapping(value = "/auth/cuadroie", method = RequestMethod.POST)
+	// public ModelAndView insertaie(HttpServletRequest request) {
 	// generaDatosIegresos();
 	// String tipo = request.getParameter("tipo");
 	// ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
-	// if (tipo.equals("todos")) {
+	// if(tipo.equals("ingresos")) {
+	// String cuentaIngreso = request.getParameter("cuenta-ingreso");
+	// String conceptoIngreso = request.getParameter("concepto-ingreso");
+	// String remitenteIngreso = request.getParameter("remitente-ingreso");
+	// String fechaIngreso = request.getParameter("fecha-ingreso");
+	// String cantidadIngreso = request.getParameter("cantidad-ingreso");
+	// Iegresos nuevoDato = new Iegresos();
+	// nuevoDato.setFecha(fechaIngreso);
+	// nuevoDato.setConcepto(conceptoIngreso);
+	// nuevoDato.setCantidad(cantidadIngreso);
+	// nuevoDato.setCuenta(cuentaIngreso);
+	// nuevoDato.setRemitente(remitenteIngreso);
+	//
+	// //agregar comprobante
 	// respuesta.addAll(ingresosFalsos);
-	// respuesta.addAll(egresosFalsos);
-	// }else if(tipo.equals("ingresos")) {
-	// respuesta.addAll(ingresosFalsos);
+	// respuesta.add(nuevoDato);
 	// }else if(tipo.equals("egresos")) {
 	// respuesta.addAll(egresosFalsos);
 	// }
@@ -289,35 +317,6 @@ public class MiCitaTelcelRestController {
 	// model.addObject("registros",respuesta);
 	// return model;
 	// }
-	//
-//	 @RequestMapping(value = "/auth/cuadroie", method = RequestMethod.POST)
-//	 public ModelAndView insertaie(HttpServletRequest request) {
-//	 generaDatosIegresos();
-//	 String tipo = request.getParameter("tipo");
-//	 ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
-//	 if(tipo.equals("ingresos")) {
-//	 String cuentaIngreso = request.getParameter("cuenta-ingreso");
-//	 String conceptoIngreso = request.getParameter("concepto-ingreso");
-//	 String remitenteIngreso = request.getParameter("remitente-ingreso");
-//	 String fechaIngreso = request.getParameter("fecha-ingreso");
-//	 String cantidadIngreso = request.getParameter("cantidad-ingreso");
-//	 Iegresos nuevoDato = new Iegresos();
-//	 nuevoDato.setFecha(fechaIngreso);
-//	 nuevoDato.setConcepto(conceptoIngreso);
-//	 nuevoDato.setCantidad(cantidadIngreso);
-//	 nuevoDato.setCuenta(cuentaIngreso);
-//	 nuevoDato.setRemitente(remitenteIngreso);
-//	
-//	 //agregar comprobante
-//	 respuesta.addAll(ingresosFalsos);
-//	 respuesta.add(nuevoDato);
-//	 }else if(tipo.equals("egresos")) {
-//	 respuesta.addAll(egresosFalsos);
-//	 }
-//	 ModelAndView model = new ModelAndView("cuadroie");
-//	 model.addObject("registros",respuesta);
-//	 return model;
-//	 }
 
 	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
@@ -329,29 +328,28 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	 @RequestMapping(value = "/auth/datosAgendavecinos", method =
-	 RequestMethod.GET, produces = "application/json")
-	 public String datosAgendavecinos(HttpServletRequest request) {
-	 ObjectMapper mapper = new ObjectMapper();
-	 String nombreVecino = request.getParameter("namev");
-	 Vecinos vecinoActual = new Vecinos();
-	 String vecinoString = "";
-	
-	 for(Vecinos vecino : vecinosLista) {
-	 if(vecino.getNamev().equals( nombreVecino )){
-	 vecinoActual = vecino;
-	 }
-	 }
-	
-	 try {
-	 vecinoString = mapper.writeValueAsString(vecinoActual);
+	@RequestMapping(value = "/auth/datosAgendavecinos", method = RequestMethod.GET, produces = "application/json")
+	public String datosAgendavecinos(HttpServletRequest request) {
+		ObjectMapper mapper = new ObjectMapper();
+		String nombreVecino = request.getParameter("namev");
+		Vecinos vecinoActual = new Vecinos();
+		String vecinoString = "";
 
-	 } catch (Exception e) {
-	 e.printStackTrace();
-	 }
-	
-	 return vecinoString;
-	 }
+		for (Vecinos vecino : vecinosLista) {
+			if (vecino.getNamev().equals(nombreVecino)) {
+				vecinoActual = vecino;
+			}
+		}
+
+		try {
+			vecinoString = mapper.writeValueAsString(vecinoActual);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return vecinoString;
+	}
 
 	@RequestMapping(value = "/auth/avisos", method = RequestMethod.GET)
 	public ModelAndView avisos(HttpServletRequest request) {
@@ -359,7 +357,7 @@ public class MiCitaTelcelRestController {
 		Avisos[] avisos = AvisosClient.getAvisoClient();
 		model.addObject("avisos", avisos);
 		for (Object aviso : avisos) {
-		    System.out.println(avisos);
+			System.out.println(avisos);
 		}
 		return model;
 	}

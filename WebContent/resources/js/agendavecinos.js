@@ -10,6 +10,7 @@ function cargaDatos(event, nombre){
 	$.ajax({
 		url: url,
 		dataType : "json",
+		method : 'GET',
 		success: function (response, status){
 			console.log(response);
 			var rowsAdeudos = response.adeudos;
@@ -59,4 +60,13 @@ function generaFila( fecha, concepto, cantidad ){
 	return row;
 	
 	
+}
+
+function changeTab(evt, tab, clase) {
+	var activeTabs = $('.' + clase);
+	activeTabs.each(function() {
+		$(this).removeClass('active');
+	})
+	var toActivete = $('#' + tab);
+	toActivete.addClass('active');
 }

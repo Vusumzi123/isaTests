@@ -15,9 +15,9 @@
 							<label for="comment">Escribir mensaje...</label>
 							<textarea id="text-com" name="text-com" class="form-control"
 								rows="5">
+								<div id="img-circle" style="width: 50px; height: 50px;"></div>
 							</textarea>
 						</div>
-						<div id="img-circle" style="width: 50px; height: 50px;"></div>
 						<button type="button" id="img-button"
 							class="subir-img-avisos col-sm-3" onclick="addImg()">
 							<i class="far fa-image" style="font-size: 30px"></i>

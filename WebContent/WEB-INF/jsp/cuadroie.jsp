@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <div class="form-container">
 	<div id="todos" class="tabcontent table-tabs active">
 		<table class="table table-striped" style="width: 100%">
@@ -8,11 +10,11 @@
 					<th>Fecha</th>
 					<th>Concepto</th>
 					<th>Cantidad</th>
-					<th>Comprobante</th>
+					<th>Comprobante todos</th>
 				</tr>
 			</thead>
 			<tbody id="tabla-todos">
-				
+
 			</tbody>
 		</table>
 	</div>
@@ -23,11 +25,11 @@
 					<th>Fecha</th>
 					<th>Concepto</th>
 					<th>Cantidad</th>
-					<th>Comprobante</th>
+					<th>Comprobante ingresos</th>
 				</tr>
 			</thead>
 			<tbody id="tabla-ingresos">
-				
+
 			</tbody>
 		</table>
 	</div>
@@ -38,11 +40,11 @@
 					<th>Fecha</th>
 					<th>Concepto</th>
 					<th>Cantidad</th>
-					<th>Comprobante</th>
+					<th>Comprobante egresos</th>
 				</tr>
 			</thead>
 			<tbody id="tabla-egresos">
-				
+
 			</tbody>
 		</table>
 	</div>

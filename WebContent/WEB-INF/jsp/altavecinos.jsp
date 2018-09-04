@@ -63,7 +63,7 @@
 						<form class="input-field invitacion-correo">
 							<input id="correo-invite" name="correo-invite" type="email"
 								class="validate"> <label for="correo-invite">invitar
-								con correo electrï¿½nico</label>
+								con correo electrónico</label>
 							<div class="boton1-avisos">
 								<button id="agregar-correo" onclick="agregaEmail()"
 									type="button" class="Iniciar-sesin2 Rectangle-706">Enviar
