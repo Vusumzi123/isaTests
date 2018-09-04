@@ -4,24 +4,21 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.logging.Logger;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
-import mx.redpoint.isa.bean.Principaladmins;
+import mx.redpoint.isa.bean.Finanzas;
 
-public class PrincipaladminsClient {
+public class CuentasClient {
+	private final static Logger LOGGER = Logger.getLogger(CuentasClient.class.getName());
 	
-	/*
-	 * 
-	 * Obtine parametros de un servicio web
-	 * 
-	 * */
-	public static final Principaladmins getPrincipaladminClient() {
+	public static final Finanzas[] getCuentaClient() {
 		HttpURLConnection conn = null;
-		Principaladmins obj = null;
+		Finanzas[] obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/principaladmin/principaladmin");
+			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/cuenta/cuentas");
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -36,22 +33,21 @@ public class PrincipaladminsClient {
 
 				String output;
 				String json = "";
-				System.out.println("Output from Server .... \n");
 				while ((output = br.readLine()) != null) {
 					json = json + output;
 				}
 				
-				obj = mapper.readValue(json, Principaladmins.class);
+				LOGGER.info("consulta a servicio exitosa");
+				obj = mapper.readValue(json, Finanzas[].class);
 				
 				
 		}catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.warning(e.getLocalizedMessage());
 		}finally{
 			conn.disconnect();
 		}
 		
 		return obj;
 	}
-	
-	
 }
+

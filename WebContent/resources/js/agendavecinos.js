@@ -1,5 +1,5 @@
 function cargaDatos(event, nombre){
-	var url = contexto + "/services/admin/datosAgendavecinos?nombre="+nombre ;
+	var url = contexto + "/services/auth/datosAgendavecinos?nombre="+nombre ;
 	var tableAdeudos = $("#tabla-adeudos");
 	var tablePagos = $("#tabla-pagos");
 	var nombreRes = $("#nombreRes");
@@ -28,7 +28,7 @@ function cargaDatos(event, nombre){
 			nombreVecino.html(response.namev+" "+response.lastnamev);
 			viviendaVecino.html(response.numberv);
 			correoVecino.html(response.emailv);
-		}
+		},
 	})
 }
 

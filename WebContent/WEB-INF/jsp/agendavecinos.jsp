@@ -79,7 +79,7 @@
 												<th>Fecha</th>
 												<th>Concepto</th>
 												<th>Cantidad</th>
-												<th>Comprobante</th>
+												<th>Comprobante pago</th>
 											</tr>
 										</thead>
 										<tbody id="tabla-pagos">
@@ -95,13 +95,84 @@
 												<th>Fecha</th>
 												<th>Concepto</th>
 												<th>Cantidad</th>
-												<th>Comprobante</th>
+												<th>Comprobante adeudo</th>
 											</tr>
 										</thead>
 										<tbody id="tabla-adeudos">
 
 										</tbody>
 									</table>
+									<div class="posicionboton">
+										<button type="button" class="cargo-extra" data-toggle="modal"
+											data-target="#exampleModalCenter1">cargo
+											extraordinario</button>
+										<div class="modal fade" id="exampleModalCenter1" tabindex="-1"
+											role="dialog" aria-labelledby="exampleModalCenterTitle"
+											aria-hidden="true">
+											<div class="modal-dialog modal-dialog-centered"
+												role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close close-button"
+															data-dismiss="modal" aria-label="Close">
+															<h2>
+																<i class="fas fa-times-circle"></i>
+															</h2>
+														</button>
+													</div>
+													<div class="modal-body">
+
+														<form id="ingreso-form">
+															<div class="form-group modal-form-group">
+																<label for="concepto">concepto</label> <input
+																	type="text" class="form-control" id="concepto-ingreso"
+																	name="concepto-ingreso">
+															</div>
+															<div class="form-group modal-form-group">
+																<label for="cuenta" class="bmd-label-floating">remitente</label>
+																<select class="form-control" id="remitente-ingreso"
+																	name="remitente-ingreso" style="cursor: pointer;">
+																	<option>1</option>
+																	<option>2</option>
+																	<option>3</option>
+																	<option>4</option>
+																	<option>5</option>
+																</select>
+															</div>
+															<div class="form-group modal-form-group">
+																<label for="fecha-ingreso" class="bmd-label-floating">fecha</label>
+																<input id="fecha-ingreso" class="form-control"
+																	name="fecha-ingreso" placeholder="mm/dd/aaaa" />
+																<script>
+																	$(
+																			'#fecha-ingreso')
+																			.datepicker(
+																					{
+																						uiLibrary : 'bootstrap4'
+																					});
+																</script>
+															</div>
+															<div class="form-group modal-form-group">
+																<label for="cantidad">cantidad</label>
+																<div class="input-group mb-2">
+																	<div class="input-group-prepend">
+																		<div class="input-group-text">$</div>
+																	</div>
+																	<input type="text" class="form-control"
+																		id="cantidad-ingreso" name="cantidad-ingreso">
+																</div>
+															</div>
+														</form>
+													</div>
+													<div class="modal-footer d-flex justify-content-center">
+														<button type="button" onclick="agregaDato(tipoIngreso)"
+															id="boton-enviar-cargo" class="btn btn-primary">registrar
+															cargo</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

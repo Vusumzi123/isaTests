@@ -57,7 +57,7 @@
 				</div>
 				<div class="container">
 					<div class="texto1">Invita a tus vecinos a ser parte de este
-						condominio. Ingresa su correo electrï¿½nico. Tambiï¿½n puedes
+						condominio. Ingresa su correo electrónico. También puedes
 						descargar nuestro formato Excel para ayudarte.</div>
 					<div class="contenido1">
 						<form class="input-field invitacion-correo">
@@ -100,13 +100,13 @@
 						onclick="changeTab(event, 'sub-administradores')">sub-administradores</button>
 				</div>
 				<div class="container">
-					<div class="texto1">Actualmente, tï¿½ eres el administrador del
+					<div class="texto1">Actualmente, tú eres el administrador del
 						inmueble, puedes designar a sub administradores que gestionen
-						grupos mï¿½s pequeï¿½os de vecinos para facilitar tu labor.</div>
+						grupos más pequeños de vecinos para facilitar tu labor.</div>
 					<div class="contenido1">
 						<div class="input-field invitacion-correo">
 							<input type="email"> <label>invitar con correo
-								electrï¿½nico</label>
+								electrónico</label>
 						</div>
 						<div class="contador-viviendas">Viviendas restantes:${num}</div>
 					</div>

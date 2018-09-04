@@ -197,7 +197,8 @@
 											<div class="form-group modal-form-group">
 												<label for="cuenta" class="bmd-label-floating">cuenta
 													de retiro</label> <select class="form-control"
-													name="cuenta-ingreso" id="cuenta-ingreso">
+													name="cuenta-ingreso" id="cuenta-ingreso"
+													style="cursor: pointer;">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -213,7 +214,7 @@
 											<div class="form-group modal-form-group">
 												<label for="cuenta" class="bmd-label-floating">remitente</label>
 												<select class="form-control" id="remitente-ingreso"
-													name="remitente-ingreso">
+													name="remitente-ingreso" style="cursor: pointer;">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -263,7 +264,7 @@
 										</form>
 									</div>
 									<div class="modal-footer d-flex justify-content-center">
-										<button type="button" onclick="agregarDato(tipoIngreso)"
+										<button type="button" onclick="agregaDato(tipoIngreso)"
 											id="boton-enviar-ingreso" class="btn btn-primary">registrar
 											ingreso</button>
 									</div>
@@ -292,7 +293,8 @@
 										<form id="egreso-form" name="egreso-form">
 											<div class="form-group modal-form-group">
 												<label for="cuenta-egreso" class="bmd-label-floating">cuenta
-													de retiro</label> <select class="form-control" id="cuenta-egreso">
+													de retiro</label> <select class="form-control" id="cuenta-egreso"
+													style="cursor: pointer;">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -306,7 +308,8 @@
 											</div>
 											<div class="form-group modal-form-group">
 												<label for="remitente-egreso" class="bmd-label-floating">remitente</label>
-												<select class="form-control" id="remitente-egreso">
+												<select class="form-control" id="remitente-egreso"
+													style="cursor: pointer;">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -403,7 +406,7 @@
 											<div class="form-group modal-form-group">
 												<label for="vecino-comprobante" class="bmd-label-floating">vecino
 												</label> <select class="form-control" name="vecino-comprobante"
-													id="vecino-comprobante">
+													id="vecino-comprobante" style="cursor: pointer;">
 													<option>1</option>
 													<option>2</option>
 													<option>3</option>
@@ -467,7 +470,7 @@
 						<th>Fecha</th>
 						<th>Concepto</th>
 						<th>Cantidad</th>
-						<th>Comprobante</th>
+						<th>Comprobante todos</th>
 					</tr>
 				</thead>
 				<tbody id="tabla-todos">
@@ -482,7 +485,7 @@
 						<th>Fecha</th>
 						<th>Concepto</th>
 						<th>Cantidad</th>
-						<th>Comprobante</th>
+						<th>Comprobante ingresos</th>
 					</tr>
 				</thead>
 				<tbody id="tabla-ingresos">
@@ -497,7 +500,7 @@
 						<th>Fecha</th>
 						<th>Concepto</th>
 						<th>Cantidad</th>
-						<th>Comprobante</th>
+						<th>Comprobante egresos</th>
 					</tr>
 				</thead>
 				<tbody id="tabla-egresos">

@@ -3,15 +3,24 @@ package mx.redpoint.isa.bean;
 import java.util.Date;
 
 public class Comentario {
-	private String idUser;
+	private String name;
+	private String lastname;
 	private String body;
 	private String title;
 	private Date date;
-	public String getIdUser() {
-		return idUser;
+	private String photo;
+	
+	public String getName() {
+		return name;
 	}
-	public void setIdUser(String idUser) {
-		this.idUser = idUser;
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 	public String getBody() {
 		return body;
@@ -31,5 +40,12 @@ public class Comentario {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	
 	
 }

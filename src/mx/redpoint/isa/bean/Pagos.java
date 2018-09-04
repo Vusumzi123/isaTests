@@ -1,16 +1,14 @@
 package mx.redpoint.isa.bean;
 
-import java.util.Date;
-
 public class Pagos {
-	private Date fecha;
+	private String fecha;
 	private String concepto;
 	private double cantidad;
 	private String comprobante;
-	public Date getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 	public String getConcepto() {

@@ -2,10 +2,10 @@
 	pageEncoding="ISO-8859-1"%>
 <div class="aviso1-avisos">
 	<div class="row">
-		<img class="usuario1-avisos col-sm-2"
-			src="${comentario.getPhoto()}">
+		<div class="usuario1-avisos col-sm-2"
+			style="background-image: url('${principaladmins.getPhoto()}')"></div>
 		<div class="usuario-dijo-avisos">
-			${comentario.getIdUser()} dijo...<br>
+			${principaladmins.getName()} ${principaladmins.getLastname()} dijo...<br>
 			<div class="fecha-post-avisos">${comment.getDate()}</div>
 		</div>
 	</div>

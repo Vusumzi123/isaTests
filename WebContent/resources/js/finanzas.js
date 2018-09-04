@@ -25,7 +25,7 @@ function changeDatos(evt, tab) {
 
 function llamarTabla(tipo){
 	var ajaxObj = {
-			url : contexto + "/services/admin/cuadroie" + tipo,
+			url : contexto + "/services/auth/cuadroie" + tipo,
 			method : 'GET',
 			success: function (response, status) {
 				console.log(response);

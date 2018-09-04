@@ -49,7 +49,7 @@
 	</div>
 	<div class="body-container">
 		<form id="registrodatos"
-			action="${ctx}/services/auth/resumen?${_csrf.parameterName}=${_csrf.token}"
+			action="${ctx}/services/admin/resumen?${_csrf.parameterName}=${_csrf.token}"
 			method="POST">
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />

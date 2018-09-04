@@ -36,6 +36,7 @@ import mx.redpoint.isa.bean.Vecinos;
 import mx.redpoint.isa.client.AvisosClient;
 import mx.redpoint.isa.client.ComentarioClient;
 import mx.redpoint.isa.client.CondominiosClient;
+import mx.redpoint.isa.client.CuentasClient;
 import mx.redpoint.isa.client.FinanzasClient;
 import mx.redpoint.isa.client.PrincipaladminsClient;
 import mx.redpoint.isa.client.PrincipalvecinosClient;
@@ -170,7 +171,7 @@ public class MiCitaTelcelRestController {
 		condo.setCp(request.getParameter("cp"));
 		condo.setRegulation(request.getParameter("filebase64"));
 		// System.out.println(condo.getArchivo());
-		condo.setPhotoc(request.getParameter("photocbase64"));
+		condo.setPhotoc(request.getParameter("photobase64"));
 		condo.setNamec(request.getParameter("namec"));
 		LOGGER.info(condo.getNamec());
 		condo.setNumber(request.getParameter("number"));
@@ -289,34 +290,34 @@ public class MiCitaTelcelRestController {
 	// return model;
 	// }
 	//
-	// @RequestMapping(value = "/auth/cuadroie", method = RequestMethod.POST)
-	// public ModelAndView insertaie(HttpServletRequest request) {
-	// generaDatosIegresos();
-	// String tipo = request.getParameter("tipo");
-	// ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
-	// if(tipo.equals("ingresos")) {
-	// String cuentaIngreso = request.getParameter("cuenta-ingreso");
-	// String conceptoIngreso = request.getParameter("concepto-ingreso");
-	// String remitenteIngreso = request.getParameter("remitente-ingreso");
-	// String fechaIngreso = request.getParameter("fecha-ingreso");
-	// String cantidadIngreso = request.getParameter("cantidad-ingreso");
-	// Iegresos nuevoDato = new Iegresos();
-	// nuevoDato.setFecha(new Date(fechaIngreso));
-	// nuevoDato.setConcepto(conceptoIngreso);
-	// nuevoDato.setCantidad(cantidadIngreso);
-	// nuevoDato.setCuenta(cuentaIngreso);
-	// nuevoDato.setRemitente(remitenteIngreso);
-	//
-	// //agregar comprobante
-	// respuesta.addAll(ingresosFalsos);
-	// respuesta.add(nuevoDato);
-	// }else if(tipo.equals("egresos")) {
-	// respuesta.addAll(egresosFalsos);
-	// }
-	// ModelAndView model = new ModelAndView("cuadroie");
-	// model.addObject("registros",respuesta);
-	// return model;
-	// }
+//	 @RequestMapping(value = "/auth/cuadroie", method = RequestMethod.POST)
+//	 public ModelAndView insertaie(HttpServletRequest request) {
+//	 generaDatosIegresos();
+//	 String tipo = request.getParameter("tipo");
+//	 ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
+//	 if(tipo.equals("ingresos")) {
+//	 String cuentaIngreso = request.getParameter("cuenta-ingreso");
+//	 String conceptoIngreso = request.getParameter("concepto-ingreso");
+//	 String remitenteIngreso = request.getParameter("remitente-ingreso");
+//	 String fechaIngreso = request.getParameter("fecha-ingreso");
+//	 String cantidadIngreso = request.getParameter("cantidad-ingreso");
+//	 Iegresos nuevoDato = new Iegresos();
+//	 nuevoDato.setFecha(fechaIngreso);
+//	 nuevoDato.setConcepto(conceptoIngreso);
+//	 nuevoDato.setCantidad(cantidadIngreso);
+//	 nuevoDato.setCuenta(cuentaIngreso);
+//	 nuevoDato.setRemitente(remitenteIngreso);
+//	
+//	 //agregar comprobante
+//	 respuesta.addAll(ingresosFalsos);
+//	 respuesta.add(nuevoDato);
+//	 }else if(tipo.equals("egresos")) {
+//	 respuesta.addAll(egresosFalsos);
+//	 }
+//	 ModelAndView model = new ModelAndView("cuadroie");
+//	 model.addObject("registros",respuesta);
+//	 return model;
+//	 }
 
 	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
@@ -366,14 +367,14 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/agregarcom", method = RequestMethod.POST)
 	public ModelAndView agregarcom(HttpServletRequest request) {
 		Comentario comentario1 = new Comentario();
-		Comentario comentario = ComentarioClient.getComentarioClient();
+		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
 		String cuerpo = request.getParameter("textCom");
 		System.out.println(cuerpo);
 		Date fecha = new Date();
 		comentario1.setBody(cuerpo);
 		comentario1.setDate(fecha);
 		ModelAndView model = new ModelAndView("agregarcom");
-		model.addObject("comentario", comentario);
+		model.addObject("principaladmins", principaladmins);
 		model.addObject("comment", comentario1);
 		return model;
 	}
@@ -410,7 +411,9 @@ public class MiCitaTelcelRestController {
 	public ModelAndView configinmueble(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("configinmueble");
 		Condominios condominios = CondominiosClient.getCondominioClient();
+		Finanzas[] finanzas = CuentasClient.getCuentaClient();
 		model.addObject("condominios", condominios);
+		model.addObject("finanzas", finanzas);
 		return model;
 	}
 
@@ -424,56 +427,6 @@ public class MiCitaTelcelRestController {
 		model.addObject("condominios", condominios);
 		return model;
 	}
-
-//	@RequestMapping(value = "/neig/principalvec", method = RequestMethod.GET)
-//	public ModelAndView principalvec(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView("principalvec");
-//		Principalvecinos principalvecinos = PrincipalvecinosClient.getPrincipalvecinoClient();
-//		model.addObject("principalvecinos", principalvecinos);
-//		return model;
-//	}
-//
-//	@RequestMapping(value = "/neig/finanzasvec", method = RequestMethod.GET)
-//	public ModelAndView finanzasvec(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView("finanzasvec");
-//		return model;
-//	}
-//
-//	@RequestMapping(value = "/neig/avisosvec", method = RequestMethod.GET)
-//	public ModelAndView avisosvec(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView("avisosvec");
-//		Avisos[] avisos = AvisosClient.getAvisoClient();
-//		model.addObject("avisos", avisos);
-//		return model;
-//	}
-//
-//	@RequestMapping(value = "/neig/notificacionesvec", method = RequestMethod.GET)
-//	public ModelAndView notificacionesvec(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView("notificacionesvec");
-//		return model;
-//	}
-//
-//	@RequestMapping(value = "/neig/perfilusuariovec", method = RequestMethod.GET)
-//	public ModelAndView perfilusuariovec(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView("perfilusuariovec");
-//		Principalvecinos principalvecinos = PrincipalvecinosClient.getPrincipalvecinoClient();
-//		model.addObject("principalvecinos", principalvecinos);
-//		return model;
-//	}
-//
-//	@RequestMapping(value = "/neig/reglamentovec", method = RequestMethod.GET)
-//	public ModelAndView reglamentovec(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView("reglamentovec");
-//		Condominios condominios = CondominiosClient.getCondominioClient();
-//		model.addObject("condominios", condominios);
-//		return model;
-//	}
-//
-//	@RequestMapping(value = "/neig/terminosvec", method = RequestMethod.GET)
-//	public ModelAndView terminosvec(HttpServletRequest request) {
-//		ModelAndView model = new ModelAndView("terminosvec");
-//		return model;
-//	}
 
 	// private void generaDatosVecino() {//TODELETE
 	// vecinosFalsos.clear();
