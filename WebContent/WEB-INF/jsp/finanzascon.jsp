@@ -70,8 +70,8 @@
 					<div class="row">
 						<div class="form-group col-sm-6">
 							<label for="name1" class="bmd-label-floating">nombre del
-								condominio</label> <input type="text" class="form-control" id="name1"
-								name="name1">
+								condominio</label> <input type="text" class="form-control" id="namec"
+								name="namec">
 						</div>
 						<div class="form-group bmd-form-group">
 							<button type="button" id="adj" onclick="addArchive()"

@@ -50,16 +50,16 @@
 										<div class="contenedor5-agenda col-sm-4">
 											<div class="nombre-agenda">
 												nombre <br>
-												<div class="" id="nombrevecino" name="nombrevecino"></div>
+												<div class="" id="nombrevecino" name="nombrevecino">${vecino.getNamev()} ${vecino.getLastnamev}</div>
 											</div>
 											<div class="vivienda-agenda">
 												vivienda <br>
-												<div class="" id="viviendavecino" name="viviendavecino"></div>
+												<div class="" id="viviendavecino" name="viviendavecino">${vecino.getNumberv()}</div>
 											</div>
 										</div>
 										<div class="correo-agenda col-sm-4">
 											correo electrónico <br>
-											<div class="" id="correovecino" name="correovecino"></div>
+											<div class="" id="correovecino" name="correovecino">${vecino.getEmailv}</div>
 										</div>
 									</div>
 								</div>

@@ -80,9 +80,7 @@ public class MiCitaTelcelRestController {
 
 	private final static Logger LOGGER = Logger.getLogger(MiCitaTelcelRestController.class.getName());
 
-	// datos falsos
 	private ArrayList<Vecinos> vecinosLista = new ArrayList<Vecinos>();
-	// private ArrayList<Iegresos> iegresosFalsos = new ArrayList<Iegresos>();
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView helloWorld(HttpServletRequest request) {
@@ -183,8 +181,6 @@ public class MiCitaTelcelRestController {
 		condo.setPhone(request.getParameter("phone"));
 		condo.setStreet(request.getParameter("street"));
 		condo.setWeb(request.getParameter("web"));
-		// condo.setFile(file);
-		// Map parameterMap = request.getParameterMap();
 		int max = Integer.parseInt(request.getParameter("contador"));
 		System.out.println("xxxxx:" + max);
 		finan = new Finanzas[max];
@@ -321,8 +317,6 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("agendavecinos");
-		// generaDatosVecino();
-		// model.addObject("vecinos", vecinosFalsos);
 		Vecinos[] vecinos = VecinosClient.getVecinoClient();
 		model.addObject("vecinos", vecinos);
 		return model;
@@ -425,149 +419,4 @@ public class MiCitaTelcelRestController {
 		model.addObject("condominios", condominios);
 		return model;
 	}
-
-	// private void generaDatosVecino() {//TODELETE
-	// vecinosFalsos.clear();
-	// Vecinos vecino1 = new Vecinos();
-	// Vecinos vecino2 = new Vecinos();
-	// Vecinos vecino3 = new Vecinos();
-	// vecino1.setNombre("Henry");
-	// vecino1.setApellido("Zapata");
-	// vecino1.setCorreo("h.zapata@supaada.mx");
-	// vecino1.setVivienda("101");
-	// ArrayList<Pagos> pagos = new ArrayList<Pagos>();
-	// ArrayList<Adeudos> adeudos = new ArrayList<Adeudos>();
-	// Pagos pago1 = new Pagos();
-	// Pagos pago2 = new Pagos();
-	// pago1.setFecha(new Date());
-	// pago1.setConcepto("Mensualidad");
-	// pago1.setCantidad(6000.0);
-	// pago2.setFecha(new Date("30/05/18"));
-	// pago2.setConcepto("Mensualidad");
-	// pago2.setCantidad(6000.0);
-	// pagos.add(pago1);
-	// pagos.add(pago2);
-	// Adeudos adeu1 = new Adeudos();
-	// adeu1.setFecha(new Date());
-	// adeu1.setConcepto("Mensualidad");
-	// adeu1.setCantidad(6000.0);
-	// adeudos.add(adeu1);
-	// vecino1.setPagos( pagos );
-	// vecino1.setAdeudos(adeudos);
-	//
-	// vecino2.setNombre("Montserrat");
-	// vecino2.setApellido("Casillas");
-	// vecino2.setCorreo("m.casillas@supaada.mx");
-	// vecino2.setVivienda("105");
-	// ArrayList<Pagos> pagos1 = new ArrayList<Pagos>();
-	// ArrayList<Adeudos> adeudos1 = new ArrayList<Adeudos>();
-	// Pagos pago3 = new Pagos();
-	// Pagos pago4 = new Pagos();
-	// pago3.setFecha(new Date());
-	// pago3.setConcepto("Mensualidad");
-	// pago3.setCantidad(5000.0);
-	// pago4.setFecha(new Date());
-	// pago4.setConcepto("Mensualidad");
-	// pago4.setCantidad(5000.0);
-	// pagos1.add(pago3);
-	// pagos1.add(pago4);
-	// Adeudos adeu2 = new Adeudos();
-	// adeu2.setFecha(new Date());
-	// adeu2.setConcepto("Mensualidad");
-	// adeu2.setCantidad(5000.0);
-	// adeudos1.add(adeu2);
-	// vecino2.setPagos( pagos1 );
-	// vecino2.setAdeudos(adeudos1);
-	//
-	// vecino3.setNombre("Alexis");
-	// vecino3.setApellido("Negrete");
-	// vecino3.setCorreo("a.negrete@supaada.mx");
-	// vecino3.setVivienda("103");
-	// ArrayList<Pagos> pagos2 = new ArrayList<Pagos>();
-	// ArrayList<Adeudos> adeudos2 = new ArrayList<Adeudos>();
-	// Pagos pago5 = new Pagos();
-	// Pagos pago6 = new Pagos();
-	// pago5.setFecha(new Date());
-	// pago5.setConcepto("Mensualidad");
-	// pago5.setCantidad(8000.0);
-	// pago6.setFecha(new Date());
-	// pago6.setConcepto("Mensualidad");
-	// pago6.setCantidad(8000.0);
-	// pagos2.add(pago5);
-	// pagos2.add(pago6);
-	// Adeudos adeu3 = new Adeudos();
-	// adeu3.setFecha(new Date());
-	// adeu3.setConcepto("Mensualidad");
-	// adeu3.setCantidad(8000.0);
-	// adeudos2.add(adeu3);
-	// vecino3.setPagos( pagos2 );
-	// vecino3.setAdeudos(adeudos2);
-	//
-	// vecinosFalsos.add(vecino1);
-	// vecinosFalsos.add(vecino2);
-	// vecinosFalsos.add(vecino3);
-	// }
-	//
-	//
-	//
-	//
-	//
-	// private void generaDatosIegresos() {//TODELETE
-	// ingresosFalsos.clear();
-	// egresosFalsos.clear();
-	// Iegresos ingreso1 = new Iegresos();
-	// Iegresos ingreso2 = new Iegresos();
-	// Iegresos ingreso3 = new Iegresos();
-	// Iegresos ingreso4 = new Iegresos();
-	// Iegresos ingreso5 = new Iegresos();
-	// Iegresos egreso1 = new Iegresos();
-	// Iegresos egreso2 = new Iegresos();
-	// Iegresos egreso3 = new Iegresos();
-	// ingreso1.setFecha(new Date("04/30/2018"));
-	// ingreso1.setConcepto("Cuota mensual Henry Zapata");
-	// ingreso1.setCantidad("$8000.00");
-	// ingreso1 = new Iegresos();
-	//
-	// ingreso2.setFecha(new Date("04/29/2018"));
-	// ingreso2.setConcepto("Cuota mensual Montserrat Casillas");
-	// ingreso2.setCantidad("$8000.00");
-	//
-	// ingreso3.setFecha(new Date("04/28/2018"));
-	// ingreso3.setConcepto("Cuota mensual Alexis Negrete");
-	// ingreso3.setCantidad("$8000.00");
-	//
-	// egreso1.setFecha(new Date("04/27/2018"));
-	// egreso1.setConcepto("Servicio de luz");
-	// egreso1.setCantidad("$2500.00");
-	//
-	// egreso2.setFecha(new Date("04/20/2018"));
-	// egreso2.setConcepto("Servicio de agua");
-	// egreso2.setCantidad("$2500.00");
-	//
-	// egreso3.setFecha(new Date("04/15/2018"));
-	// egreso3.setConcepto("Bacheado de calle");
-	// egreso3.setCantidad("$4800.00");
-	//
-	// ingreso4.setFecha(new Date("04/01/2018"));
-	// ingreso4.setConcepto("Alta tarjeta de cr�dito");
-	// ingreso4.setCantidad("$40000.00");
-	//
-	// ingreso5.setFecha(new Date("04/01/2018"));
-	// ingreso5.setConcepto("Alta caja chica");
-	// ingreso5.setCantidad("$16500.00");
-	//
-	// ingresosFalsos.add(ingreso1);
-	// ingresosFalsos.add(ingreso2);
-	// ingresosFalsos.add(ingreso3);
-	// ingresosFalsos.add(ingreso4);
-	// ingresosFalsos.add(ingreso5);
-	//
-	// egresosFalsos.add(egreso1);
-	// egresosFalsos.add(egreso2);
-	// egresosFalsos.add(egreso3);
-	//
-	//
-	//
-	// }
-
 }
