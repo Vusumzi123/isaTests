@@ -104,9 +104,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
 			<c:forEach var="finanza" items="${finanzas}">
 				<div class="rectangulo-cuadroconfig">
 					<div class="container">
@@ -167,9 +164,6 @@
 					</div>
 				</div>
 			</c:forEach>
-
-
-
 			<div id="cuadro-contenedor1">
 				<input id="contador" name="contador" type="hidden"></input>
 			</div>

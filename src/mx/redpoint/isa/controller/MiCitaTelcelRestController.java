@@ -247,6 +247,10 @@ public class MiCitaTelcelRestController {
 		ModelAndView model = new ModelAndView("finanzas");
 		Ingresos[] ingresos = IngresosClient.getIngresoClient();
 		Egresos[] egresos = EgresosClient.getEgresoClient();
+		Vecinos[] vecinos = VecinosClient.getVecinoClient();
+		Finanzas[] finanzas = CuentasClient.getCuentaClient();
+		model.addObject("finanzas", finanzas);
+		model.addObject("vecinos", vecinos);
 		model.addObject("ingresos", ingresos);
 		model.addObject("egresos", egresos);
 		return model;
@@ -328,7 +332,7 @@ public class MiCitaTelcelRestController {
 		String nombreVecino = request.getParameter("namev");
 		Vecinos vecinoActual = new Vecinos();
 		String vecinoString = "";
-
+		Vecinos[] vecinosLista = VecinosClient.getVecinoClient();
 		for (Vecinos vecino : vecinosLista) {
 			if (vecino.getNamev().equals(nombreVecino)) {
 				vecinoActual = vecino;

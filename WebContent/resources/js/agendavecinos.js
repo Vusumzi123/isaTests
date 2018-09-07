@@ -1,8 +1,9 @@
 function cargaDatos(event, nombre){
-	var url = contexto + "/services/auth/datosAgendavecinos?nombre="+nombre ;
+	var url = contexto + "/services/auth/datosAgendavecinos?namev="+nombre ;
 //	var tableAdeudos = $("#tabla-adeudos");
 //	var tablePagos = $("#tabla-pagos");
 	var nombreRes = $("#nombreRes");
+	var fotoVecino = $("#fotovecino");
 	var nombreVecino = $("#nombrevecino");
 	var viviendaVecino = $("#viviendavecino");
 	var correoVecino = $("#correovecino");
@@ -13,6 +14,7 @@ function cargaDatos(event, nombre){
 		method : 'GET',
 		success: function (response, status){
 			nombreRes.text(response);
+			fotoVecino.html(response.photov);
 			nombreVecino.html(response.namev+" "+response.lastnamev);
 			viviendaVecino.html(response.numberv);
 			correoVecino.html(response.emailv);
@@ -73,4 +75,20 @@ function changeTab(evt, tab, clase) {
 	})
 	var toActivete = $('#' + tab);
 	toActivete.addClass('active');
+}
+
+function myFunction() {
+    var input, filter, ul, li, button, i;
+    input = document.getElementById("mySearch");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myList");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        button = li[i].getElementsByTagName("button")[0];
+        if (button.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
 }

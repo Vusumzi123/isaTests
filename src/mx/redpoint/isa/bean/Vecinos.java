@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Vecinos {
 	private String namev;
+	private String photov;
 	private String lastnamev;
 	private String numberv;
 	private String emailv;
@@ -15,6 +16,12 @@ public class Vecinos {
 	}
 	public void setNamev(String namev) {
 		this.namev = namev;
+	}
+	public String getPhotov() {
+		return photov;
+	}
+	public void setPhotov(String photov) {
+		this.photov = photov;
 	}
 	public String getLastnamev() {
 		return lastnamev;

@@ -13,7 +13,7 @@
 					<div class="contenedor4-agenda">
 						<form>
 							<div>
-								<input type="search" id="mySearch" name="q"
+								<input onkeyup="myFunction()" type="text" id="mySearch" name="q"
 									placeholder="buscar vecino" size="38"
 									style="margin-top: 13px; background-color: #f1f1f1">
 								<button
@@ -23,18 +23,21 @@
 							</div>
 						</form>
 						<div class="d-flex flex-column tab" style="margin-top: 11px">
-
-							<c:forEach var="vecino" items="${vecinos}">
-								<button class="elemento1-agenda p-4"
-									onclick="cargaDatos(event, '${vecino.getNamev()}')">
-									<img class="img-elemento1-agenda"
-										src="${ctx}/resources/img/imagenPerfil.svg">
-									<div>
-										${vecino.getNamev()} ${vecino.getLastnamev() } <br>
-										<div class="numvivienda-agenda">${vecino.getNumberv()}</div>
-									</div>
-								</button>
-							</c:forEach>
+							<ul style="list-style: none;" id="myList">
+								<c:forEach var="vecino" items="${vecinos}">
+									<li>
+										<button class="elemento1-agenda p-4"
+											onclick="cargaDatos(event, '${vecino.getNamev()}')">
+											<div class="img-elemento1-agenda"
+												style="background-image: url('${vecino.getPhotov()}')"></div>
+											<div>
+												${vecino.getNamev()} ${vecino.getLastnamev() } <br>
+												<div class="numvivienda-agenda">${vecino.getNumberv()}</div>
+											</div>
+										</button>
+									</li>
+								</c:forEach>
+							</ul>
 
 						</div>
 					</div>
@@ -45,12 +48,13 @@
 							<div id="usuario1" class="tabcontent datos active">
 								<div class="contenedor3-agenda">
 									<div class="row">
-										<img class="img-derecha-agenda col-sm-4"
-											src="${pageContext.request.contextPath}/resources/img/imagenPerfil.svg">
+										<div id="fotovecino" name="fotovecino" class="img-derecha-agenda col-sm-4"
+											style="background-image: url('${vecino.getPhotov()}')"></div>
 										<div class="contenedor5-agenda col-sm-4">
 											<div class="nombre-agenda">
 												nombre <br>
-												<div class="" id="nombrevecino" name="nombrevecino">${vecino.getNamev()} ${vecino.getLastnamev}</div>
+												<div class="" id="nombrevecino" name="nombrevecino">${vecino.getNamev()}
+													${vecino.getLastnamev}</div>
 											</div>
 											<div class="vivienda-agenda">
 												vivienda <br>
@@ -132,11 +136,9 @@
 																<label for="cuenta" class="bmd-label-floating">remitente</label>
 																<select class="form-control" id="remitente-ingreso"
 																	name="remitente-ingreso" style="cursor: pointer;">
-																	<option>1</option>
-																	<option>2</option>
-																	<option>3</option>
-																	<option>4</option>
-																	<option>5</option>
+																	<c:forEach var="vecino" items="${vecinos}">
+																		<option>${vecino.getNumberv()}</option>
+																	</c:forEach>
 																</select>
 															</div>
 															<div class="form-group modal-form-group">

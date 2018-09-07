@@ -191,11 +191,9 @@
 													de retiro</label> <select class="form-control"
 													name="cuenta-ingreso" id="cuenta-ingreso"
 													style="cursor: pointer;">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
+													<c:forEach var="finanza" items="${finanzas}">
+														<option>${finanza.getAlias()}</option>
+													</c:forEach>
 												</select>
 											</div>
 											<div class="form-group modal-form-group">
@@ -207,11 +205,9 @@
 												<label for="cuenta" class="bmd-label-floating">remitente</label>
 												<select class="form-control" id="remitente-ingreso"
 													name="remitente-ingreso" style="cursor: pointer;">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
+													<c:forEach var="vecino" items="${vecinos}">
+														<option>${vecino.getNumberv()}</option>
+													</c:forEach>
 												</select>
 											</div>
 											<div class="form-group modal-form-group">
@@ -287,11 +283,9 @@
 												<label for="cuenta-egreso" class="bmd-label-floating">cuenta
 													de retiro</label> <select class="form-control" id="cuenta-egreso"
 													style="cursor: pointer;">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
+													<c:forEach var="finanza" items="${finanzas}">
+														<option>${finanza.getAlias()}</option>
+													</c:forEach>
 												</select>
 											</div>
 											<div class="form-group modal-form-group">
@@ -302,11 +296,9 @@
 												<label for="remitente-egreso" class="bmd-label-floating">remitente</label>
 												<select class="form-control" id="remitente-egreso"
 													style="cursor: pointer;">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
+													<c:forEach var="vecino" items="${vecinos}">
+														<option>${vecino.getNumberv()}</option>
+													</c:forEach>
 												</select>
 											</div>
 											<div class="form-group modal-form-group">
@@ -399,11 +391,9 @@
 												<label for="vecino-comprobante" class="bmd-label-floating">vecino
 												</label> <select class="form-control" name="vecino-comprobante"
 													id="vecino-comprobante" style="cursor: pointer;">
-													<option>1</option>
-													<option>2</option>
-													<option>3</option>
-													<option>4</option>
-													<option>5</option>
+													<c:forEach var="vecino" items="${vecinos}">
+														<option>${vecino.getNumberv()}</option>
+													</c:forEach>
 												</select>
 											</div>
 											<div class="form-group modal-form-group">
