@@ -14,12 +14,8 @@
 						<form>
 							<div>
 								<input onkeyup="myFunction()" type="text" id="mySearch" name="q"
-									placeholder="buscar vecino" size="38"
-									style="margin-top: 13px; background-color: #f1f1f1">
-								<button
-									style="background: transparent; border: none; color: #00949e; cursor: pointer">
-									<i class="fas fa-search"></i>
-								</button>
+									placeholder="buscar vecino" size="33"
+									style="margin-top: 13px; background-color: #f1f1f1; display:flex; align-items:flex-end;">
 							</div>
 						</form>
 						<div class="d-flex flex-column tab" style="margin-top: 11px">
@@ -83,12 +79,14 @@
 												<th>Fecha</th>
 												<th>Concepto</th>
 												<th>Cantidad</th>
-												<th>Comprobante pago</th>
+												<th>Comprobante</th>
 											</tr>
 										</thead>
 										<tbody id="tabla-pagos">
-
-
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
 										</tbody>
 									</table>
 								</div>
@@ -99,11 +97,14 @@
 												<th>Fecha</th>
 												<th>Concepto</th>
 												<th>Cantidad</th>
-												<th>Comprobante adeudo</th>
+												<th>Comprobante</th>
 											</tr>
 										</thead>
 										<tbody id="tabla-adeudos">
-
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
 										</tbody>
 									</table>
 									<div class="posicionboton">

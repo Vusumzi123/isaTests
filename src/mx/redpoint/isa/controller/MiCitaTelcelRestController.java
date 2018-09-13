@@ -14,7 +14,6 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.rowset.serial.SerialBlob;
@@ -74,7 +73,6 @@ import org.springframework.security.oauth2.common.util.RandomValueStringGenerato
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 
 @RestController
-@MultipartConfig
 @RequestMapping(value = "/services")
 public class MiCitaTelcelRestController {
 
@@ -138,12 +136,6 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/admin/mpago", method = RequestMethod.GET)
 	public ModelAndView mpago(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("mpago");
-		return model;
-	}
-
-	@RequestMapping(value = "/admin/registrocon", method = RequestMethod.GET)
-	public ModelAndView registrocon(HttpServletRequest request) {
-		ModelAndView model = new ModelAndView("registrocon");
 		return model;
 	}
 

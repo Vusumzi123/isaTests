@@ -21,9 +21,9 @@
 						<div class="carousel-inner">
 							<div class="carousel-item active">
 								<div class="contenedor-carousel" alt="First slide">
-									<div class="renglon1">CUENTA 1</div>
-									<div class="renglon2">**** 3896</div>
-									<div class="renglon3">$64000 MXN</div>
+									<div class="renglon1">SALDO TOTAL</div>
+									<div class="renglon2">Fecha de corte: 30-junio-2018</div>
+									<div class="renglon3">$72400 MXN</div>
 									<div class="container1">
 										<div class="row">
 											<div class="col-sm-1"></div>
@@ -43,9 +43,9 @@
 							</div>
 							<div class="carousel-item">
 								<div class="contenedor-carousel" alt="Second slide">
-									<div class="renglon1">SALDO TOTAL</div>
-									<div class="renglon2">Fecha de corte: 30-junio-2018</div>
-									<div class="renglon3">$72400 MXN</div>
+									<div class="renglon1"></div>
+									<div class="renglon2">**** 3896</div>
+									<div class="renglon3">$64000 MXN</div>
 									<div class="container1">
 										<div class="row">
 											<div class="col-sm-1"></div>
@@ -439,14 +439,16 @@
 		</div>
 	</div>
 	<div class="form-container">
+		<input type="text" id="myInput" onkeyup="myFunctionTable(this)"
+			placeholder="Busca por fecha..." title="Type in a date">
 		<div class="tab">
-			<button class="tablinks " onclick="changeTab(event , 'todos')">todos</button>
-			<button class="tablinks " onclick="changeTab(event , 'ingresos')">ingresos</button>
-			<button class="tablinks " onclick="changeTab(event , 'egresos')">egresos</button>
+			<button class="tablinks " onclick="changeFinanzas(event , 'todos')">todos</button>
+			<button class="tablinks " onclick="changeFinanzas(event , 'ingresos')">ingresos</button>
+			<button class="tablinks " onclick="changeFinanzas(event , 'egresos')">egresos</button>
 		</div>
-		<div id="contenedor-cuadroie"></div>
+<!-- 		<div id="contenedor-cuadroie"></div> -->
 		<div id="todos" class="tabcontent active">
-			<table class="table table-striped" style="width: 100%">
+			<table class="table table-striped" id="myTable" style="width: 100%">
 				<thead>
 					<tr>
 						<th>Fecha</th>
@@ -476,7 +478,7 @@
 			</table>
 		</div>
 		<div id="ingresos" class="tabcontent">
-			<table class="table table-striped" style="width: 100%">
+			<table class="table table-striped" id="myTable" style="width: 100%">
 				<thead>
 					<tr>
 						<th>Fecha</th>
@@ -498,7 +500,7 @@
 			</table>
 		</div>
 		<div id="egresos" class="tabcontent">
-			<table class="table table-striped" style="width: 100%">
+			<table class="table table-striped" id="myTable" style="width: 100%">
 				<thead>
 					<tr>
 						<th>Fecha</th>
@@ -522,3 +524,4 @@
 			</table>
 		</div>
 	</div>
+</div>
