@@ -55,7 +55,7 @@
 						<div class="carousel-item active">
 							<div class="contenedor-carousel">
 								<a href="${pageContext.request.contextPath}/services/admin/altavecinos"><img class="imgcondominio"
-									src="${condominios.getPhotoc()}"
+								src="${condominios.getPhotoc()}"
 									alt="first slide"></a>
 							</div>
 						</div>

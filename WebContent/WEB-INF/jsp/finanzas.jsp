@@ -252,7 +252,7 @@
 										</form>
 									</div>
 									<div class="modal-footer d-flex justify-content-center">
-										<button type="button" onclick="agregaDato(tipoIngreso)"
+										<button type="button" onclick="agregaIngreso()"
 											id="boton-enviar-ingreso" class="btn btn-primary">registrar
 											ingreso</button>
 									</div>
@@ -440,13 +440,15 @@
 	</div>
 	<div class="form-container">
 		<input type="text" id="myInput" onkeyup="myFunctionTable(this)"
-			placeholder="Busca por fecha..." title="Type in a date">
+			placeholder="Busca por fecha..." title="Type in a date"
+			style="margin-top: 10px; margin-bottom: 10px;">
 		<div class="tab">
 			<button class="tablinks " onclick="changeFinanzas(event , 'todos')">todos</button>
-			<button class="tablinks " onclick="changeFinanzas(event , 'ingresos')">ingresos</button>
+			<button class="tablinks "
+				onclick="changeFinanzas(event , 'ingresos')">ingresos</button>
 			<button class="tablinks " onclick="changeFinanzas(event , 'egresos')">egresos</button>
 		</div>
-<!-- 		<div id="contenedor-cuadroie"></div> -->
+		<!-- 		<div id="contenedor-cuadroie"></div> -->
 		<div id="todos" class="tabcontent active">
 			<table class="table table-striped" id="myTable" style="width: 100%">
 				<thead>
@@ -458,6 +460,10 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr id="contenedoringresos">
+					</tr>
+					<tr id="contenedoregresos">
+					</tr>
 					<c:forEach var="ingreso" items="${ingresos}">
 						<tr>
 							<td>${ingreso.getFecha()}</td>
@@ -488,6 +494,8 @@
 					</tr>
 				</thead>
 				<tbody>
+					<tr id="contenedoringresos">
+					</tr>
 					<c:forEach var="ingreso" items="${ingresos}">
 						<tr>
 							<td>${ingreso.getFecha()}</td>
@@ -510,8 +518,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<%-- 						<c:forEach begin="1" end="${ no }" step="1" --%>
-					<%--  							varStatus="loopCounter" value="${lstBooks}" var="book">  --%>
+					<tr id="contenedoregresos">
+					</tr>
 					<c:forEach var="egreso" items="${egresos}">
 						<tr>
 							<td>${egreso.getFecha()}</td>

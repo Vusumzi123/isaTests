@@ -3,7 +3,7 @@ package mx.redpoint.isa.bean;
 public class Egresos {
 	private String fecha;
 	private String concepto;
-	private Double cantidad;
+	private String cantidad;
 	private String comprobante;
 	public String getFecha() {
 		return fecha;
@@ -17,10 +17,10 @@ public class Egresos {
 	public void setConcepto(String concepto) {
 		this.concepto = concepto;
 	}
-	public Double getCantidad() {
+	public String getCantidad() {
 		return cantidad;
 	}
-	public void setCantidad(Double cantidad) {
+	public void setCantidad(String cantidad) {
 		this.cantidad = cantidad;
 	}
 	public String getComprobante() {

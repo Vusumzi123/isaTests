@@ -44,7 +44,8 @@
 							<span id="nombre-arch"></span>&nbsp;<i class="fas fa-trash-alt"></i>
 						</button>
 						<input type="file" style="display: none" class="form-control"
-							id="archivo" name="archivo">
+							id="regulation" name="regulation"> <input type="hidden"
+							name="filebase64-config" id="filebase64-config">
 					</div>
 				</div>
 				<div class="row">

@@ -5,19 +5,24 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.codehaus.jackson.map.ObjectMapper;
 
 import mx.redpoint.isa.bean.Avisos;
 import mx.redpoint.isa.bean.Egresos;
+import mx.redpoint.isa.bean.Usuario;
 
 public class EgresosClient {
 	
-	public static final Egresos[] getEgresoClient() {
+	public static final Egresos[] getEgresoClient(HttpServletRequest request) {
 		HttpURLConnection conn = null;
 		Egresos[] obj = null;
 		ObjectMapper mapper = new ObjectMapper();
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		String username = usuario.getNombreUsuario();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/Egresos/egresos");
+			URL url = new URL("http://localhost:3000/serviceisa/egresos/"+username);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");

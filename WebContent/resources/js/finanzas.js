@@ -13,6 +13,23 @@ function agregaDato(tipo) {
 	contentAjax(ajaxObject, "contenedor-cuadroie");
 };
 
+function agregaIngreso(){
+	var ajaxObject = {
+			url : contexto + "/services/auth/agregaring",
+			method : 'POST',
+			data : { fechaIngreso : $("#fecha-ingreso").val(), 
+				conceptoIngreso : $("#concepto-ingreso").val(),
+				cantidadIngreso : $("#cantidad-ingreso").val(),
+				comprobanteIngreso : $("#comprobante-ingreso").val()},
+			success : function(response, status) {
+				$("#contenedoringresos").prepend(response);
+				
+			},
+	}
+	sendToken();
+	contentAjax(ajaxObject, "contenedoringresos");
+};
+
 function changeDatos(event, tab) {
 	var activeTabs = $('.datos');
 	activeTabs.each(function() {
@@ -70,33 +87,6 @@ function removeArchive(transaction) {
 	adjButton.removeClass('hidden');
 	delButton.addClass('hidden');
 }
-
-// function generaFila( fecha, concepto, cantidad ){
-// var row = document.createElement("tr");
-// var fechaNode = document.createElement("td");
-// var conceptoNode = document.createElement("td");
-// var cantidadNode = document.createElement("td");
-// var comprobante = document.createElement("td");
-// var botonComprobante = document.createElement("button");
-// botonComprobante.classList.add("boton-comprobante");
-//	
-// var fechaText = document.createTextNode(fecha);
-// fechaNode.appendChild( fechaText );
-// var conceptoText = document.createTextNode(concepto);
-// conceptoNode.appendChild( conceptoText );
-// var cantidadText = document.createTextNode(cantidad);
-// cantidadNode.appendChild( cantidadText );
-// var botonComprobanteText = document.createTextNode("Comprobante");
-// botonComprobante.appendChild( botonComprobanteText );
-// comprobante.appendChild(botonComprobante);
-//	
-// row.appendChild(fechaNode);
-// row.appendChild(conceptoNode);
-// row.appendChild(cantidadNode);
-// row.appendChild(comprobante);
-//	
-// return row;
-// }
 
 function addPhotofv() {
 	var inputPhoto = $('#file-photo-finanzasvec');

@@ -339,6 +339,16 @@ button.btn.btn-outline-secondary.border-left-0 {
 }
 
 /*  AGENDA VECINOS */
+.imgusuario-agenda {
+	border-radius: 50%;
+	width: 42px;
+	height: 42px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-right: 29px;
+}
+
 .form-container-agenda {
 	width: 1150px;
 }
@@ -375,8 +385,12 @@ button.btn.btn-outline-secondary.border-left-0 {
 }
 
 .img-derecha-agenda {
-	width: 400px;
 	border-radius: 50%;
+	width: 160px;
+	height: 160px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .contenedor3-agenda {
@@ -398,15 +412,30 @@ button.btn.btn-outline-secondary.border-left-0 {
 	color: #00949e;
 }
 
+.nombre-agenda2 {
+	font-size: 16px;
+	color: #07354d;
+}
+
 .vivienda-agenda {
 	font-size: 10px;
 	color: #00949e;
 	margin-top: 18px;
 }
 
+.vivienda-agenda2 {
+	font-size: 16px;
+	color: #07354d;
+}
+
 .correo-agenda {
 	font-size: 10px;
 	color: #00949e;
+}
+
+.correo-agenda2 {
+	font-size: 16px;
+	color: #07354d;
 }
 
 .cargo-extra {

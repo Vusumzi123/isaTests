@@ -33,6 +33,7 @@ import mx.redpoint.isa.bean.Mail;
 import mx.redpoint.isa.bean.Pagos;
 import mx.redpoint.isa.bean.Principaladmins;
 import mx.redpoint.isa.bean.Principalvecinos;
+import mx.redpoint.isa.bean.Usuario;
 import mx.redpoint.isa.bean.Vecinos;
 import mx.redpoint.isa.client.AvisosClient;
 import mx.redpoint.isa.client.ComentarioClient;
@@ -105,11 +106,16 @@ public class MiCitaTelcelRestController {
 		HttpSession session = request.getSession(true); // Obtiene el objeto de sesion
 		boolean isAdmin = roles.contains("ROLE_ADMIN"); // Comprueba si el usuario tiene rol de administrador
 		session.setAttribute("isAdmin", isAdmin); // guarda el rol del usuario en el objeto de sesión
+		Usuario usuario = new Usuario();
 		if (isAdmin) {
 			LOGGER.log(Level.parse("INFO"), "entro como admin");
+			usuario.setNombreUsuario("admin");
+			request.getSession().setAttribute("usuario", usuario);
 			return condominios(request);
 		}
 		LOGGER.log(Level.parse("INFO"), "entro como user");
+		usuario.setNombreUsuario("user");
+		request.getSession().setAttribute("usuario", usuario);
 		return principal(request, "finanzas");
 	}
 
@@ -203,7 +209,7 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/admin/condominios", method = RequestMethod.GET)
 	public ModelAndView condominios(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("condominios");
-		Condominios condominios = CondominiosClient.getCondominioClient();
+		Condominios condominios = CondominiosClient.getCondominioClient(request);
 		model.addObject("condominios", condominios);
 		return model;
 	}
@@ -228,7 +234,7 @@ public class MiCitaTelcelRestController {
 	public ModelAndView principal(HttpServletRequest request, @PathVariable("page") String page) {
 		ModelAndView model = new ModelAndView("principal");
 		LOGGER.log(Level.parse("INFO"), page);
-		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
+		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient(request);
 		model.addObject("principaladmins", principaladmins);
 		model.addObject("pageId", page);
 		return model;
@@ -237,14 +243,46 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/finanzas", method = RequestMethod.GET)
 	public ModelAndView finanzas(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("finanzas");
-		Ingresos[] ingresos = IngresosClient.getIngresoClient();
-		Egresos[] egresos = EgresosClient.getEgresoClient();
-		Vecinos[] vecinos = VecinosClient.getVecinoClient();
-		Finanzas[] finanzas = CuentasClient.getCuentaClient();
+		Ingresos[] ingresos = IngresosClient.getIngresoClient(request);
+		Egresos[] egresos = EgresosClient.getEgresoClient(request);
+		Vecinos[] vecinos = VecinosClient.getVecinoClient(request);
+		Finanzas[] finanzas = CuentasClient.getCuentaClient(request);
 		model.addObject("finanzas", finanzas);
 		model.addObject("vecinos", vecinos);
 		model.addObject("ingresos", ingresos);
 		model.addObject("egresos", egresos);
+		return model;
+	}
+	
+	@RequestMapping(value = "/auth/agregaring", method = RequestMethod.POST)
+	public ModelAndView agregaring(HttpServletRequest request) {
+		Ingresos ingresos = new Ingresos();
+		String fecha = request.getParameter("fechaIngreso");
+		String concepto = request.getParameter("conceptoIngreso");
+		String cantidad = request.getParameter("cantidadIngreso");
+		String comprobante = request.getParameter("comprobanteIngreso");
+		ingresos.setFecha(fecha);
+		ingresos.setConcepto(concepto);
+		ingresos.setCantidad(cantidad);
+		ingresos.setComprobante(comprobante);
+		ModelAndView model = new ModelAndView("agregaring");
+		model.addObject("ingresos1", ingresos);
+		return model;
+	}
+	
+	@RequestMapping(value = "/auth/agregaregr", method = RequestMethod.POST)
+	public ModelAndView agregaregr(HttpServletRequest request) {
+		Egresos egresos = new Egresos();
+		String fecha = request.getParameter("fechaEgreso");
+		String concepto = request.getParameter("conceptoEgreso");
+		String cantidad = request.getParameter("cantidadEgreso");
+		String comprobante = request.getParameter("comprobanteEgresos");
+		egresos.setFecha(fecha);
+		egresos.setConcepto(concepto);
+		egresos.setCantidad(cantidad);
+		egresos.setComprobante(comprobante);
+		ModelAndView model = new ModelAndView("agregaregr");
+		model.addObject("egresos1", egresos);
 		return model;
 	}
 
@@ -274,46 +312,20 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/cuadroie", method = RequestMethod.GET)
 	public ModelAndView cuadroie(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("cuadroie");
-		Ingresos[] ingresos = IngresosClient.getIngresoClient();
-		Egresos[] egresos = EgresosClient.getEgresoClient();
+		Ingresos[] ingresos = IngresosClient.getIngresoClient(request);
+		Egresos[] egresos = EgresosClient.getEgresoClient(request);
 		model.addObject("ingresos", ingresos);
 		model.addObject("egresos", egresos);
 		return model;
 	}
-	//
-	// @RequestMapping(value = "/auth/cuadroie", method = RequestMethod.POST)
-	// public ModelAndView insertaie(HttpServletRequest request) {
-	// generaDatosIegresos();
-	// String tipo = request.getParameter("tipo");
-	// ArrayList<Iegresos> respuesta = new ArrayList<Iegresos>();
-	// if(tipo.equals("ingresos")) {
-	// String cuentaIngreso = request.getParameter("cuenta-ingreso");
-	// String conceptoIngreso = request.getParameter("concepto-ingreso");
-	// String remitenteIngreso = request.getParameter("remitente-ingreso");
-	// String fechaIngreso = request.getParameter("fecha-ingreso");
-	// String cantidadIngreso = request.getParameter("cantidad-ingreso");
-	// Iegresos nuevoDato = new Iegresos();
-	// nuevoDato.setFecha(fechaIngreso);
-	// nuevoDato.setConcepto(conceptoIngreso);
-	// nuevoDato.setCantidad(cantidadIngreso);
-	// nuevoDato.setCuenta(cuentaIngreso);
-	// nuevoDato.setRemitente(remitenteIngreso);
-	//
-	// //agregar comprobante
-	// respuesta.addAll(ingresosFalsos);
-	// respuesta.add(nuevoDato);
-	// }else if(tipo.equals("egresos")) {
-	// respuesta.addAll(egresosFalsos);
-	// }
-	// ModelAndView model = new ModelAndView("cuadroie");
-	// model.addObject("registros",respuesta);
-	// return model;
-	// }
 
 	@RequestMapping(value = "/auth/agendavecinos", method = RequestMethod.GET)
 	public ModelAndView agendavecinos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("agendavecinos");
-		Vecinos[] vecinos = VecinosClient.getVecinoClient();
+		Pagos pagos = new Pagos();
+		ArrayList<Pagos> pagos1 = new ArrayList<Pagos>();
+		ArrayList<Adeudos> adeudos = new ArrayList<Adeudos>(); 
+		Vecinos[] vecinos = VecinosClient.getVecinoClient(request);
 		model.addObject("vecinos", vecinos);
 		return model;
 	}
@@ -324,7 +336,7 @@ public class MiCitaTelcelRestController {
 		String nombreVecino = request.getParameter("namev");
 		Vecinos vecinoActual = new Vecinos();
 		String vecinoString = "";
-		Vecinos[] vecinosLista = VecinosClient.getVecinoClient();
+		Vecinos[] vecinosLista = VecinosClient.getVecinoClient(request);
 		for (Vecinos vecino : vecinosLista) {
 			if (vecino.getNamev().equals(nombreVecino)) {
 				vecinoActual = vecino;
@@ -344,7 +356,7 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/avisos", method = RequestMethod.GET)
 	public ModelAndView avisos(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("avisos");
-		Avisos[] avisos = AvisosClient.getAvisoClient();
+		Avisos[] avisos = AvisosClient.getAvisoClient(request);
 		model.addObject("avisos", avisos);
 		for (Object aviso : avisos) {
 			System.out.println(avisos);
@@ -355,7 +367,7 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/agregarcom", method = RequestMethod.POST)
 	public ModelAndView agregarcom(HttpServletRequest request) {
 		Comentario comentario1 = new Comentario();
-		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
+		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient(request);
 		String cuerpo = request.getParameter("textCom");
 		System.out.println(cuerpo);
 		Date fecha = new Date();
@@ -376,7 +388,7 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/perfilusuario", method = RequestMethod.GET)
 	public ModelAndView perfilusuario(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("perfilusuario");
-		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient();
+		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient(request);
 		model.addObject("principaladmins", principaladmins);
 		return model;
 	}
@@ -384,7 +396,7 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/reglamento", method = RequestMethod.GET)
 	public ModelAndView reglamento(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("reglamento");
-		Condominios condominios = CondominiosClient.getCondominioClient();
+		Condominios condominios = CondominiosClient.getCondominioClient(request);
 		model.addObject("condominios", condominios);
 		return model;
 	}
@@ -398,8 +410,8 @@ public class MiCitaTelcelRestController {
 	@RequestMapping(value = "/auth/configinmueble", method = RequestMethod.GET)
 	public ModelAndView configinmueble(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("configinmueble");
-		Condominios condominios = CondominiosClient.getCondominioClient();
-		Finanzas[] finanzas = CuentasClient.getCuentaClient();
+		Condominios condominios = CondominiosClient.getCondominioClient(request);
+		Finanzas[] finanzas = CuentasClient.getCuentaClient(request);
 		model.addObject("condominios", condominios);
 		model.addObject("finanzas", finanzas);
 		return model;
@@ -411,7 +423,7 @@ public class MiCitaTelcelRestController {
 		int num = Integer.parseInt(request.getParameter("num"));
 		System.out.println(num);
 		model.addObject("num", num);
-		Condominios condominios = CondominiosClient.getCondominioClient();
+		Condominios condominios = CondominiosClient.getCondominioClient(request);
 		model.addObject("condominios", condominios);
 		return model;
 	}

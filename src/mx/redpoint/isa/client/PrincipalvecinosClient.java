@@ -5,18 +5,23 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.codehaus.jackson.map.ObjectMapper;
 
 import mx.redpoint.isa.bean.Principalvecinos;
+import mx.redpoint.isa.bean.Usuario;
 
 public class PrincipalvecinosClient {
 	
-	public static final Principalvecinos getPrincipalvecinoClient() {
+	public static final Principalvecinos getPrincipalvecinoClient(HttpServletRequest request) {
 		HttpURLConnection conn = null;
 		Principalvecinos obj = null;
 		ObjectMapper mapper = new ObjectMapper();
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+		String username = usuario.getNombreUsuario();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/principalvecs/principalvec");
+			URL url = new URL("http://localhost:3000/serviceisa/principal/"+username);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");

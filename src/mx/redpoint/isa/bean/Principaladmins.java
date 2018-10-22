@@ -6,7 +6,6 @@ public class Principaladmins {
 	private String lastname;
 	private String mail;
 	private String password;
-	private Avisos[] avisos;
 
 	public String getPhoto() {
 		return photo;
@@ -48,11 +47,5 @@ public class Principaladmins {
 		this.password = password;
 	}
 
-	public Avisos[] getAvisos() {
-		return avisos;
-	}
-
-	public void setAvisos(Avisos[] avisos) {
-		this.avisos = avisos;
-	}
+	
 }

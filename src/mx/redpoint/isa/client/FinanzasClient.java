@@ -6,19 +6,22 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.codehaus.jackson.map.ObjectMapper;
 
 import mx.redpoint.isa.bean.Finanzas;
+import mx.redpoint.isa.bean.Usuario;
 
 public class FinanzasClient {
 	private final static Logger LOGGER = Logger.getLogger(FinanzasClient.class.getName());
 	
-	public static final Finanzas[] getFinanzasClient() {
+	public static final Finanzas[] getFinanzasClient(HttpServletRequest request) {
 		HttpURLConnection conn = null;
 		Finanzas[] obj = null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			URL url = new URL("https://4goihg4vob.execute-api.us-west-2.amazonaws.com/finanzasIE/finanzas");
+			URL url = new URL("http://localhost:3000/serviceisa/finanzas");
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");

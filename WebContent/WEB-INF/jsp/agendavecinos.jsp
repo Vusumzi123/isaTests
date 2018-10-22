@@ -15,7 +15,7 @@
 							<div>
 								<input onkeyup="myFunction()" type="text" id="mySearch" name="q"
 									placeholder="buscar vecino" size="33"
-									style="margin-top: 13px; background-color: #f1f1f1; display:flex; align-items:flex-end;">
+									style="margin-top: 13px; background-color: #f1f1f1; display: flex; align-items: flex-end;">
 							</div>
 						</form>
 						<div class="d-flex flex-column tab" style="margin-top: 11px">
@@ -24,7 +24,7 @@
 									<li>
 										<button class="elemento1-agenda p-4"
 											onclick="cargaDatos(event, '${vecino.getNamev()}')">
-											<div class="img-elemento1-agenda"
+											<div class="imgusuario-agenda" 
 												style="background-image: url('${vecino.getPhotov()}')"></div>
 											<div>
 												${vecino.getNamev()} ${vecino.getLastnamev() } <br>
@@ -34,7 +34,6 @@
 									</li>
 								</c:forEach>
 							</ul>
-
 						</div>
 					</div>
 				</div>
@@ -44,22 +43,27 @@
 							<div id="usuario1" class="tabcontent datos active">
 								<div class="contenedor3-agenda">
 									<div class="row">
-										<div id="fotovecino" name="fotovecino" class="img-derecha-agenda col-sm-4"
-											style="background-image: url('${vecino.getPhotov()}')"></div>
+										<div id="fotovecino" name="fotovecino"
+											class="imgusuario-agenda col-sm-2">
+											<img src="${vecino.getPhotov()}">
+										</div>
 										<div class="contenedor5-agenda col-sm-4">
 											<div class="nombre-agenda">
-												nombre <br>
-												<div class="" id="nombrevecino" name="nombrevecino">${vecino.getNamev()}
+												nombre: <br>
+												<div class="nombre-agenda2" id="nombrevecino"
+													name="nombrevecino">${vecino.getNamev()}
 													${vecino.getLastnamev}</div>
 											</div>
 											<div class="vivienda-agenda">
-												vivienda <br>
-												<div class="" id="viviendavecino" name="viviendavecino">${vecino.getNumberv()}</div>
+												vivienda: <br>
+												<div class="vivienda-agenda2" id="viviendavecino"
+													name="viviendavecino">${vecino.getNumberv()}</div>
 											</div>
 										</div>
 										<div class="correo-agenda col-sm-4">
 											correo electrónico <br>
-											<div class="" id="correovecino" name="correovecino">${vecino.getEmailv}</div>
+											<div class="correo-agenda2" id="correovecino"
+												name="correovecino">${vecino.getEmailv}</div>
 										</div>
 									</div>
 								</div>
@@ -83,10 +87,10 @@
 											</tr>
 										</thead>
 										<tbody id="tabla-pagos">
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
+											<td>${pagos.getFecha()}</td>
+											<td>${pagos.getConcepto()}</td>
+											<td>${pagos.getCantidad()}</td>
+											<td>${pagos.getComprobante()}</td>
 										</tbody>
 									</table>
 								</div>
@@ -101,10 +105,10 @@
 											</tr>
 										</thead>
 										<tbody id="tabla-adeudos">
-											<td></td>
-											<td></td>
-											<td></td>
-											<td></td>
+											<td>${adeudos.getFecha()}</td>
+											<td>${adeudos.getConcepto()}</td>
+											<td>${adeudos.getCantidad()}</td>
+											<td>${adeudos.getComprobante()}</td>
 										</tbody>
 									</table>
 									<div class="posicionboton">
