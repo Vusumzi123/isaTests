@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
-<c:set var="isAdmin" value="${sessionScope.isAdmin}"/>
+<c:set var="isAdmin" value="${sessionScope.isAdmin}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -17,7 +17,7 @@
 <script>
 	var contexto = "${ctx}";
 	var pageId = "${pageId}";
-	var isAdmin = ${isAdmin};
+	var isAdmin = "${isAdmin}";
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -76,10 +76,10 @@
 				</a></li>
 				<c:if test="${isAdmin}">
 					<li class="nav-item main-Tab" id="agendavecinos"><a
-					class="nav-link" role="button" id="loadagenda"
-					onclick="changeTab(event, 'agendavecinos');loadContent('agendavecinos')"
-					style="font-size: 24px; cursor: pointer"> <i
-						class="fas fa-user-friends"></i>
+						class="nav-link" role="button" id="loadagenda"
+						onclick="changeTab(event, 'agendavecinos');loadContent('agendavecinos')"
+						style="font-size: 24px; cursor: pointer"> <i
+							class="fas fa-user-friends"></i>
 					</a></li>
 				</c:if>
 				<li class="nav-item main-Tab" id="avisos"><a class="nav-link"
@@ -108,8 +108,14 @@
 						src="${principaladmins.getPhoto()}">
 				</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<div class="dropdown-item menu-header">${principaladmins.getName()}
-							${principaladmins.getLastname()}</div>
+						<c:if test="${isAdmin}">
+							<div class="dropdown-item menu-header">${principaladmins.getName()}
+								${principaladmins.getLastname()}</div>
+						</c:if>
+						<c:if test="${!isAdmin}">
+							<div class="dropdown-item menu-header">${principaladmins.getNamev()}
+								${principaladmins.getLastnamev()}</div>
+						</c:if>
 						<a class="dropdown-item" style="cursor: pointer" role="button"
 							id="perfilusuario"
 							onclick="changeTab(event, 'perfil');loadContent('perfilusuario')">
@@ -146,10 +152,13 @@
 	<script type="text/javascript" src="${ctx}/resources/js/util.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/principal.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/finanzas.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/agendavecinos.js"></script>
+	<script type="text/javascript"
+		src="${ctx}/resources/js/agendavecinos.js"></script>
 	<script type="text/javascript" src="${ctx}/resources/js/avisos.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/perfilusuario.js"></script>
-	<script type="text/javascript" src="${ctx}/resources/js/configinmueble.js"></script>
+	<script type="text/javascript"
+		src="${ctx}/resources/js/perfilusuario.js"></script>
+	<script type="text/javascript"
+		src="${ctx}/resources/js/configinmueble.js"></script>
 
 </body>
 </html>

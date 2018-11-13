@@ -44,11 +44,12 @@
 								<div class="contenedor3-agenda">
 									<div class="row">
 										<div id="fotovecino" name="fotovecino"
-											class="imgusuario-agenda col-sm-2">
-											<img src="${vecino.getPhotov()}">
+											class="imgusuario-agenda col-sm-3">
+											<div class="imgusuario-agenda" 
+												style="width: 160px; height: 160px; margin-right: 60px; margin-left: 20px; background-image: url('${vecino.getPhotov()}')"></div>
 										</div>
-										<div class="contenedor5-agenda col-sm-4">
-											<div class="nombre-agenda">
+										<div class="contenedor5-agenda col-sm-3" style="margin-top: 31px; margin-left: 15px;">
+											<div class="nombre-agenda" >
 												nombre: <br>
 												<div class="nombre-agenda2" id="nombrevecino"
 													name="nombrevecino">${vecino.getNamev()}
@@ -60,7 +61,7 @@
 													name="viviendavecino">${vecino.getNumberv()}</div>
 											</div>
 										</div>
-										<div class="correo-agenda col-sm-4">
+										<div class="correo-agenda col-sm-4" style="margin-top: 31px;">
 											correo electrónico <br>
 											<div class="correo-agenda2" id="correovecino"
 												name="correovecino">${vecino.getEmailv}</div>

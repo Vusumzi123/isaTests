@@ -286,29 +286,6 @@ public class MiCitaTelcelRestController {
 		return model;
 	}
 
-	// @RequestMapping(value = "/auth/datosFinanzas", method = RequestMethod.GET,
-	// produces = "application/json")
-	// public String datosFinanzas(HttpServletRequest request) {
-	// ObjectMapper mapper = new ObjectMapper();
-	// String fechaIegresos = request.getParameter("fecha");
-	// Iegresos iegresosActual = new Iegresos();
-	// String iegresosString = "";
-	// //datos falsos
-	// for(Iegresos iegresos : iegresosFalsos) {
-	// if(iegresos.getFecha().equals( fechaIegresos )){
-	// iegresosActual = iegresos;
-	// }
-	// }
-	//
-	// try {
-	// iegresosString = mapper.writeValueAsString(iegresosActual);
-	// } catch (Exception e) {
-	// e.printStackTrace();
-	// }
-	//
-	// return iegresosString;
-	// }
-
 	@RequestMapping(value = "/auth/cuadroie", method = RequestMethod.GET)
 	public ModelAndView cuadroie(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("cuadroie");
@@ -389,7 +366,9 @@ public class MiCitaTelcelRestController {
 	public ModelAndView perfilusuario(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("perfilusuario");
 		Principaladmins principaladmins = PrincipaladminsClient.getPrincipaladminClient(request);
+		Principalvecinos principalvecinos = PrincipalvecinosClient.getPrincipalvecinoClient(request);
 		model.addObject("principaladmins", principaladmins);
+		model.addObject("principalvecinos", principalvecinos);
 		return model;
 	}
 

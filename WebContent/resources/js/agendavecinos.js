@@ -14,7 +14,8 @@ function cargaDatos(event, nombre){
 		method : 'GET',
 		success: function (response, status){
 			nombreRes.text(response);
-			fotoVecino.jpg(response.photov);
+			console.log(response);
+			fotoVecino.find(".imgusuario-agenda").css("background-image", "url("+response.photov+")");
 			nombreVecino.html(response.namev+" "+response.lastnamev);
 			viviendaVecino.html(response.numberv);
 			correoVecino.html(response.emailv);

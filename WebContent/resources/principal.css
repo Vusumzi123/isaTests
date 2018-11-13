@@ -349,6 +349,15 @@ button.btn.btn-outline-secondary.border-left-0 {
 	margin-right: 29px;
 }
 
+.imgusuario2-agenda {
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
 .form-container-agenda {
 	width: 1150px;
 }
@@ -396,9 +405,8 @@ button.btn.btn-outline-secondary.border-left-0 {
 .contenedor3-agenda {
 	height: 245px;
 	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	margin-top:50px;
+	margin-left: 40px;
 }
 
 .numvivienda-agenda {

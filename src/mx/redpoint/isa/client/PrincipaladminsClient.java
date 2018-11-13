@@ -14,11 +14,6 @@ import mx.redpoint.isa.bean.Usuario;
 
 public class PrincipaladminsClient {
 	
-	/*
-	 * 
-	 * Obtine parametros de un servicio web
-	 * 
-	 * */
 	public static final Principaladmins getPrincipaladminClient(HttpServletRequest request) {
 		HttpURLConnection conn = null;
 		Principaladmins obj = null;

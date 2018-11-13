@@ -37,9 +37,9 @@ public UserDetailsService userDetailsService() {
 protected void configure(HttpSecurity http) throws Exception {    
       
     http.authorizeRequests()
-    .antMatchers("/services/admin/**").hasRole("ADMIN")
-    .antMatchers("/services/neig/**").hasRole("USER")
-    .antMatchers("/services/auth/**").authenticated()
+    .antMatchers("/services/admin/**").hasRole("ADMIN")   //servicio para navegar en los jsp como administrador
+    .antMatchers("/services/neig/**").hasRole("USER")	//servicios para navegar en los jsp como usuario
+    .antMatchers("/services/auth/**").authenticated()	//servicios para navegar en los jsp como administrador y usuario
     .and()  
     .formLogin()  
     .loginPage("/services/login")  
