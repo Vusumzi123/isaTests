@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,9 +29,12 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/resumen.css">
+<script>
+	$(document).ready(function() {
+		$('body').bootstrapMaterialDesign();
+	});
+</script>
+<link rel="stylesheet" href="${ctx}/resources/resumen.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -44,43 +49,54 @@
 		<form class="form-container">
 			<div class="resumen">resumen</div>
 			<div class="rectangulo">
-				<div class="row">
+				<div class="row" style="width: 100%; display: flex; align-items: center;">
 					<div class="contenido col-sm-6 mx-0">
 						<div class="img-container"
-							style="background-image: url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg')">
+							style="background-image: url('${condominio.getPhotoc()}'), url('${pageContext.request.contextPath}/resources/img/imagenResidencia.svg') ">
 						</div>
 					</div>
 					<div class="contenido1 col-sm-6 mx-0">
 						<div class="datos-condominio">datos del condominio</div>
 						<div class="nombre-condominio">nombre del condominio</div>
-						<div class="nombre-condominio111">${name1}</div>
+						<div class="nombre-condominio111">${condominio.getNamec()}</div>
 						<div class="direccion">dirección</div>
 						<div class="direccion111">
 							<p>
-								${street} ${number},<br> ${colonia}, ${city},<br>
-								${cp}, ${country}
+								${condominio.getStreet()} ${condominio.getNumber()},<br>
+								${condominio.getColony()}, ${condominio.getCity()},<br>
+								${condominio.getCp()}, ${condominio.getCountry()}
 							</p>
 						</div>
 						<div class="contactos">contactos</div>
 						<div class="contactos111">
 							<p>
-								${phone}<br> ${web}
+								${condominio.getPhone()}<br> ${condominio.getWeb()}
+							</p>
+						</div>
+						<div class="reglamento">reglamento</div>
+						<div class="reglamento111">
+							<p>
+								<a href="${condominio.getRegulation()}" target="_blank">${nameRegulation}</a>
 							</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="rectangulo1">
-				<div class="cuenta"></div>
-				<div class="alias111">${alias}</div>
-				<div class="tipo111">${tipo}</div>
-				<div class="monto-inicial111">${montoinicial}</div>
-				<div class="numero-de-cuenta">número de cuenta</div>
-				<div class="numero-de-cuenta111">${numerocuenta}</div>
-				<div class="numero-de-tarjeta">número de tarjeta</div>
-				<div class="numero-de-tarjeta111">${numerotarjeta}</div>
-				<div class="numero-clabe">número de cuenta clabe</div>
-				<div class="numero-clabe111">${numeroclabe}</div>
+			<div class="row">
+				<c:forEach var="finan" items="${condominio.getFinanzas()}">
+					<div class="rectangulo1 col-sm-6">
+						<div class="cuenta">cuenta</div>
+						<div class="alias111">${finan.getAlias()}</div>
+						<div class="tipo111">${finan.getTipo()}</div>
+						<div class="monto-inicial111">${finan.getMontoinicial()}</div>
+						<div class="numero-de-cuenta">número de cuenta</div>
+						<div class="numero-de-cuenta111">${finan.getNumerocuenta()}</div>
+						<div class="numero-de-tarjeta">número de tarjeta</div>
+						<div class="numero-de-tarjeta111">${finan.getNumerotarjeta()}</div>
+						<div class="numero-clabe">número de cuenta clabe</div>
+						<div class="numero-clabe111">${finan.getNumeroclabe()}</div>
+					</div>
+				</c:forEach>
 			</div>
 			<div class="rectangulo2">
 				<div class="cuota-mensual">cuota mensual por vecino</div>
@@ -89,11 +105,13 @@
 			<div class="barra-bot">
 				<div class="logo-nav">
 					<div class="atras">
-						<a href="${pageContext.request.contextPath}/services/finanzascon">atras</a>
+						<a
+							href="${pageContext.request.contextPath}/services/admin/finanzascon">atras</a>
 					</div>
 				</div>
 				<div class="finalizar">
-					<a href="${pageContext.request.contextPath}/services/condominios">finalizar</a>
+					<a
+						href="${pageContext.request.contextPath}/services/admin/condominios">finalizar</a>
 				</div>
 			</div>
 		</form>

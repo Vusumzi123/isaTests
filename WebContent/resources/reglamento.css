@@ -1,0 +1,69 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+
+.barra-titulo{
+	background: linear-gradient(to bottom, #07354d, #036879);
+}
+
+.imgusuario {
+	width: 34px;
+}
+
+.banner-img3 {
+	width: 83px;
+	text-align: center;
+	margin-left: 20px;
+}
+.barra-nav {
+	background-color:transparent!important;
+	color: white!important;
+	border-radius: none;
+	box-shadow: none;
+}
+
+.navbar-toggler{
+	border: 1px solid rgba(255,255,255,0.6) !important;
+	color: rgba(255,255,255,0.6) !important;
+}
+
+.nav-link{
+	color: rgba(255,255,255,0.6) !important;
+}
+
+li.nav-item {
+    margin: 0 8px;
+    display: flex!important;
+    align-items: center;
+}
+
+.menu-header{
+	background-color: #036879;
+	color: rgba(255,255,255,0.6);
+	max-width: 100%;
+}
+
+.menu-header:hover{
+	background-color: #036879;
+	color: rgba(255,255,255,0.6);
+}
+
+.dropdown-item{
+	max-width: 100%;
+}
+
+.dropdown-menu{
+	padding: 0!important;
+}
+
+@media (min-width: 992px){
+	.navbar-expand-lg .navbar-nav .dropdown-menu {
+	    position: absolute;
+	    left: -215px;
+	    top: 0;
+	}
+}

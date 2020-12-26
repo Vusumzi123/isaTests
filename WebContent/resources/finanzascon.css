@@ -46,6 +46,9 @@
 
 .form-container {
 	width: 688px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 .container {
@@ -83,8 +86,8 @@
 	width: 100%;
 	background-color: #f1f1f1;
 	padding: 24px;
-    margin-top: 30px;
-    border-radius: 12px;
+	margin-top: 30px;
+	border-radius: 12px;
 }
 
 .nombre-alias, .monto-inicial, .numero-de-cuenta, .numero-de-tarjeta,
@@ -95,6 +98,8 @@
 .datos-operaciones {
 	font-size: 18px;
 	color: #07354d;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .cuota-mensual {
@@ -103,7 +108,6 @@
 
 .barra-bot {
 	width: 100%;
-	background: white;
 	display: flex;
 	flex-direction: column;
 	padding-top: 30px;
@@ -126,6 +130,7 @@ a {
 .cuenta {
 	font-size: 18px;
 	color: #07354d;
+	margin-bottom: 20px;
 }
 
 .rectangulo1 {
@@ -137,7 +142,7 @@ a {
 }
 
 #cuadro-contenedor {
-	width: 100%!important;
+	width: 100% !important;
 }
 
 .agregar-cuenta {
@@ -147,6 +152,7 @@ a {
 	color: #07354d !important;
 	border: none;
 	background-color: transparent;
+	text-align: center;
 }
 
 .atras {
@@ -157,6 +163,11 @@ a {
 	display: flex;
 	justify-content: flex-end;
 	color: #00949e !important;
+	font-size: 16px;
+	font-weight: normal;;
+	line-height: 1.19;
+	text-align: right;
+	background-color: transparent;
 }
 
 /*the container must be positioned relative:*/
@@ -214,9 +225,174 @@ a {
 .active {
 	display: block !important;
 }
- 
+
 @media ( max-width : 991px) {
 	.form-container {
 		width: 90%;
 	}
+}
+
+label {
+	font-size: 14px !important;
+	color: #07354d !important;
+}
+
+/* Style the tab */
+.tab {
+	overflow: hidden;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	background-color: #00949e;
+	float: left;
+	border: none;
+	width: 15%;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 0;
+	transition: 0.3s;
+	font-size: 17px;
+	font-weight: 300;
+	line-height: 1.18;
+	color: #ffffff;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #00949e;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	background-color: #00949e;
+}
+
+/* Style the tab content */
+.tabcontent {
+	display: none;
+}
+
+.active {
+	display: block !important;
+}
+
+.container {
+	width: 100%;
+}
+
+/*the container must be positioned relative:*/
+.fecha-select {
+	position: relative;
+	width: 38% !important;
+}
+
+.select-wrapper input.select-dropdown {
+	color: #07354d;
+}
+
+/* checkbox */
+@media ( max-width : 991px) {
+	.form-container {
+		width: 90%;
+	}
+}
+
+.inline-select {
+	display: inline;
+	max-width: 25% !important;
+}
+
+.inline-label {
+	max-width: 25% !important;
+}
+
+.registro-de-condominio {
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 1.21;
+	text-align: left;
+	color: #07354d;
+	width: 100%;
+	margin-top: 32px;
+}
+
+.nombre-del-condominio, .numero, .pagina-web, .calle, .numero, .telefono
+	{
+	font-size: 16px;
+	font-weight: 300;
+	color: #07354d;
+	width: 50% !important;
+	flex-grow: 1;
+}
+
+.codigo-postal, .colonia, .pais, .ciudad {
+	font-size: 16px;
+	font-weight: 300;
+	color: #07354d;
+	flex-grow: 1;
+	width: 50% !important;
+}
+
+.ubicacin-del-inmueble {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+}
+
+.contacto-del-inmueble {
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 1.19;
+	text-align: left;
+	color: #07354d;
+	margin-top: 20px;
+}
+
+.siguiente-config {
+	font-size: 16px;
+	font-weight: normal;;
+	line-height: 1.19;
+	text-align: right;
+	color: #00949e;
+	margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+.img-container {
+	background-image:
+		url(http://www.sheffield.com/wp-content/uploads/2013/06/placeholder.png);
+	border-radius: 50%;
+	width: 170px;
+	height: 170px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	margin-top: 15px;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+}
+
+.cam {
+	width: 50px;
+	height: 50px;
+	background-color: #00949e !important;
+	border: none !important;
+	border-radius: 50%;
+	background-position: center;
+	color: #ffffff !important;
+	font-size: 21px;
+}
+
+.hidden {
+	display: none!important;
+}
+
+.contenedorimg {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

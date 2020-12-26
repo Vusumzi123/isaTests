@@ -27,6 +27,7 @@
 	background-position: center;
 	color: #ffffff;
 	font-size: 21px;
+	cursor: pointer;
 }
 
 .img-container {
@@ -48,20 +49,15 @@
 	font-size: 26px;
 	font-weight: normal;
 	line-height: 0.85;
-	letter-spacing: normal;
 	text-align: center;
 	color: #ffffff;
 }
 
 .nombres {
 	width: 320px;
-	font-family: Raleway;
 	font-size: 16px;
 	font-weight: 300;
-	font-style: normal;
-	font-stretch: normal;
 	line-height: 2.5;
-	letter-spacing: normal;
 	text-align: left;
 	color: #07354d;
 	border: none;
@@ -69,13 +65,9 @@
 
 .apellidos {
 	width: 74px;;
-	font-family: Raleway;
 	font-size: 16px;
 	font-weight: 300;
-	font-style: normal;
-	font-stretch: normal;
 	line-height: 2.5;
-	letter-spacing: normal;
 	text-align: left;
 	color: #07354d;
 	border: none;
@@ -83,13 +75,9 @@
 
 .correo-electrnico {
 	width: 133px;
-	font-family: Raleway;
 	font-size: 16px;
 	font-weight: 300;
-	font-style: normal;
-	font-stretch: normal;
 	line-height: 2.5;
-	letter-spacing: normal;
 	text-align: left;
 	color: #07354d;
 	border: none;
@@ -97,14 +85,9 @@
 
 .contrasea {
 	width: 81px;
-	height: 19px;
-	font-family: Raleway;
 	font-size: 16px;
 	font-weight: 300;
-	font-style: normal;
-	font-stretch: normal;
 	line-height: 2.5;
-	letter-spacing: normal;
 	text-align: left;
 	color: #07354d;
 	border: none;
@@ -131,6 +114,7 @@
 	line-height: 2;
 	text-align: center;
 	color: #ffffff;
+	cursor: pointer;
 }
 
 .o-Entrar-con-una-cuenta-existente {
@@ -140,6 +124,7 @@
 	letter-spacing: normal;
 	text-align: center;
 	color: #07354d;
+	padding-bottom: 20px;
 }
 
 .banner-img3 {
@@ -177,4 +162,13 @@
 
 .titulo-container {
 	text-align: center;
+}
+
+label {
+	color: #07354d !important;
+	font-weight: 300!important;	
+}
+
+.hidden {
+	display: none!important;
 }

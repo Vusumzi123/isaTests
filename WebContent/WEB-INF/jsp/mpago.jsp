@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,8 +33,8 @@
 	});
 </script>
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/mpago.css">
+
+<link rel="stylesheet" href="${ctx}/resources/mpago.css">
 </head>
 <body>
 	<div class="barra-nav">
@@ -49,11 +51,12 @@
 			<div class="rectangulo">
 				<div class="tab">
 					<button class="tablinks"
-						onclick="changeTab(event, 'tarjeta-crdito-o-dbito')">tarjeta</button>
+						onclick="changeTab(event, 'tarjeta-crdito-o-dbito')">tarjeta
+						de crédito o débito</button>
 					<button class="tablinks" onclick="changeTab(event, 'paypal')">paypal</button>
 				</div>
 				<div id="tarjeta-crdito-o-dbito" class="tabcontent active">
-					<form>
+					<form class="contenidocuadro">
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-6 mx-0">
@@ -62,49 +65,42 @@
 											<img class="imgvisa"
 												src="${pageContext.request.contextPath}/resources/img/logoVisa.svg">
 										</div>
-
 										<div class="form-group">
 											<label for="nameholder" class="bmd-label-floating">nombre
 												del titular</label> <input type="text" name="nameholder"
 												class="form-control" id="nameholder">
 										</div>
-
-										<span class="form-group bmd-form-group col-sm-4">
-											<label> vigencia </label>
-										</span>
-
 										<div class="container">
-											<div class="row form-inline">
-												<span
-													class="form-group bmd-form-group col-sm-4 inline-label"
-													style="width: 20%"> <!-- needed to match padding for floating labels -->
-													<label> mes </label>
+											<div class="row form-inline" style="margin-top: -7px;">
+												<span class="form-group bmd-form-group col-sm-4"
+													style="color: #07354d;"> <label> vigencia </label>
 												</span>
-												<div class="col-sm-4 form-group inline-select"
-													style="width: 30%">
-													<select class="form-control" style="width: 100%" id="expires" name="expires">
-														<option value="1">enero</option>
-														<option value="2">febrero</option>
-														<option value="3">marzo</option>
-														<option value="4">abril</option>
-														<option value="5">mayo</option>
-														<option value="6">junio</option>
-														<option value="7">julio</option>
-														<option value="8">agosto</option>
-														<option value="9">septiembre</option>
-														<option value="10">octubre</option>
-														<option value="11">noviembre</option>
-														<option value="12">diciembre</option>
+												<div class="col-sm-3 form-group inline-select"
+													style="width: 20%;">
+													<select class="form-control"
+														style="width: 100%; cursor:pointer;" id="expires"
+														name="expires">
+														<option selected disabled>mes</option>
+														<option value="1">01</option>
+														<option value="2">02</option>
+														<option value="3">03</option>
+														<option value="4">04</option>
+														<option value="5">05</option>
+														<option value="6">06</option>
+														<option value="7">07</option>
+														<option value="8">08</option>
+														<option value="9">09</option>
+														<option value="10">10</option>
+														<option value="11">11</option>
+														<option value="12">12</option>
 													</select>
 												</div>
-												<span
-													class="form-group bmd-form-group col-sm-4 inline-label"
-													style="width: 25%"> <!-- needed to match padding for floating labels -->
-													<label> año </label>
-												</span>
-												<div class="form-group col-sm-4 inline-select"
-													style="width: 25%">
-													<select class="form-control" id="year" name="year">
+												<div class="form-group bmd-form-group col-sm-2">&nbsp; /</div>
+												<div class="form-group col-sm-3 inline-select"
+													style="width: 20%;">
+													<select class="form-control" style="cursor: pointer;"
+														id="year" name="year">
+														<option selected disabled>año</option>
 														<option value="2018">2018</option>
 														<option value="2019">2019</option>
 														<option value="2020">2020</option>
@@ -141,13 +137,11 @@
 														name="card-number">
 												</div>
 											</div>
-
 											<div class="tarjetafrente">
 												<img
 													src="${pageContext.request.contextPath}/resources/img/tarjetafrente.svg">
 											</div>
 										</div>
-
 										<div
 											style="display: flex !important; flex-direction: row; justify-content: space-between;">
 											<div
@@ -157,28 +151,30 @@
 														type="text" class="form-control" id="cvc" name="cvc">
 												</div>
 											</div>
-
 											<div class="tarjetaatras">
 												<img
 													src="${pageContext.request.contextPath}/resources/img/tarjetaVuelta.svg">
 											</div>
 										</div>
-
 									</div>
 								</div>
 							</div>
 						</div>
-
 						<div class="checkbox">
-							<label> <input type="checkbox" name="terms" id="terms" required>
-								Acepto términos y condiciones
+							<label> <input type="checkbox" name="terms" id="terms"
+								required> Acepto términos y condiciones
 							</label>
 						</div>
-						<button class="Pagar Rectangle-242">Pagar</button>
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
+						<button type="button" class="Pagar Rectangle-242"
+							class="btn btn-primary" data-toggle="modal"
+							data-target="#exampleModalCenter">Pagar</button>
+
 					</form>
 				</div>
 				<div id="paypal" class="tabcontent">
-					<form>
+					<form class="contenidocuadro">
 						<div class="contenido1">
 							<div class="paypal-container">
 								<img class="imgpaypal"
@@ -187,29 +183,39 @@
 							<div class="iniciacuenta">Inicie sesión en su cuenta para
 								poder pagar</div>
 							<div class="form-group">
-								<label for="email" class="bmd-label-floating">Correo electrónico</label> <input type="email" class="form-control"
-									id="email" name="email">
+								<label for="email" class="bmd-label-floating">Correo
+									electrónico</label> <input type="email" class="form-control" id="email"
+									name="email">
 							</div>
 							<div class="form-group">
-								<label for="password" class="bmd-label-floating">Contraseña</label> <input type="password" class="form-control"
-									id="password" name="password">
+								<label for="password" class="bmd-label-floating">Contraseña</label>
+								<input type="password" class="form-control" id="password"
+									name="password">
 							</div>
-							<button class="Pagar Rectangle-232">Pagar</button>
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
+							<button type="button" class="Pagar Rectangle-242"
+								class="btn btn-primary" data-toggle="modal"
+								data-target="#exampleModalCenter">Pagar</button>
+
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script>
-		function changeTab(evt, tab) {
-			var activeTabs = $('.active');
-			activeTabs.each(function() {
-				$(this).removeClass('active');
-			})
-			var toActivete = $('#' + tab);
-			toActivete.addClass('active');
-		}
-	</script>
+	<a class="modal fade" id="exampleModalCenter"
+		href="${ctx }/services/admin/finanzascon" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered"
+			style="max-width: 100%" role="document">
+			<div class="modal-content">
+				<div class="renglon1">¡PAGO EXITOSO!</div>
+				<div class="renglon2">ahora da de alta tu primer condominio.</div>
+			</div>
+		</div>
+	</a>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/js/mpago.js"></script>
 </body>
 </html>

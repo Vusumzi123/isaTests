@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<c:set var = "ctx" value = "${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Landing</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/style.css">
+	href="${ctx}/resources/style.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
@@ -19,7 +20,7 @@
 		<div class="row">
 			<div class="col-sm-11"></div>
 			<div class="col-sm-1 Entrar">
-				<a href="${pageContext.request.contextPath}/services/login">Entrar</a>
+				<a href="${pageContext.request.contextPath}/services/auth/role">Entrar</a>
 			</div>
 		</div>
 		<div class="row">

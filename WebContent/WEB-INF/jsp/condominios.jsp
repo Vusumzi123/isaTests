@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,8 +29,7 @@
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/condominios.css">
+<link rel="stylesheet" href="${ctx}/resources/condominios.css">
 </head>
 <body>
 	<div class="contenido">
@@ -52,9 +54,9 @@
 					<div class="carousel-inner">
 						<div class="carousel-item active">
 							<div class="contenedor-carousel">
-								<img class="imgcondominio"
-									src="${pageContext.request.contextPath}/resources/img/imagenResidencia.svg"
-									alt="First slide">
+								<a href="${pageContext.request.contextPath}/services/admin/altavecinos"><img class="imgcondominio"
+								src="${condominios.getPhotoc()}"
+									alt="first slide"></a>
 							</div>
 						</div>
 						<div class="carousel-item">
@@ -71,7 +73,6 @@
 									alt="third slide">
 							</div>
 						</div>
-
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators"
 						role="button" data-slide="prev"> <span
@@ -85,7 +86,8 @@
 					<div class="condominios">Condominios</div>
 				</div>
 				<div class="agregarcuenta">
-					<a href="${pageContext.request.contextPath}/services/finanzascon">agregar
+					<a
+						href="${pageContext.request.contextPath}/services/admin/finanzascon">agregar
 						cuenta</a>
 				</div>
 			</div>

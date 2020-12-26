@@ -3,10 +3,12 @@ package mx.redpoint.isa.bean;
 public class Finanzas {
 	private String alias;
 	private String tipo;
-	private String montoinicial;
+	private Double montoinicial;
 	private String numerocuenta;
 	private String numerotarjeta;
 	private String numeroclabe;
+	private Iegresos[] ingresos; 
+	private Iegresos[] egresos;
 	public String getAlias() {
 		return alias;
 	}
@@ -19,10 +21,10 @@ public class Finanzas {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public String getMontoinicial() {
+	public Double getMontoinicial() {
 		return montoinicial;
 	}
-	public void setMontoinicial(String montoinicial) {
+	public void setMontoinicial(Double montoinicial) {
 		this.montoinicial = montoinicial;
 	}
 	public String getNumerocuenta() {
@@ -42,6 +44,18 @@ public class Finanzas {
 	}
 	public void setNumeroclabe(String numeroclabe) {
 		this.numeroclabe = numeroclabe;
+	}
+	public Iegresos[] getIngresos() {
+		return ingresos;
+	}
+	public void setIngresos(Iegresos[] ingresos) {
+		this.ingresos = ingresos;
+	}
+	public Iegresos[] getEgresos() {
+		return egresos;
+	}
+	public void setEgresos(Iegresos[] egresos) {
+		this.egresos = egresos;
 	}
 	
 }
